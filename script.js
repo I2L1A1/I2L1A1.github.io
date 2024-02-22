@@ -76,6 +76,6 @@ btn_add_6.addEventListener("click", () => {
 })
 
 Telegram.WebApp.onEvent("mainButtonClicked", () => {
-    let x = "user_id=" + user_id + ", item_id=" + item_id;
-    tg.sendData(x);
+    let x = "user_id=123" + ", item_id=" + item_id;
+    tg.sendData("123");
 });
