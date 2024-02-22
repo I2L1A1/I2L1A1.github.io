@@ -1,85 +1,104 @@
 let tg = window.Telegram.WebApp;
 
-// Расширяем на весь экран
 tg.expand();
 
-tg.MainButton.textColor = "#2d2d2d";
-tg.MainButton.color = "#ffbf72";
+tg.MainButton.textColor = '#FFFFFF';
+tg.MainButton.color = '#2cab37';
 
-let item_id = "";
+let item = "";
 
-let btn_add_1 = document.querySelector("#btn_add_1");
-btn_add_1.addEventListener("click", () => {
-    console.log("Btn 1 clicked");
-    if (tg.MainButton.isVisible) {
-        tg.MainButton.hide();
-    } else {
-        tg.MainButton("Выбрано блюдо 1");
-        tg.MainButton.show();
-        item_id = "1";
-    }
-})
+let btn1 = document.getElementById("btn1");
+let btn2 = document.getElementById("btn2");
+let btn3 = document.getElementById("btn3");
+let btn4 = document.getElementById("btn4");
+let btn5 = document.getElementById("btn5");
+let btn6 = document.getElementById("btn6");
 
-let btn_add_2 = document.querySelector("#btn_add_2");
-btn_add_2.addEventListener("click", () => {
-    console.log("Btn 2 clicked");
-    if (tg.MainButton.isVisible) {
-        tg.MainButton.hide();
-    } else {
-        tg.MainButton("Выбрано блюдо 2");
-        tg.MainButton.show();
-        item_id = "2";
-    }
-})
+btn1.addEventListener("click", function(){
+	if (tg.MainButton.isVisible) {
+		tg.MainButton.hide();
+	}
+	else {
+		tg.MainButton.setText("Вы выбрали товар 1!");
+		item = "1";
+		tg.MainButton.show();
+	}
+});
 
-let btn_add_3 = document.querySelector("#btn_add_3");
-btn_add_3.addEventListener("click", () => {
-    console.log("Btn 3 clicked");
-    if (tg.MainButton.isVisible) {
-        tg.MainButton.hide();
-    } else {
-        tg.MainButton("Выбрано блюдо 3");
-        tg.MainButton.show();
-        item_id = "3";
-    }
-})
+btn2.addEventListener("click", function(){
+	if (tg.MainButton.isVisible) {
+		tg.MainButton.hide();
+	}
+	else {
+		tg.MainButton.setText("Вы выбрали товар 2!");
+		item = "2";
+		tg.MainButton.show();
+	}
+});
 
-let btn_add_4 = document.querySelector("#btn_add_4");
-btn_add_4.addEventListener("click", () => {
-    console.log("Btn 4 clicked");
-    if (tg.MainButton.isVisible) {
-        tg.MainButton.hide();
-    } else {
-        tg.MainButton("Выбрано блюдо 4");
-        tg.MainButton.show();
-        item_id = "4";
-    }
-})
+btn3.addEventListener("click", function(){
+	if (tg.MainButton.isVisible) {
+		tg.MainButton.hide();
+	}
+	else {
+		tg.MainButton.setText("Вы выбрали товар 3!");
+		item = "3";
+		tg.MainButton.show();
+	}
+});
 
-let btn_add_5 = document.querySelector("#btn_add_5");
-btn_add_5.addEventListener("click", () => {
-    console.log("Btn 5 clicked");
-    if (tg.MainButton.isVisible) {
-        tg.MainButton.hide();
-    } else {
-        tg.MainButton("Выбрано блюдо 5");
-        tg.MainButton.show();
-        item_id = "5";
-    }
-})
+btn4.addEventListener("click", function(){
+	if (tg.MainButton.isVisible) {
+		tg.MainButton.hide();
+	}
+	else {
+		tg.MainButton.setText("Вы выбрали товар 4!");
+		item = "4";
+		tg.MainButton.show();
+	}
+});
 
-let btn_add_6 = document.querySelector("#btn_add_6");
-btn_add_6.addEventListener("click", () => {
-    console.log("Btn 6 clicked");
-    if (tg.MainButton.isVisible) {
-        tg.MainButton.hide();
-    } else {
-        tg.MainButton("Выбрано блюдо 6");
-        tg.MainButton.show();
-        item_id = "6";
-    }
-})
+btn5.addEventListener("click", function(){
+	if (tg.MainButton.isVisible) {
+		tg.MainButton.hide();
+	}
+	else {
+		tg.MainButton.setText("Вы выбрали товар 5!");
+		item = "5";
+		tg.MainButton.show();
+	}
+});
 
-Telegram.WebApp.onEvent("mainButtonClicked", () => {
-    tg.sendData(item_id);
-})
+btn6.addEventListener("click", function(){
+	if (tg.MainButton.isVisible) {
+		tg.MainButton.hide();
+	}
+	else {
+		tg.MainButton.setText("Вы выбрали товар 6!");
+		item = "6";
+		tg.MainButton.show();
+	}
+});
+
+
+Telegram.WebApp.onEvent("mainButtonClicked", function(){
+	tg.sendData(item);
+});
+
+
+let usercard = document.getElementById("usercard");
+
+let p = document.createElement("p");
+
+p.innerText = `${tg.initDataUnsafe.user.first_name}
+${tg.initDataUnsafe.user.last_name}`;
+
+usercard.appendChild(p);
+
+
+
+
+
+
+
+
