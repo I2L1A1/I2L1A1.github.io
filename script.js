@@ -3,8 +3,8 @@ let user_name = "userName";
 
 tg.expand();
 
-tg.MainButton.textColor = '#FFFFFF';
-tg.MainButton.color = '#2cab37';
+tg.MainButton.textColor = "#2d2d2d";
+tg.MainButton.color = "#ffbf74";
 
 let item_id = "";
 
