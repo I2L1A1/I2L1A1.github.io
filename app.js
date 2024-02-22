@@ -7,12 +7,12 @@ tg.MainButton.color = '#2cab37';
 
 let item = "";
 
-let btn1 = document.getElementById("btn_add_1");
-let btn2 = document.getElementById("btn_add_2");
-let btn3 = document.getElementById("btn_add_3");
-let btn4 = document.getElementById("btn_add_4");
-let btn5 = document.getElementById("btn_add_5");
-let btn6 = document.getElementById("btn_add_6");
+let btn1 = document.getElementById("btn1");
+let btn2 = document.getElementById("btn2");
+let btn3 = document.getElementById("btn3");
+let btn4 = document.getElementById("btn4");
+let btn5 = document.getElementById("btn5");
+let btn6 = document.getElementById("btn6");
 
 btn1.addEventListener("click", function(){
 	if (tg.MainButton.isVisible) {
