@@ -1,5 +1,5 @@
 let tg = window.Telegram.WebApp;
-let data = tg.initDataUnsafe.user.id;
+let user_id = tg.initDataUnsafe.user.id;
 
 tg.expand();
 
@@ -76,5 +76,5 @@ btn_add_6.addEventListener("click", () => {
 })
 
 Telegram.WebApp.onEvent("mainButtonClicked", () => {
-    tg.sendData("item_id=" + item + ", id=" + data);
+    tg.sendData("user_id=" + user_id + ", item_id=" + item_id);
 });
