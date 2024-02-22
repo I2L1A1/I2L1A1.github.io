@@ -1,46 +1,48 @@
 body {
-	margin: 0;
-	padding: 0;
-	font-size: 18px;
-	color: var(--tg-theme-text-color);
-	background: var(--tg-theme-bg-color);
+    margin: 0;
+    padding: 0;
+    background-color: white;
 }
 
 .container {
-	max-width: 390px;
+    max-width: 390px;
 }
 
-.inner {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	grid-template-rows: 200px 200px 200px;
-}
-
-.img {
-	width: 150px;
+.items {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 190px 190px 190px 190px;
 }
 
 .item {
-	text-align: center;
+    text-align: center;
 }
 
-.btn {
-	display: inline-block;
-	padding: 10px 20px;
-	border: none;
-	background: rgb(248, 168, 24);
-	border-radius: 10px;
-	color: #fff;
-	text-transform: uppercase;
-	font-weight: 700;
-
-	transition: background .2s linear;
+.img {
+    width: 90px;
 }
 
-.btn:hover {
-	background: lightgreen;
+.btn_add {
+    display: inline-block;
+    background-color: gray;
+    padding: 8px 8px 8px 8px;
+    border: none;
+    border-radius: 20px;
+    width: 100px;
+    height: 38px;
+    color: #2d2d2d;
+    background-color: #ffdaae;
+    transition: background-color 0.1s linear;
+    font-size: 13px;
 }
 
-.usercard {
-	text-align: center;
+.btn_add:hover {
+    background: #ffe4c4;
+}
+
+.item_name {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+    padding-bottom: 12px;
+    padding-top: 1px;
 }
