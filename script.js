@@ -4,6 +4,8 @@ tg.expand();
 
 tg.MainButton.textColor = "#2d2d2d";
 tg.MainButton.color = "#ffbf74";
+tg.MainButton.setText("Оформить заказ");
+tg.MainButton.show();
 
 function set_btn_plus_minus_style(btn_plus_minus_object, sign) {
     btn_plus_minus_object.style.border = "none";
@@ -204,12 +206,6 @@ btn_add_1.addEventListener("click", () => {
     set_btn_plus_minus_style(btn_minus_1, "-");
     set_item_counter_style(item_id_array[1]);
 
-    if (tg.MainButton.isVisible) {
-        tg.MainButton.hide();
-    } else {
-        tg.MainButton.setText("Выбрано блюдо 1!");
-        tg.MainButton.show();
-    }
     console.log(generate_data_for_send(item_id_array));
 })
 
@@ -258,13 +254,6 @@ btn_add_2.addEventListener("click", () => {
     set_btn_plus_minus_style(btn_plus_2, "+");
     set_btn_plus_minus_style(btn_minus_2, "-");
     set_item_counter_style(item_id_array[2]);
-
-    if (tg.MainButton.isVisible) {
-        tg.MainButton.hide();
-    } else {
-        tg.MainButton.setText("Выбрано блюдо 2!");
-        tg.MainButton.show();
-    }
 
     console.log(generate_data_for_send(item_id_array));
 })
@@ -315,13 +304,6 @@ btn_add_3.addEventListener("click", () => {
     set_btn_plus_minus_style(btn_minus_3, "-");
     set_item_counter_style(item_id_array[3]);
 
-    if (tg.MainButton.isVisible) {
-        tg.MainButton.hide();
-    } else {
-        tg.MainButton.setText("Выбрано блюдо 3!");
-        tg.MainButton.show();
-    }
-
     console.log(generate_data_for_send(item_id_array));
 })
 
@@ -370,13 +352,6 @@ btn_add_4.addEventListener("click", () => {
     set_btn_plus_minus_style(btn_plus_4, "+");
     set_btn_plus_minus_style(btn_minus_4, "-");
     set_item_counter_style(item_id_array[4]);
-
-    if (tg.MainButton.isVisible) {
-        tg.MainButton.hide();
-    } else {
-        tg.MainButton.setText("Выбрано блюдо 4!");
-        tg.MainButton.show();
-    }
 
     console.log(generate_data_for_send(item_id_array));
 })
@@ -427,13 +402,6 @@ btn_add_5.addEventListener("click", () => {
     set_btn_plus_minus_style(btn_minus_5, "-");
     set_item_counter_style(item_id_array[5]);
 
-    if (tg.MainButton.isVisible) {
-        tg.MainButton.hide();
-    } else {
-        tg.MainButton.setText("Выбрано блюдо 5!");
-        tg.MainButton.show();
-    }
-
     console.log(generate_data_for_send(item_id_array));
 })
 
@@ -482,13 +450,6 @@ btn_add_6.addEventListener("click", () => {
     set_btn_plus_minus_style(btn_plus_6, "+");
     set_btn_plus_minus_style(btn_minus_6, "-");
     set_item_counter_style(item_id_array[6]);
-
-    if (tg.MainButton.isVisible) {
-        tg.MainButton.hide();
-    } else {
-        tg.MainButton.setText("Выбрано блюдо 6!");
-        tg.MainButton.show();
-    }
 
     console.log(generate_data_for_send(item_id_array));
 })
