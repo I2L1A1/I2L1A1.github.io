@@ -205,5 +205,5 @@ btn_add_6.addEventListener("click", () => {
 })
 
 Telegram.WebApp.onEvent("mainButtonClicked", () => {
-    tg.sendData(item_id);
+    tg.sendData(generate_data_for_send(item_id, item_counter_1.textContent));
 });
