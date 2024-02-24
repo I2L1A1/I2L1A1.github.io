@@ -80,16 +80,15 @@ function generate_data_for_send(data) {
     return answer_string;
 }
 
+let item_id_array = new Array(items_number + 1).fill(document.createElement("label"));
 let itemsContainer = document.getElementById("items");
-
-let item_id_array = new Array(items_number + 1);
-items = new Array(items_number + 1);
-images = new Array(items_number + 1);
-item_names = new Array(items_number + 1);
-btn_add_array = new Array(items_number + 1);
-add_remove_figures = new Array(items_number + 1);
-
-// -------------------------------------
+let items = new Array(items_number + 1);
+let images = new Array(items_number + 1);
+let item_names = new Array(items_number + 1);
+let btn_add_array = new Array(items_number + 1);
+let add_remove_figures = new Array(items_number + 1);
+let btn_minus_array = new Array(items_number + 1);
+let btn_plus_array = new Array(items_number + 1);
 
 for (let i = 1; i < items_number + 1; ++i) {
     items[i] = document.createElement("div");
@@ -111,7 +110,6 @@ for (let i = 1; i < items_number + 1; ++i) {
     items[i].appendChild(images[i]);
     items[i].appendChild(item_names[i]);
     items[i].appendChild(btn_add_array[i]);
-
     itemsContainer.appendChild(items[i]);
 
     add_remove_figures[i] = document.createElement("figure");
@@ -122,14 +120,6 @@ for (let i = 1; i < items_number + 1; ++i) {
     add_remove_figures[i].appendChild(btn_add_array[i]);
     set_btn_add_style(btn_add_array[i]);
 }
-
-item_id_array[1] = document.createElement("label");
-item_id_array[2] = document.createElement("label");
-item_id_array[3] = document.createElement("label");
-item_id_array[4] = document.createElement("label");
-
-let btn_minus_array = new Array(items_number + 1);
-let btn_plus_array = new Array(items_number + 1);
 
 for (let i = 1; i < items_number + 1; ++i) {
     btn_add_array[i].addEventListener("click", () => {
