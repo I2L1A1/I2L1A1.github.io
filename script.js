@@ -7,7 +7,7 @@ tg.MainButton.color = "#ffbf74";
 tg.MainButton.setText("Оформить заказ");
 tg.MainButton.show();
 
-const items_number = 6;
+const items_number = 4;
 
 function set_btn_plus_minus_style(btn_plus_minus_object, sign) {
     btn_plus_minus_object.style.border = "none";
@@ -80,36 +80,47 @@ function generate_data_for_send(data) {
     return answer_string;
 }
 
+class ItemsNew {
+    constructor(item_img, item_title, item_button) {
+        this.item_img = item_img;
+        this.item_name = item_title;
+        this.item_button = item_button;
+    }
+}
+
 let item_id_array = new Array(items_number + 1).fill(document.createElement("label"));
 let itemsContainer = document.getElementById("items");
 let items = new Array(items_number + 1);
-let images = new Array(items_number + 1);
-let item_names = new Array(items_number + 1);
-let btn_add_array = new Array(items_number + 1);
 let add_remove_figures = new Array(items_number + 1);
 let btn_minus_array = new Array(items_number + 1);
 let btn_plus_array = new Array(items_number + 1);
+
+let itemNewArray = new Array(items_number + 1);
+for (let i = 1; i < items_number + 1; ++i) {
+    itemNewArray[i] = new ItemsNew();
+}
 
 for (let i = 1; i < items_number + 1; ++i) {
     items[i] = document.createElement("div");
     items[i].className = "item";
 
-    images[i] = document.createElement("img");
-    images[i].src = "Dish1.png";
-    images[i].alt = "";
-    images[i].className = "img";
+    itemNewArray[i].item_img = document.createElement("img");
+    itemNewArray[i].item_img.src = "Dish1.png";
+    itemNewArray[i].item_img.alt = "";
+    itemNewArray[i].item_img.className = "img";
 
-    item_names[i] = document.createElement("div");
-    item_names[i].className = "item_name";
-    item_names[i].textContent = "Блюдо " + i;
+    itemNewArray[i].item_title = document.createElement("div");
+    itemNewArray[i].item_title.className = "item_name";
+    itemNewArray[i].item_title.textContent = "Блюдо " + i;
 
-    btn_add_array[i] = document.createElement("button");
-    btn_add_array[i].className = "btn_add";
-    btn_add_array[i].textContent = "Добавить";
+    itemNewArray[i].item_button = document.createElement("button");
+    itemNewArray[i].item_button.className = "btn_add";
+    itemNewArray[i].item_button.textContent = "Добавить";
 
-    items[i].appendChild(images[i]);
-    items[i].appendChild(item_names[i]);
-    items[i].appendChild(btn_add_array[i]);
+    items[i].appendChild(itemNewArray[i].item_img);
+    items[i].appendChild(itemNewArray[i].item_title);
+    items[i].appendChild(itemNewArray[i].item_title);
+    items[i].appendChild(itemNewArray[i].item_button);
     itemsContainer.appendChild(items[i]);
 
     add_remove_figures[i] = document.createElement("figure");
@@ -117,14 +128,14 @@ for (let i = 1; i < items_number + 1; ++i) {
 
     items[i].replaceChild(add_remove_figures[i], items[i].lastElementChild);
 
-    add_remove_figures[i].appendChild(btn_add_array[i]);
-    set_btn_add_style(btn_add_array[i]);
+    add_remove_figures[i].appendChild(itemNewArray[i].item_button);
+    set_btn_add_style(itemNewArray[i].item_button);
 }
 
 for (let i = 1; i < items_number + 1; ++i) {
-    btn_add_array[i].addEventListener("click", () => {
+    itemNewArray[i].item_button.addEventListener("click", () => {
 
-        btn_add_array[i].style.display = "none";
+        itemNewArray[i].item_button.style.display = "none";
 
         btn_minus_array[i] = document.createElement("button");
         btn_minus_array[i].textContent = "-";
@@ -153,7 +164,7 @@ for (let i = 1; i < items_number + 1; ++i) {
                 new_number -= 1;
                 item_id_array[i].textContent = new_number + "";
             } else {
-                btn_add_array[i].style.display = "inline-block";
+                itemNewArray[i].item_button.style.display = "inline-block";
                 btn_minus_array[i].style.display = "none";
                 btn_plus_array[i].style.display = "none";
                 item_id_array[i].style.display = "none";
