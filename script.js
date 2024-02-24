@@ -103,8 +103,6 @@ catalog.addItem("Dish1.png", "Блюдо 1");
 catalog.addItem("Dish1.png", "Блюдо 2");
 catalog.addItem("Dish1.png", "Блюдо 3");
 catalog.addItem("Dish1.png", "Блюдо 4");
-catalog.addItem("Dish1.png", "Блюдо 5");
-catalog.addItem("Dish1.png", "Блюдо 6");
 
 order = new Order();
 
