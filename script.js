@@ -82,14 +82,14 @@ function generate_data_for_send(data) {
 
 let itemsContainer = document.getElementById("items");
 
-let item_id_array = new Array(items_number).fill(document.createElement("label"));
-let items = new Array(items_number);
-let images = new Array(items_number);
-let item_names = new Array(items_number);
-let btn_add_array = new Array(items_number);
-let add_remove_figures = new Array(items_number);
-let btn_minus_array = new Array(items_number);
-let btn_plus_array = new Array(items_number);
+let item_id_array = new Array(items_number + 1);
+items = new Array(items_number + 1);
+images = new Array(items_number + 1);
+item_names = new Array(items_number + 1);
+btn_add_array = new Array(items_number + 1);
+add_remove_figures = new Array(items_number + 1);
+
+// -------------------------------------
 
 for (let i = 1; i < items_number + 1; ++i) {
     items[i] = document.createElement("div");
@@ -106,7 +106,6 @@ for (let i = 1; i < items_number + 1; ++i) {
 
     btn_add_array[i] = document.createElement("button");
     btn_add_array[i].className = "btn_add";
-    btn_add_array[i].id = "btn_add_array[1]";
     btn_add_array[i].textContent = "Добавить";
 
     items[i].appendChild(images[i]);
@@ -123,6 +122,14 @@ for (let i = 1; i < items_number + 1; ++i) {
     add_remove_figures[i].appendChild(btn_add_array[i]);
     set_btn_add_style(btn_add_array[i]);
 }
+
+item_id_array[1] = document.createElement("label");
+item_id_array[2] = document.createElement("label");
+item_id_array[3] = document.createElement("label");
+item_id_array[4] = document.createElement("label");
+
+let btn_minus_array = new Array(items_number + 1);
+let btn_plus_array = new Array(items_number + 1);
 
 for (let i = 1; i < items_number + 1; ++i) {
     btn_add_array[i].addEventListener("click", () => {
@@ -151,7 +158,7 @@ for (let i = 1; i < items_number + 1; ++i) {
         });
 
         btn_minus_array[i].addEventListener("click", () => {
-            let new_number = +(item_id_array[1].textContent);
+            let new_number = +(item_id_array[i].textContent);
             if (new_number >= 2) {
                 new_number -= 1;
                 item_id_array[i].textContent = new_number + "";
