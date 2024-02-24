@@ -103,10 +103,7 @@ catalog.addItem(new ItemFromCatalog("3.png", "Блюдо 3"));
 catalog.addItem(new ItemFromCatalog("4.png", "Блюдо 4"));
 
 let item_id_array = new Array(items_number + 1).fill(document.createElement("label"));
-let itemsContainer = document.getElementById("items");
 let add_remove_figures = new Array(items_number + 1);
-let btn_minus_array = new Array(items_number + 1);
-let btn_plus_array = new Array(items_number + 1);
 
 let itemNewArray = new Array(items_number + 1);
 
@@ -131,7 +128,8 @@ for (let i = 1; i < items_number + 1; ++i) {
     itemNewArray[i].appendChild(itemNewArray[i].item_title);
     itemNewArray[i].appendChild(itemNewArray[i].item_title);
     itemNewArray[i].appendChild(itemNewArray[i].item_button);
-    itemsContainer.appendChild(itemNewArray[i]);
+
+    document.getElementById("items").appendChild(itemNewArray[i]);
 
     add_remove_figures[i] = document.createElement("figure");
     set_add_remove_figure_style(add_remove_figures[i]);
@@ -147,20 +145,20 @@ for (let i = 1; i < items_number + 1; ++i) {
 
         itemNewArray[i].item_button.style.display = "none";
 
-        btn_minus_array[i] = document.createElement("button");
-        btn_minus_array[i].textContent = "-";
+        itemNewArray[i].munus_btn = document.createElement("button");
+        itemNewArray[i].munus_btn.textContent = "-";
 
         item_id_array[i] = document.createElement("label");
         item_id_array[i].textContent = "1";
 
-        btn_plus_array[i] = document.createElement("button");
-        btn_plus_array[i].textContent = "+";
+        itemNewArray[i].plus_btn = document.createElement("button");
+        itemNewArray[i].plus_btn.textContent = "+";
 
-        add_remove_figures[i].appendChild(btn_minus_array[i]);
+        add_remove_figures[i].appendChild(itemNewArray[i].munus_btn);
         add_remove_figures[i].appendChild(item_id_array[i]);
-        add_remove_figures[i].appendChild(btn_plus_array[i]);
+        add_remove_figures[i].appendChild(itemNewArray[i].plus_btn);
 
-        btn_plus_array[i].addEventListener("click", () => {
+        itemNewArray[i].plus_btn.addEventListener("click", () => {
             let new_number = +(item_id_array[i].textContent);
             new_number += 1;
             item_id_array[i].textContent = new_number + "";
@@ -168,15 +166,15 @@ for (let i = 1; i < items_number + 1; ++i) {
             console.log(generate_data_for_send(item_id_array));
         });
 
-        btn_minus_array[i].addEventListener("click", () => {
+        itemNewArray[i].munus_btn.addEventListener("click", () => {
             let new_number = +(item_id_array[i].textContent);
             if (new_number >= 2) {
                 new_number -= 1;
                 item_id_array[i].textContent = new_number + "";
             } else {
                 itemNewArray[i].item_button.style.display = "inline-block";
-                btn_minus_array[i].style.display = "none";
-                btn_plus_array[i].style.display = "none";
+                itemNewArray[i].munus_btn.style.display = "none";
+                itemNewArray[i].plus_btn.style.display = "none";
                 item_id_array[i].style.display = "none";
                 item_id_array[i].textContent = "0";
             }
@@ -184,8 +182,8 @@ for (let i = 1; i < items_number + 1; ++i) {
             console.log(generate_data_for_send(item_id_array));
         });
 
-        set_btn_plus_minus_style(btn_plus_array[i], "+");
-        set_btn_plus_minus_style(btn_minus_array[i], "-");
+        set_btn_plus_minus_style(itemNewArray[i].plus_btn, "+");
+        set_btn_plus_minus_style(itemNewArray[i].munus_btn, "-");
         set_item_counter_style(item_id_array[i]);
 
         console.log(generate_data_for_send(item_id_array));
