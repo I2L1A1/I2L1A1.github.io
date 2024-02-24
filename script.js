@@ -7,7 +7,7 @@ tg.MainButton.color = "#ffbf74";
 tg.MainButton.setText("Оформить заказ");
 tg.MainButton.show();
 
-const items_number = 4;
+const items_number = 6;
 
 function set_btn_plus_minus_style(btn_plus_minus_object, sign) {
     btn_plus_minus_object.style.border = "none";
