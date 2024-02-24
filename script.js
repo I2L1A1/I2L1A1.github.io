@@ -7,6 +7,8 @@ tg.MainButton.color = "#ffbf74";
 tg.MainButton.setText("Оформить заказ");
 tg.MainButton.show();
 
+const items_number = 6;
+
 function set_btn_plus_minus_style(btn_plus_minus_object, sign) {
     btn_plus_minus_object.style.border = "none";
     if (sign === "+") {
@@ -78,381 +80,99 @@ function generate_data_for_send(data) {
     return answer_string;
 }
 
-// -------------------------------------
-let item1 = document.getElementById("item1");
-let add_remove_figure_1 = document.createElement("figure");
-set_add_remove_figure_style(add_remove_figure_1);
+let itemsContainer = document.getElementById("items");
 
-item1.replaceChild(add_remove_figure_1, item1.lastElementChild);
+let item_id_array = new Array(items_number).fill(document.createElement("label"));
+let items = new Array(items_number);
+let images = new Array(items_number);
+let item_names = new Array(items_number);
+let btn_add_array = new Array(items_number);
+let add_remove_figures = new Array(items_number);
+let btn_minus_array = new Array(items_number);
+let btn_plus_array = new Array(items_number);
 
-let btn_add_1 = document.createElement("button");
-btn_add_1.textContent = "Добавить";
-add_remove_figure_1.appendChild(btn_add_1);
-set_btn_add_style(btn_add_1);
+for (let i = 1; i < items_number + 1; ++i) {
+    items[i] = document.createElement("div");
+    items[i].className = "item";
 
-// -------------------------------------
-let item2 = document.getElementById("item2");
-let add_remove_figure_2 = document.createElement("figure");
-set_add_remove_figure_style(add_remove_figure_2);
+    images[i] = document.createElement("img");
+    images[i].src = "Dish1.png";
+    images[i].alt = "";
+    images[i].className = "img";
 
-item2.replaceChild(add_remove_figure_2, item2.lastElementChild);
+    item_names[i] = document.createElement("div");
+    item_names[i].className = "item_name";
+    item_names[i].textContent = "Блюдо " + i;
 
-let btn_add_2 = document.createElement("button");
-btn_add_2.textContent = "Добавить";
-add_remove_figure_2.appendChild(btn_add_2);
-set_btn_add_style(btn_add_2);
+    btn_add_array[i] = document.createElement("button");
+    btn_add_array[i].className = "btn_add";
+    btn_add_array[i].id = "btn_add_array[1]";
+    btn_add_array[i].textContent = "Добавить";
 
-// -------------------------------------
-let item3 = document.getElementById("item3");
-let add_remove_figure_3 = document.createElement("figure");
-set_add_remove_figure_style(add_remove_figure_3);
+    items[i].appendChild(images[i]);
+    items[i].appendChild(item_names[i]);
+    items[i].appendChild(btn_add_array[i]);
 
-item3.replaceChild(add_remove_figure_3, item3.lastElementChild);
+    itemsContainer.appendChild(items[i]);
 
-let btn_add_3 = document.createElement("button");
-btn_add_3.textContent = "Добавить";
-add_remove_figure_3.appendChild(btn_add_3);
-set_btn_add_style(btn_add_3);
+    add_remove_figures[i] = document.createElement("figure");
+    set_add_remove_figure_style(add_remove_figures[i]);
 
-// -------------------------------------
-let item4 = document.getElementById("item4");
-let add_remove_figure_4 = document.createElement("figure");
-set_add_remove_figure_style(add_remove_figure_4);
+    items[i].replaceChild(add_remove_figures[i], items[i].lastElementChild);
 
-item4.replaceChild(add_remove_figure_4, item4.lastElementChild);
+    add_remove_figures[i].appendChild(btn_add_array[i]);
+    set_btn_add_style(btn_add_array[i]);
+}
 
-let btn_add_4 = document.createElement("button");
-btn_add_4.textContent = "Добавить";
-add_remove_figure_4.appendChild(btn_add_4);
-set_btn_add_style(btn_add_4);
+for (let i = 1; i < items_number + 1; ++i) {
+    btn_add_array[i].addEventListener("click", () => {
 
-// -------------------------------------
-let item5 = document.getElementById("item5");
-let add_remove_figure_5 = document.createElement("figure");
-set_add_remove_figure_style(add_remove_figure_5);
+        btn_add_array[i].style.display = "none";
 
-item5.replaceChild(add_remove_figure_5, item5.lastElementChild);
+        btn_minus_array[i] = document.createElement("button");
+        btn_minus_array[i].textContent = "-";
 
-let btn_add_5 = document.createElement("button");
-btn_add_5.textContent = "Добавить";
-add_remove_figure_5.appendChild(btn_add_5);
-set_btn_add_style(btn_add_5);
+        item_id_array[i] = document.createElement("label");
+        item_id_array[i].textContent = "1";
 
-// -------------------------------------
-let item6 = document.getElementById("item6");
-let add_remove_figure_6 = document.createElement("figure");
-set_add_remove_figure_style(add_remove_figure_6);
+        btn_plus_array[i] = document.createElement("button");
+        btn_plus_array[i].textContent = "+";
 
-item6.replaceChild(add_remove_figure_6, item6.lastElementChild);
+        add_remove_figures[i].appendChild(btn_minus_array[i]);
+        add_remove_figures[i].appendChild(item_id_array[i]);
+        add_remove_figures[i].appendChild(btn_plus_array[i]);
 
-let btn_add_6 = document.createElement("button");
-btn_add_6.textContent = "Добавить";
-add_remove_figure_6.appendChild(btn_add_6);
-set_btn_add_style(btn_add_6);
-// -------------------------------------
+        btn_plus_array[i].addEventListener("click", () => {
+            let new_number = +(item_id_array[i].textContent);
+            new_number += 1;
+            item_id_array[i].textContent = new_number + "";
 
-let item_id_array = new Array(7);
+            console.log(generate_data_for_send(item_id_array));
+        });
 
+        btn_minus_array[i].addEventListener("click", () => {
+            let new_number = +(item_id_array[1].textContent);
+            if (new_number >= 2) {
+                new_number -= 1;
+                item_id_array[i].textContent = new_number + "";
+            } else {
+                btn_add_array[i].style.display = "inline-block";
+                btn_minus_array[i].style.display = "none";
+                btn_plus_array[i].style.display = "none";
+                item_id_array[i].style.display = "none";
+                item_id_array[i].textContent = "0";
+            }
 
-item_id_array[1] = document.createElement("label");
-item_id_array[2] = document.createElement("label");
-item_id_array[3] = document.createElement("label");
-item_id_array[4] = document.createElement("label");
-item_id_array[5] = document.createElement("label");
-item_id_array[6] = document.createElement("label");
+            console.log(generate_data_for_send(item_id_array));
+        });
 
-
-btn_add_1.addEventListener("click", () => {
-    btn_add_1.style.display = "none";
-
-    let btn_minus_1 = document.createElement("button");
-    btn_minus_1.textContent = "-";
-
-    item_id_array[1] = document.createElement("label");
-    item_id_array[1].textContent = "1";
-
-    let btn_plus_1 = document.createElement("button");
-    btn_plus_1.textContent = "+";
-
-    add_remove_figure_1.appendChild(btn_minus_1);
-    add_remove_figure_1.appendChild(item_id_array[1]);
-    add_remove_figure_1.appendChild(btn_plus_1);
-
-    btn_plus_1.addEventListener("click", () => {
-        let new_number = +(item_id_array[1].textContent);
-        new_number += 1;
-        item_id_array[1].textContent = new_number + "";
+        set_btn_plus_minus_style(btn_plus_array[i], "+");
+        set_btn_plus_minus_style(btn_minus_array[i], "-");
+        set_item_counter_style(item_id_array[i]);
 
         console.log(generate_data_for_send(item_id_array));
-    });
-
-    btn_minus_1.addEventListener("click", () => {
-        let new_number = +(item_id_array[1].textContent);
-        if (new_number >= 2) {
-            new_number -= 1;
-            item_id_array[1].textContent = new_number + "";
-        } else {
-            btn_add_1.style.display = "inline-block";
-            btn_minus_1.style.display = "none";
-            btn_plus_1.style.display = "none";
-            item_id_array[1].style.display = "none";
-            item_id_array[1].textContent = "0";
-        }
-
-        console.log(generate_data_for_send(item_id_array));
-    });
-
-    set_btn_plus_minus_style(btn_plus_1, "+");
-    set_btn_plus_minus_style(btn_minus_1, "-");
-    set_item_counter_style(item_id_array[1]);
-
-    console.log(generate_data_for_send(item_id_array));
-})
-
-btn_add_2.addEventListener("click", () => {
-    btn_add_2.style.display = "none";
-
-    let btn_minus_2 = document.createElement("button");
-    btn_minus_2.textContent = "-";
-
-    item_id_array[2] = document.createElement("label");
-    item_id_array[2].textContent = "1";
-
-    let btn_plus_2 = document.createElement("button");
-    btn_plus_2.textContent = "+";
-
-    add_remove_figure_2.appendChild(btn_minus_2);
-    add_remove_figure_2.appendChild(item_id_array[2]);
-    add_remove_figure_2.appendChild(btn_plus_2);
-
-
-    btn_plus_2.addEventListener("click", () => {
-        let new_number = +item_id_array[2].textContent;
-        new_number += 1;
-        item_id_array[2].textContent = new_number + "";
-
-        console.log(generate_data_for_send(item_id_array));
-    });
-
-    btn_minus_2.addEventListener("click", () => {
-        let new_number = +item_id_array[2].textContent;
-        if (new_number >= 2) {
-            new_number -= 1;
-            item_id_array[2].textContent = new_number + "";
-        } else {
-            btn_add_2.style.display = "inline-block";
-            btn_minus_2.style.display = "none";
-            btn_plus_2.style.display = "none";
-            item_id_array[2].style.display = "none";
-            item_id_array[2].textContent = "0";
-        }
-
-        console.log(generate_data_for_send(item_id_array));
-    });
-
-
-    set_btn_plus_minus_style(btn_plus_2, "+");
-    set_btn_plus_minus_style(btn_minus_2, "-");
-    set_item_counter_style(item_id_array[2]);
-
-    console.log(generate_data_for_send(item_id_array));
-})
-
-btn_add_3.addEventListener("click", () => {
-    btn_add_3.style.display = "none";
-
-    let btn_minus_3 = document.createElement("button");
-    btn_minus_3.textContent = "-";
-
-    item_id_array[3] = document.createElement("label");
-    item_id_array[3].textContent = "1";
-
-    let btn_plus_3 = document.createElement("button");
-    btn_plus_3.textContent = "+";
-
-    add_remove_figure_3.appendChild(btn_minus_3);
-    add_remove_figure_3.appendChild(item_id_array[3]);
-    add_remove_figure_3.appendChild(btn_plus_3);
-
-
-    btn_plus_3.addEventListener("click", () => {
-        let new_number = +item_id_array[3].textContent;
-        new_number += 1;
-        item_id_array[3].textContent = new_number + "";
-
-        console.log(generate_data_for_send(item_id_array));
-    });
-
-    btn_minus_3.addEventListener("click", () => {
-        let new_number = +item_id_array[3].textContent;
-        if (new_number >= 2) {
-            new_number -= 1;
-            item_id_array[3].textContent = new_number + "";
-        } else {
-            btn_add_3.style.display = "inline-block";
-            btn_minus_3.style.display = "none";
-            btn_plus_3.style.display = "none";
-            item_id_array[3].style.display = "none";
-            item_id_array[3].textContent = "0";
-        }
-
-        console.log(generate_data_for_send(item_id_array));
-    });
-
-
-    set_btn_plus_minus_style(btn_plus_3, "+");
-    set_btn_plus_minus_style(btn_minus_3, "-");
-    set_item_counter_style(item_id_array[3]);
-
-    console.log(generate_data_for_send(item_id_array));
-})
-
-btn_add_4.addEventListener("click", () => {
-    btn_add_4.style.display = "none";
-
-    let btn_minus_4 = document.createElement("button");
-    btn_minus_4.textContent = "-";
-
-    item_id_array[4] = document.createElement("label");
-    item_id_array[4].textContent = "1";
-
-    let btn_plus_4 = document.createElement("button");
-    btn_plus_4.textContent = "+";
-
-    add_remove_figure_4.appendChild(btn_minus_4);
-    add_remove_figure_4.appendChild(item_id_array[4]);
-    add_remove_figure_4.appendChild(btn_plus_4);
-
-
-    btn_plus_4.addEventListener("click", () => {
-        let new_number = +item_id_array[4].textContent;
-        new_number += 1;
-        item_id_array[4].textContent = new_number + "";
-
-        console.log(generate_data_for_send(item_id_array));
-    });
-
-    btn_minus_4.addEventListener("click", () => {
-        let new_number = +item_id_array[4].textContent;
-        if (new_number >= 2) {
-            new_number -= 1;
-            item_id_array[4].textContent = new_number + "";
-        } else {
-            btn_add_4.style.display = "inline-block";
-            btn_minus_4.style.display = "none";
-            btn_plus_4.style.display = "none";
-            item_id_array[4].style.display = "none";
-            item_id_array[4].textContent = "0";
-        }
-
-        console.log(generate_data_for_send(item_id_array));
-    });
-
-
-    set_btn_plus_minus_style(btn_plus_4, "+");
-    set_btn_plus_minus_style(btn_minus_4, "-");
-    set_item_counter_style(item_id_array[4]);
-
-    console.log(generate_data_for_send(item_id_array));
-})
-
-btn_add_5.addEventListener("click", () => {
-    btn_add_5.style.display = "none";
-
-    let btn_minus_5 = document.createElement("button");
-    btn_minus_5.textContent = "-";
-
-    item_id_array[5] = document.createElement("label");
-    item_id_array[5].textContent = "1";
-
-    let btn_plus_5 = document.createElement("button");
-    btn_plus_5.textContent = "+";
-
-    add_remove_figure_5.appendChild(btn_minus_5);
-    add_remove_figure_5.appendChild(item_id_array[5]);
-    add_remove_figure_5.appendChild(btn_plus_5);
-
-
-    btn_plus_5.addEventListener("click", () => {
-        let new_number = +item_id_array[5].textContent;
-        new_number += 1;
-        item_id_array[5].textContent = new_number + "";
-
-        console.log(generate_data_for_send(item_id_array));
-    });
-
-    btn_minus_5.addEventListener("click", () => {
-        let new_number = +item_id_array[5].textContent;
-        if (new_number >= 2) {
-            new_number -= 1;
-            item_id_array[5].textContent = new_number + "";
-        } else {
-            btn_add_5.style.display = "inline-block";
-            btn_minus_5.style.display = "none";
-            btn_plus_5.style.display = "none";
-            item_id_array[5].style.display = "none";
-            item_id_array[5].textContent = "0";
-        }
-
-        console.log(generate_data_for_send(item_id_array));
-    });
-
-
-    set_btn_plus_minus_style(btn_plus_5, "+");
-    set_btn_plus_minus_style(btn_minus_5, "-");
-    set_item_counter_style(item_id_array[5]);
-
-    console.log(generate_data_for_send(item_id_array));
-})
-
-btn_add_6.addEventListener("click", () => {
-    btn_add_6.style.display = "none";
-
-    let btn_minus_6 = document.createElement("button");
-    btn_minus_6.textContent = "-";
-
-    item_id_array[6] = document.createElement("label");
-    item_id_array[6].textContent = "1";
-
-    let btn_plus_6 = document.createElement("button");
-    btn_plus_6.textContent = "+";
-
-    add_remove_figure_6.appendChild(btn_minus_6);
-    add_remove_figure_6.appendChild(item_id_array[6]);
-    add_remove_figure_6.appendChild(btn_plus_6);
-
-
-    btn_plus_6.addEventListener("click", () => {
-        let new_number = +item_id_array[6].textContent;
-        new_number += 1;
-        item_id_array[6].textContent = new_number + "";
-
-        console.log(generate_data_for_send(item_id_array));
-    });
-
-    btn_minus_6.addEventListener("click", () => {
-        let new_number = +item_id_array[6].textContent;
-        if (new_number >= 2) {
-            new_number -= 1;
-            item_id_array[6].textContent = new_number + "";
-        } else {
-            btn_add_6.style.display = "inline-block";
-            btn_minus_6.style.display = "none";
-            btn_plus_6.style.display = "none";
-            item_id_array[6].style.display = "none";
-            item_id_array[6].textContent = "0";
-        }
-
-        console.log(generate_data_for_send(item_id_array));
-    });
-
-
-    set_btn_plus_minus_style(btn_plus_6, "+");
-    set_btn_plus_minus_style(btn_minus_6, "-");
-    set_item_counter_style(item_id_array[6]);
-
-    console.log(generate_data_for_send(item_id_array));
-})
+    })
+}
 
 Telegram.WebApp.onEvent("mainButtonClicked", () => {
     tg.sendData(generate_data_for_send(item_id_array));
