@@ -80,53 +80,63 @@ function generate_data_for_send(data) {
     return answer_string;
 }
 
-class ItemsNew {
-    constructor(item_img, item_title, item_button) {
+class ItemFromCatalog {
+    constructor(item_img, item_name) {
         this.item_img = item_img;
-        this.item_name = item_title;
-        this.item_button = item_button;
+        this.item_name = item_name;
     }
 }
 
+class Catalog {
+    Items = new Array(1);
+
+    addItem(item) {
+        this.Items.push(item);
+    }
+}
+
+catalog = new Catalog();
+
+catalog.addItem(new ItemFromCatalog("1.png", "Блюдо 1"));
+catalog.addItem(new ItemFromCatalog("2.png", "Блюдо 2"));
+catalog.addItem(new ItemFromCatalog("3.png", "Блюдо 3"));
+catalog.addItem(new ItemFromCatalog("4.png", "Блюдо 4"));
+
 let item_id_array = new Array(items_number + 1).fill(document.createElement("label"));
 let itemsContainer = document.getElementById("items");
-let items = new Array(items_number + 1);
 let add_remove_figures = new Array(items_number + 1);
 let btn_minus_array = new Array(items_number + 1);
 let btn_plus_array = new Array(items_number + 1);
 
 let itemNewArray = new Array(items_number + 1);
-for (let i = 1; i < items_number + 1; ++i) {
-    itemNewArray[i] = new ItemsNew();
-}
 
 for (let i = 1; i < items_number + 1; ++i) {
-    items[i] = document.createElement("div");
-    items[i].className = "item";
+    itemNewArray[i] = document.createElement("div");
+    itemNewArray[i].className = "item";
 
     itemNewArray[i].item_img = document.createElement("img");
-    itemNewArray[i].item_img.src = "Dish1.png";
+    itemNewArray[i].item_img.src = catalog.Items[i].item_img;
     itemNewArray[i].item_img.alt = "";
     itemNewArray[i].item_img.className = "img";
 
     itemNewArray[i].item_title = document.createElement("div");
     itemNewArray[i].item_title.className = "item_name";
-    itemNewArray[i].item_title.textContent = "Блюдо " + i;
+    itemNewArray[i].item_title.textContent = catalog.Items[i].item_name;
 
     itemNewArray[i].item_button = document.createElement("button");
     itemNewArray[i].item_button.className = "btn_add";
     itemNewArray[i].item_button.textContent = "Добавить";
 
-    items[i].appendChild(itemNewArray[i].item_img);
-    items[i].appendChild(itemNewArray[i].item_title);
-    items[i].appendChild(itemNewArray[i].item_title);
-    items[i].appendChild(itemNewArray[i].item_button);
-    itemsContainer.appendChild(items[i]);
+    itemNewArray[i].appendChild(itemNewArray[i].item_img);
+    itemNewArray[i].appendChild(itemNewArray[i].item_title);
+    itemNewArray[i].appendChild(itemNewArray[i].item_title);
+    itemNewArray[i].appendChild(itemNewArray[i].item_button);
+    itemsContainer.appendChild(itemNewArray[i]);
 
     add_remove_figures[i] = document.createElement("figure");
     set_add_remove_figure_style(add_remove_figures[i]);
 
-    items[i].replaceChild(add_remove_figures[i], items[i].lastElementChild);
+    itemNewArray[i].replaceChild(add_remove_figures[i], itemNewArray[i].lastElementChild);
 
     add_remove_figures[i].appendChild(itemNewArray[i].item_button);
     set_btn_add_style(itemNewArray[i].item_button);
