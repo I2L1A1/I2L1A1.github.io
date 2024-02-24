@@ -97,13 +97,12 @@ class Catalog {
 
 catalog = new Catalog();
 
-catalog.addItem(new ItemFromCatalog("1.png", "Блюдо 1"));
-catalog.addItem(new ItemFromCatalog("2.png", "Блюдо 2"));
-catalog.addItem(new ItemFromCatalog("3.png", "Блюдо 3"));
-catalog.addItem(new ItemFromCatalog("4.png", "Блюдо 4"));
+catalog.addItem(new ItemFromCatalog("Dish1.png", "Блюдо 1"));
+catalog.addItem(new ItemFromCatalog("Dish1.png", "Блюдо 2"));
+catalog.addItem(new ItemFromCatalog("Dish1.png", "Блюдо 3"));
+catalog.addItem(new ItemFromCatalog("Dish1.png", "Блюдо 4"));
 
 let item_id_array = new Array(items_number + 1).fill(document.createElement("label"));
-let add_remove_figures = new Array(items_number + 1);
 
 let itemNewArray = new Array(items_number + 1);
 
@@ -131,12 +130,16 @@ for (let i = 1; i < items_number + 1; ++i) {
 
     document.getElementById("items").appendChild(itemNewArray[i]);
 
-    add_remove_figures[i] = document.createElement("figure");
-    set_add_remove_figure_style(add_remove_figures[i]);
+    itemNewArray[i].add_remove_figures = document.createElement("figure");
 
-    itemNewArray[i].replaceChild(add_remove_figures[i], itemNewArray[i].lastElementChild);
+    itemNewArray[i].appendChild(itemNewArray[i].add_remove_figures)
+    itemNewArray[i].add_remove_figures.appendChild(itemNewArray[i].item_button);
 
-    add_remove_figures[i].appendChild(itemNewArray[i].item_button);
+    set_add_remove_figure_style(itemNewArray[i].add_remove_figures);
+
+    console.log(i);
+    console.log(itemNewArray[i].lastElementChild);
+
     set_btn_add_style(itemNewArray[i].item_button);
 }
 
@@ -154,9 +157,9 @@ for (let i = 1; i < items_number + 1; ++i) {
         itemNewArray[i].plus_btn = document.createElement("button");
         itemNewArray[i].plus_btn.textContent = "+";
 
-        add_remove_figures[i].appendChild(itemNewArray[i].munus_btn);
-        add_remove_figures[i].appendChild(item_id_array[i]);
-        add_remove_figures[i].appendChild(itemNewArray[i].plus_btn);
+        itemNewArray[i].add_remove_figures.appendChild(itemNewArray[i].munus_btn);
+        itemNewArray[i].add_remove_figures.appendChild(item_id_array[i]);
+        itemNewArray[i].add_remove_figures.appendChild(itemNewArray[i].plus_btn);
 
         itemNewArray[i].plus_btn.addEventListener("click", () => {
             let new_number = +(item_id_array[i].textContent);
