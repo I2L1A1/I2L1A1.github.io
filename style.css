@@ -117,3 +117,14 @@ body {
 .choose_time_btn:hover {
     background: #ffd099;
 }
+
+.time_slider {
+    -webkit-appearance: none;
+    width: 120px;
+    height: 10px;
+    position: fixed;
+    margin-left: 135px;
+    margin-right: 135px;
+    bottom: 50px;
+    background: white;
+}
