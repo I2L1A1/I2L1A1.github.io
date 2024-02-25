@@ -1,10 +1,10 @@
 let tg = window.Telegram.WebApp;
 tg.expand();
 
-tg.MainButton.textColor = "#2d2d2d";
-tg.MainButton.color = "#ffbf74";
-tg.MainButton.setText("Оформить заказ");
-tg.MainButton.show();
+// tg.MainButton.textColor = "#2d2d2d";
+// tg.MainButton.color = "#ffbf74";
+// tg.MainButton.setText("Оформить заказ");
+// tg.MainButton.show();
 
 class ItemFromCatalog {
     constructor(item_img, item_name, item_cost) {
@@ -57,6 +57,7 @@ for (let i = 1; i < catalog.size + 1; ++i) {
     graphicCatalogItems[i] = document.createElement("div");
     graphicCatalogItems[i].className = "item";
 
+
     graphicCatalogItems[i].item_img = document.createElement("img");
     graphicCatalogItems[i].item_img.src = catalog.Items[i].item_img;
     graphicCatalogItems[i].item_img.alt = "";
@@ -84,6 +85,17 @@ for (let i = 1; i < catalog.size + 1; ++i) {
     graphicCatalogItems[i].appendChild(graphicCatalogItems[i].add_remove_figures);
     graphicCatalogItems[i].add_remove_figures.appendChild(graphicCatalogItems[i].item_btn);
 }
+
+let choose_time_btn = document.createElement("button");
+choose_time_btn.className = "choose_time_btn";
+document.getElementById("items").appendChild(choose_time_btn);
+choose_time_btn.textContent = "Выбрать время";
+
+choose_time_btn.addEventListener("click", () => {
+    tg.sendData(order.generate_data_for_send());
+    console.log("Click to ok btn");
+});
+
 
 for (let i = 1; i < catalog.size + 1; ++i) {
     graphicCatalogItems[i].item_btn.addEventListener("click", () => {
@@ -135,6 +147,6 @@ for (let i = 1; i < catalog.size + 1; ++i) {
     })
 }
 
-Telegram.WebApp.onEvent("mainButtonClicked", () => {
-    tg.sendData(order.generate_data_for_send());
-});
+// Telegram.WebApp.onEvent("mainButtonClicked", () => {
+//     tg.sendData(order.generate_data_for_send());
+// });
