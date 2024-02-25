@@ -85,8 +85,6 @@ catalog.addItem("Dish1.png", "Блюдо 3", "150");
 catalog.addItem("Dish1.png", "Блюдо 4", "290");
 catalog.addItem("Dish1.png", "Блюдо 5", "175");
 catalog.addItem("Dish1.png", "Блюдо 6", "45");
-catalog.addItem("Dish1.png", "Блюдо 7", "777");
-catalog.addItem("Dish1.png", "Блюдо 8", "23");
 
 order = new Order();
 
@@ -157,6 +155,8 @@ choose_time_label.textContent = now_time.get_now_time();
 checkout_btn.addEventListener("click", () => {
     console.log(order.generate_data_for_send());
     tg.sendData(order.generate_data_for_send());
+    tg.sendData(order.generate_data_for_send());
+    console.log(123);
 });
 
 choose_time_btn.addEventListener("click", () => {
@@ -199,7 +199,7 @@ for (let i = 1; i < catalog.size + 1; ++i) {
             let new_number = +(order.order_items[i].textContent);
             new_number += 1;
             order.order_cost += parseInt(graphicCatalogItems[i].item_cost.textContent);
-            order.order_items[i].textContent = new_number + "";
+            order.order_items[i].textContent = new_number;
             console.log(order.generate_data_for_send());
         });
 
