@@ -2,10 +2,11 @@ body {
     margin: 0;
     padding: 0;
     background-color: white;
+    user-select: none;
 }
 
 .container {
-    width: 390px;
+    max-width: 390px;
 }
 
 .items {
