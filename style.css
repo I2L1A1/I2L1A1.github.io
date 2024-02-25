@@ -5,7 +5,7 @@ body {
 }
 
 .container {
-    max-width: 390px;
+    width: 390px;
 }
 
 .items {
@@ -94,4 +94,25 @@ body {
     width: 24px;
     font-size: 14px;
     font-family: 'Open Sans', sans-serif;
+}
+
+.choose_time_btn {
+    width: 120px;
+    height: 40px;
+    position: fixed;
+    margin-left: 135px;
+    margin-right: auto;
+    margin-bottom: auto;
+
+    border: none;
+    border-radius: 20px 20px 20px 20px;
+    color: #2d2d2d;
+    background-color: #ffbf74;
+    transition: background-color 0.1s linear;
+    font-size: 13px;
+}
+
+
+.choose_time_btn:hover {
+    background: #ffd099;
 }
