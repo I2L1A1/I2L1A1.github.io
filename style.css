@@ -6,7 +6,7 @@ body {
 }
 
 .container {
-    max-width: 390px;
+    width: 390px;
 }
 
 .items {
