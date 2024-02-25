@@ -101,7 +101,17 @@ document.getElementById("items").appendChild(choose_time_btn);
 choose_time_btn.textContent = "Выбрать время";
 
 choose_time_btn.addEventListener("click", () => {
-    tg.sendData(order.generate_data_for_send());
+    // tg.sendData(order.generate_data_for_send());
+
+    let time_slider = document.createElement("input");
+    time_slider.type = "range";
+
+    time_slider.min = "0";
+    time_slider.max = "60";
+    time_slider.value = "0";
+    time_slider.className = "time_slider";
+    document.getElementById("items").appendChild(time_slider);
+
     console.log("Click to ok btn");
 });
 
