@@ -111,20 +111,72 @@ body {
     background-color: #ffbf74;
     transition: background-color 0.1s linear;
     font-size: 13px;
+
+    opacity: 0.9;
 }
 
 
-.choose_time_btn:hover {
+.choose_time_btn:hover, .checkout_btn:hover {
     background: #ffd099;
 }
 
+.time_slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 30px;
+    height: 30px;
+    background: gray;
+    opacity: 0.9;
+    border-radius: 20px 20px 20px 20px;
+}
+
+
 .time_slider {
     -webkit-appearance: none;
+
+    width: 300px;
+    height: 30px;
+    position: fixed;
+    margin-left: 45px;
+    margin-right: 45px;
+    bottom: 70px;
+    background: #ffbf74;
+
+    opacity: 0.9;
+
+    border-radius: 20px 20px 20px 20px;
+}
+
+.choose_time_label {
     width: 120px;
-    height: 10px;
+    height: auto;
     position: fixed;
     margin-left: 135px;
     margin-right: 135px;
-    bottom: 50px;
-    background: white;
+    bottom: 115px;
+    /*background-color: green;*/
+    color: black;
+
+    text-align: center;
+
+    font-family: 'Open Sans', sans-serif;
+    font-size: 17px;
+}
+
+.checkout_btn {
+    width: 120px;
+    height: 40px;
+    position: fixed;
+    margin-left: 135px;
+    margin-right: 135px;
+    bottom: 150px;
+
+    border: none;
+    border-radius: 20px 20px 20px 20px;
+    color: #2d2d2d;
+    background-color: #ffbf74;
+    transition: background-color 0.1s linear;
+    font-size: 13px;
+
+    opacity: 0.9;
 }
