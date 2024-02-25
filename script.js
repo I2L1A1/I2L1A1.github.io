@@ -47,7 +47,17 @@ catalog.addItem("Dish1.png", "Блюдо 2", "200");
 catalog.addItem("Dish1.png", "Блюдо 3", "150");
 catalog.addItem("Dish1.png", "Блюдо 4", "290");
 catalog.addItem("Dish1.png", "Блюдо 5", "175");
-catalog.addItem("Dish1.png", "Блюдо 6", "120");
+catalog.addItem("Dish1.png", "Блюдо 6", "45");
+catalog.addItem("Dish1.png", "Блюдо 7", "777");
+catalog.addItem("Dish1.png", "Блюдо 8", "23");
+catalog.addItem("Dish1.png", "Блюдо 9", "67");
+catalog.addItem("Dish1.png", "Блюдо 10", "89");
+catalog.addItem("Dish1.png", "Блюдо 11", "1000");
+catalog.addItem("Dish1.png", "Блюдо 12", "2000");
+catalog.addItem("Dish1.png", "Блюдо 13", "1030");
+catalog.addItem("Dish1.png", "Блюдо 14", "333");
+catalog.addItem("Dish1.png", "Блюдо 15", "777");
+catalog.addItem("Dish1.png", "Блюдо 16", "120");
 
 order = new Order();
 
@@ -56,7 +66,6 @@ let graphicCatalogItems = new Array(catalog.size + 1);
 for (let i = 1; i < catalog.size + 1; ++i) {
     graphicCatalogItems[i] = document.createElement("div");
     graphicCatalogItems[i].className = "item";
-
 
     graphicCatalogItems[i].item_img = document.createElement("img");
     graphicCatalogItems[i].item_img.src = catalog.Items[i].item_img;
