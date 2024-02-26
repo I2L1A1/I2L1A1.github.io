@@ -28,7 +28,7 @@ body {
 .add_remove_figure {
     border-radius: 20px;
     width: 110px;
-    height: 44px;
+    height: 42px;
     display: flex;
     align-items: center;
     background-color: #ffdaae;
@@ -57,8 +57,8 @@ body {
     border: none;
     margin-left: 7px;
     border-radius: 3px 20px 20px 3px;
-    width: 44px;
-    height: 44px;
+    width: 42px;
+    height: 42px;
     color: #2d2d2d;
     background-color: #ffdaae;
     transition: background-color 0.1s linear;
@@ -69,8 +69,8 @@ body {
     border: none;
     margin-right: 7px;
     border-radius: 20px 3px 3px 20px;
-    width: 44px;
-    height: 44px;
+    width: 42px;
+    height: 42px;
     color: #2d2d2d;
     background-color: #ffdaae;
     transition: background-color 0.1s linear;
@@ -132,11 +132,11 @@ body {
 .time_slider {
     -webkit-appearance: none;
 
-    width: 300px;
+    width: 340px;
     height: 40px;
     position: fixed;
-    margin-left: 45px;
-    margin-right: 45px;
+    margin-left: 25px;
+    margin-right: 25px;
     bottom: 80px;
     background: #ffbf74;
 
