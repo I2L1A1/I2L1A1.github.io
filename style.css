@@ -68,3 +68,12 @@ input {
 input:focus {
     border-color: #db5d5d;
 }
+
+.lbl {
+    color: red;
+    position: absolute;
+    width: 100px;
+    font-size: 20px;
+    height: 100px;
+    background-color: gray;
+}
