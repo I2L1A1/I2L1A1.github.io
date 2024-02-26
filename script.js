@@ -11,6 +11,7 @@ buy.addEventListener("click", () => {
 
 order.addEventListener("click", () => {
     let name = document.getElementById("user_name").value;
+    console.log(typeof name)
     let email = document.getElementById("user_email").value;
     let phone = document.getElementById("user_phone").value;
 
@@ -19,7 +20,7 @@ order.addEventListener("click", () => {
         email: email,
         phone: phone,
         test_data: name,
-        name_by_js: tg.initDataUnsafe.user.first_name
+        // name_by_js: tg.initDataUnsafe.user.first_name + ""
     }
     tg.sendData(JSON.stringify(data));
 
