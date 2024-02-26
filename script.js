@@ -9,6 +9,12 @@ buy.addEventListener("click", () => {
     document.getElementById("user_name").value = tg.initDataUnsafe.user.first_name;
 });
 
+
+let lbl = document.createElement("label");
+lbl.className = "lbl";
+lbl.textContent = "123";
+document.getElementById("main").appendChild(lbl);
+
 order.addEventListener("click", () => {
     let name = document.getElementById("user_name").value;
     console.log(typeof name)
@@ -20,7 +26,7 @@ order.addEventListener("click", () => {
         email: email,
         phone: phone,
         test_data: name,
-        // name_by_js: tg.initDataUnsafe.user.first_name + ""
+        name_by_js: tg.initDataUnsafe.user.first_name + ""
     }
     tg.sendData(JSON.stringify(data));
 
