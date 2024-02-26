@@ -1,12 +1,6 @@
 let tg = window.Telegram.WebApp;
 tg.expand();
 
-
-// tg.MainButton.textColor = "#2d2d2d";
-// tg.MainButton.color = "#ffbf74";
-// tg.MainButton.setText("Оформить заказ");
-// tg.MainButton.show();
-
 class ItemFromCatalog {
     constructor(item_img, item_name, item_cost) {
         this.item_img = item_img;
@@ -80,16 +74,14 @@ class Time {
 
 catalog = new Catalog();
 
-catalog.addItem("Dish1.png", "Блюдо 1", "100");
-catalog.addItem("Dish1.png", "Блюдо 2", "200");
-catalog.addItem("Dish1.png", "Блюдо 3", "150");
-catalog.addItem("Dish1.png", "Блюдо 4", "290");
-catalog.addItem("Dish1.png", "Блюдо 5", "175");
-catalog.addItem("Dish1.png", "Блюдо 6", "45");
-catalog.addItem("Dish1.png", "Блюдо 7", "444");
-catalog.addItem("Dish1.png", "Блюдо 8", "67");
-catalog.addItem("Dish1.png", "Блюдо 9", "33");
-catalog.addItem("Dish1.png", "Блюдо 10", "890");
+catalog.addItem("Dish1.png", "Пельмени сибирские", "100");
+catalog.addItem("Dish1.png", "Окрошка настоящая", "200");
+catalog.addItem("Dish1.png", "Щи старорусские с яблоками и сосметаной", "150");
+catalog.addItem("Dish1.png", "Утиная грудка с грушей томлёной", "290");
+catalog.addItem("Dish1.png", "Биточки из медведя с яблочной полбой", "175");
+catalog.addItem("Dish1.png", "Бифстекс из кабана", "45");
+catalog.addItem("Dish1.png", "Жаренина изкартофеля", "444");
+catalog.addItem("Dish1.png", "Нежное сливочное мороженое", "67");
 
 order = new Order();
 
@@ -227,7 +219,3 @@ for (let i = 1; i < catalog.size + 1; ++i) {
         console.log(order.generate_data_for_send());
     })
 }
-
-// Telegram.WebApp.onEvent("mainButtonClicked", () => {
-//     tg.sendData(order.generate_data_for_send());
-// });
