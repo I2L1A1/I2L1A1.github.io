@@ -86,6 +86,10 @@ catalog.addItem("Dish1.png", "Блюдо 3", "150");
 catalog.addItem("Dish1.png", "Блюдо 4", "290");
 catalog.addItem("Dish1.png", "Блюдо 5", "175");
 catalog.addItem("Dish1.png", "Блюдо 6", "45");
+catalog.addItem("Dish1.png", "Блюдо 7", "444");
+catalog.addItem("Dish1.png", "Блюдо 8", "67");
+catalog.addItem("Dish1.png", "Блюдо 9", "33");
+catalog.addItem("Dish1.png", "Блюдо 10", "890");
 
 order = new Order();
 
@@ -128,12 +132,6 @@ choose_time_btn.className = "choose_time_btn";
 document.getElementById("items").appendChild(choose_time_btn);
 choose_time_btn.textContent = "Выбрать время";
 
-let checkout_btn = document.createElement("button");
-checkout_btn.className = "checkout_btn";
-document.getElementById("items").appendChild(checkout_btn);
-checkout_btn.textContent = "Оформить заказ";
-checkout_btn.style.display = "none";
-
 let time_slider = document.createElement("input");
 time_slider.type = "range";
 
@@ -153,12 +151,19 @@ choose_time_label.style.display = "none";
 let now_time = new Time();
 choose_time_label.textContent = now_time.get_now_time();
 
+let checkout_btn = document.createElement("button");
+checkout_btn.className = "checkout_btn";
+document.getElementById("items").appendChild(checkout_btn);
+checkout_btn.textContent = "Заказать к " + now_time.get_time();
+checkout_btn.style.display = "none";
+
 checkout_btn.addEventListener("click", () => {
     console.log(order.generate_data_for_send());
     tg.sendData(order.generate_data_for_send());
 });
 
 choose_time_btn.addEventListener("click", () => {
+    choose_time_btn.style.display = "none";
     time_slider.style.display = "inline-block";
     choose_time_label.style.display = "inline-block";
     checkout_btn.style.display = "inline-block";
@@ -167,6 +172,7 @@ choose_time_btn.addEventListener("click", () => {
         now_time.reset_time();
         now_time.add_to_time(time_slider.value);
         choose_time_label.textContent = now_time.get_time();
+        checkout_btn.textContent = "Заказать к " + now_time.get_time();
     });
 
 });
