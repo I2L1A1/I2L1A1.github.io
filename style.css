@@ -37,7 +37,6 @@ body {
 
 .btn_add {
     display: inline-block;
-    background-color: gray;
     padding: 8px 8px 8px 8px;
     border: none;
     border-radius: 20px;
@@ -80,6 +79,8 @@ body {
 
 .item_name {
     font-family: 'Open Sans', sans-serif;
+    width: 190px;
+    height: 40px;
     font-size: 16px;
     padding-top: 1px;
 }
@@ -123,7 +124,7 @@ body {
     appearance: none;
     width: 40px;
     height: 40px;
-    background: gray;
+    background: #808080;
     opacity: 0.9;
     border-radius: 20px 20px 20px 20px;
 }
@@ -146,15 +147,20 @@ body {
 }
 
 .choose_time_label {
-    width: 120px;
-    height: auto;
+    display: flex;
+    padding-top: 10px;
+    align-items: center;
+    width: 100px;
+    height: 25px;
     position: fixed;
-    margin-left: 135px;
-    margin-right: 135px;
-    bottom: 130px;
-    color: black;
-
+    margin-left: 145px;
+    margin-right: 145px;
     text-align: center;
+    bottom: 122px;
+    color: #606060;
+    background-color: #ffbf74;
+    opacity: 0.9;
+    border-radius: 20px 20px 0 0;
 
     font-family: 'Open Sans', sans-serif;
     font-size: 18px;
