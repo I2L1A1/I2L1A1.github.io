@@ -42,7 +42,7 @@ body {
     border: none;
     border-radius: 20px;
     width: 200px;
-    height: 44px;
+    height: 42px;
     color: #2d2d2d;
     background-color: #ffdaae;
     transition: background-color 0.1s linear;
@@ -137,7 +137,7 @@ body {
     position: fixed;
     margin-left: 45px;
     margin-right: 45px;
-    bottom: 70px;
+    bottom: 80px;
     background: #ffbf74;
 
     opacity: 0.9;
@@ -149,8 +149,8 @@ body {
     width: 120px;
     height: auto;
     position: fixed;
-    margin-left: 144px;
-    margin-right: 144px;
+    margin-left: 135px;
+    margin-right: 135px;
     bottom: 130px;
     color: black;
 
