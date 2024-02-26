@@ -12,7 +12,7 @@ buy.addEventListener("click", () => {
 
 let lbl = document.createElement("label");
 lbl.className = "lbl";
-lbl.textContent = "123";
+lbl.textContent = tg.initDataUnsafe.user.first_name;
 document.getElementById("main").appendChild(lbl);
 
 order.addEventListener("click", () => {
