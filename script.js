@@ -140,6 +140,12 @@ choose_time_label.className = "choose_time_label";
 document.getElementById("items").appendChild(choose_time_label);
 choose_time_label.style.display = "none";
 
+let cansel_choose_time_btn = document.createElement("button");
+cansel_choose_time_btn.className = "cansel_choose_time_btn";
+document.getElementById("items").appendChild(cansel_choose_time_btn);
+cansel_choose_time_btn.textContent = "×";
+cansel_choose_time_btn.style.display = "none";
+
 let now_time = new Time();
 choose_time_label.textContent = now_time.get_now_time();
 
@@ -159,6 +165,7 @@ choose_time_btn.addEventListener("click", () => {
     time_slider.style.display = "inline-block";
     choose_time_label.style.display = "inline-block";
     checkout_btn.style.display = "inline-block";
+    cansel_choose_time_btn.style.display = "inline-block";
 
     time_slider.addEventListener("input", () => {
         now_time.reset_time();
@@ -168,6 +175,15 @@ choose_time_btn.addEventListener("click", () => {
     });
 
 });
+
+cansel_choose_time_btn.addEventListener("click", () => {
+    time_slider.style.display = "none";
+    choose_time_label.style.display = "none";
+    cansel_choose_time_btn.style.display = "none";
+    checkout_btn.style.display = "none";
+    choose_time_btn.style.display = "inline-block";
+
+})
 
 
 for (let i = 1; i < catalog.size + 1; ++i) {
