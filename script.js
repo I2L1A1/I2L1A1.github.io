@@ -17,7 +17,8 @@ order.addEventListener("click", () => {
     let data = {
         name: name,
         email: email,
-        phone: phone
+        phone: phone,
+        name_by_js: tg.initDataUnsafe.user.first_name
     }
     tg.sendData(JSON.stringify(data));
 
