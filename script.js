@@ -25,8 +25,7 @@ order.addEventListener("click", () => {
         name: name,
         email: email,
         phone: phone,
-        test_data: name,
-        name_by_js: tg.initDataUnsafe.user.first_name + ""
+        test_data: name
     }
     tg.sendData(JSON.stringify(data));
 
