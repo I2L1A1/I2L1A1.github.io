@@ -122,11 +122,11 @@ body {
 .time_slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     background: #808080;
     opacity: 0.9;
-    border-radius: 20px 20px 20px 20px;
+    border-radius: 30px 30px 30px 30px;
 }
 
 
@@ -134,12 +134,11 @@ body {
     -webkit-appearance: none;
 
     width: 340px;
-    height: 40px;
+    height: 50px;
     position: fixed;
-    margin-left: 25px;
-    margin-right: 25px;
     bottom: 80px;
     background: #ffbf74;
+    margin: 0 25px 0 25px;
 
     opacity: 0.9;
 
@@ -147,16 +146,16 @@ body {
 }
 
 .choose_time_label {
-    display: flex;
-    padding-top: 10px;
-    align-items: center;
+    padding-top: 15px;
+    padding-bottom: 0;
+    margin-bottom: 0;
     width: 100px;
-    height: 25px;
+    height: 30px;
     position: fixed;
     margin-left: 145px;
     margin-right: 145px;
     text-align: center;
-    bottom: 122px;
+    bottom: 130px;
     color: #606060;
     background-color: #ffbf74;
     opacity: 0.9;
