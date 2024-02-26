@@ -18,7 +18,7 @@ body {
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-    height: 190px;
+    height: 220px;
 }
 
 .img {
@@ -28,7 +28,7 @@ body {
 .add_remove_figure {
     border-radius: 20px;
     width: 110px;
-    height: 38px;
+    height: 44px;
     display: flex;
     align-items: center;
     background-color: #ffdaae;
@@ -42,11 +42,11 @@ body {
     border: none;
     border-radius: 20px;
     width: 200px;
-    height: 38px;
+    height: 44px;
     color: #2d2d2d;
     background-color: #ffdaae;
     transition: background-color 0.1s linear;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .btn_add:hover, .btn_plus:hover, .btn_minus:hover {
@@ -57,24 +57,24 @@ body {
     border: none;
     margin-left: 7px;
     border-radius: 3px 20px 20px 3px;
-    width: 38px;
-    height: 38px;
+    width: 44px;
+    height: 44px;
     color: #2d2d2d;
     background-color: #ffdaae;
     transition: background-color 0.1s linear;
-    font-size: 16px;
+    font-size: 20px;
 }
 
 .btn_minus {
     border: none;
     margin-right: 7px;
     border-radius: 20px 3px 3px 20px;
-    width: 38px;
-    height: 38px;
+    width: 44px;
+    height: 44px;
     color: #2d2d2d;
     background-color: #ffdaae;
     transition: background-color 0.1s linear;
-    font-size: 16px;
+    font-size: 20px;
 }
 
 
@@ -92,19 +92,19 @@ body {
 }
 
 .order_item_label {
-    width: 24px;
-    font-size: 16px;
+    width: 22px;
+    font-size: 20px;
     font-family: 'Open Sans', sans-serif;
 }
 
 .choose_time_btn, .checkout_btn {
     width: 390px;
-    height: 40px;
+    height: 50px;
     position: fixed;
     bottom: 0;
 
     border: none;
-    border-radius: 15px 15px 0 0;
+    /*border-radius: 15px 15px 0 0;*/
     color: #2d2d2d;
     background-color: #ffbf74;
     transition: background-color 0.1s linear;
@@ -121,8 +121,8 @@ body {
 .time_slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     background: gray;
     opacity: 0.9;
     border-radius: 20px 20px 20px 20px;
@@ -133,7 +133,7 @@ body {
     -webkit-appearance: none;
 
     width: 300px;
-    height: 30px;
+    height: 40px;
     position: fixed;
     margin-left: 45px;
     margin-right: 45px;
@@ -149,9 +149,9 @@ body {
     width: 120px;
     height: auto;
     position: fixed;
-    margin-left: 138px;
-    margin-right: 138px;
-    bottom: 115px;
+    margin-left: 144px;
+    margin-right: 144px;
+    bottom: 130px;
     color: black;
 
     text-align: center;
