@@ -114,7 +114,7 @@ body {
 }
 
 
-.choose_time_btn:hover, .checkout_btn:hover {
+.choose_time_btn:hover, .checkout_btn:hover, .cansel_choose_time_btn:hover {
     background: #ffd099;
 }
 
@@ -132,12 +132,12 @@ body {
 .time_slider {
     -webkit-appearance: none;
 
-    width: 340px;
+    width: 310px;
     height: 50px;
     position: fixed;
     bottom: 80px;
     background: #ffbf74;
-    margin: 0 25px 0 25px;
+    margin-left: 70px;
     padding: 0 0 0 0;
 
     opacity: 0.9;
@@ -151,8 +151,7 @@ body {
     width: 100px;
     height: 30px;
     position: fixed;
-    margin-left: 145px;
-    margin-right: 145px;
+    margin-left: 175px;
     text-align: center;
     bottom: 130px;
     color: #2d2d2d;
@@ -162,4 +161,19 @@ body {
 
     font-family: 'Open Sans', sans-serif;
     font-size: 18px;
+}
+
+.cansel_choose_time_btn {
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    bottom: 80px;
+    border: none;
+    background: #ffbf74;
+    margin-left: 10px;
+    font-size: 25px;
+
+    opacity: 0.9;
+
+    border-radius: 30px 30px 30px 30px;
 }
