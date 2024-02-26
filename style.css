@@ -105,7 +105,6 @@ body {
     bottom: 0;
 
     border: none;
-    /*border-radius: 15px 15px 0 0;*/
     color: #2d2d2d;
     background-color: #ffbf74;
     transition: background-color 0.1s linear;
@@ -155,8 +154,8 @@ body {
     margin-left: 145px;
     margin-right: 145px;
     text-align: center;
-    bottom: 129px;
-    color: #606060;
+    bottom: 130px;
+    color: #2d2d2d;
     background-color: #ffbf74;
     opacity: 0.9;
     border-radius: 25px 25px 0 0;
