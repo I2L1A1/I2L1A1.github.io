@@ -170,6 +170,7 @@ choose_time_btn.addEventListener("click", () => {
     let back_btn = tg.BackButton;
     back_btn.show();
     back_btn.onClick(() => {
+        document.getElementById("shopping_cart").style.display = "none";
         document.getElementById("items").style.display = "grid";
         back_btn.hide();
     });
