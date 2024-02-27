@@ -9,6 +9,10 @@ body {
     width: 390px;
 }
 
+.shopping_cart {
+    width: 390px;
+}
+
 .items {
     display: grid;
     grid-template-columns: 1fr 1fr;
