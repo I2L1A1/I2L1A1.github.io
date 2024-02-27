@@ -164,13 +164,8 @@ checkout_btn.addEventListener("click", () => {
 
 choose_time_btn.addEventListener("click", () => {
     document.getElementById("items").style.display = "none";
-    document.getElementById("shopping_cart").style.display = "inline-block";
+    document.getElementById("shopping_cart").style.display = "grid";
     document.getElementById("shopping_cart").style.backgroundColor = "red";
-    let back_btn = tg.BackButton.show();
-    back_btn.onClick(() => {
-        back_btn.hide();
-        document.getElementById("items").style.display = "inline-block";
-    });
 
     // choose_time_btn.style.display = "none";
     // time_slider.style.display = "inline-block";
