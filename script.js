@@ -74,6 +74,8 @@ class Time {
 
 catalog = new Catalog();
 
+document.getElementById("shopping_cart").style.display = "none";
+
 catalog.addItem("Dish1.png", "Пельмени сибирские", "100");
 catalog.addItem("Dish1.png", "Окрошка настоящая", "200");
 catalog.addItem("Dish1.png", "Щи старорусские с яблоками и сосметаной", "150");
@@ -161,11 +163,20 @@ checkout_btn.addEventListener("click", () => {
 });
 
 choose_time_btn.addEventListener("click", () => {
-    choose_time_btn.style.display = "none";
-    time_slider.style.display = "inline-block";
-    choose_time_label.style.display = "inline-block";
-    checkout_btn.style.display = "inline-block";
-    cansel_choose_time_btn.style.display = "inline-block";
+    document.getElementById("items").style.display = "none";
+    document.getElementById("shopping_cart").style.display = "inline-block";
+    document.getElementById("shopping_cart").style.backgroundColor = "red";
+    let back_btn = tg.BackButton.show();
+    back_btn.onClick(() => {
+        back_btn.hide();
+        document.getElementById("items").style.display = "inline-block";
+    });
+
+    // choose_time_btn.style.display = "none";
+    // time_slider.style.display = "inline-block";
+    // choose_time_label.style.display = "inline-block";
+    // checkout_btn.style.display = "inline-block";
+    // cansel_choose_time_btn.style.display = "inline-block";
 
     time_slider.addEventListener("input", () => {
         now_time.reset_time();
