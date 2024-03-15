@@ -111,8 +111,16 @@ body {
     vertical-align: middle;
 }
 
-.btn_add:hover, .btn_plus:hover, .btn_minus:hover {
-    background: #ffe4c4;
+@media (hover: hover) {
+    .btn_add:hover, .btn_plus:hover, .btn_minus:hover {
+        background-color: #ffe4c4;
+    }
+}
+
+@media (hover: none) {
+    .btn_add:active, .btn_plus:active, .btn_minus:active {
+        background-color: #ffe4c4;
+    }
 }
 
 .order_item_label {
