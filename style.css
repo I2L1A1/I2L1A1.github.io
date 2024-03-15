@@ -1,8 +1,17 @@
+@font-face {
+    font-family: 'Furore';
+    src: local('Furore'), url('Furore/furore.woff2') format('woff2'), url('Furore/furore.woff') format('woff'), url('Furore/furore.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+
 body {
     margin: 0;
     background-color: white;
     width: 100%;
-    font-family: "Oswald", sans-serif;
+    /*font-family: "Oswald", sans-serif;*/
+    font-family: "Furore", sans-serif;
     font-weight: 200;
 }
 

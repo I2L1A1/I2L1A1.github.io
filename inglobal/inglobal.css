@@ -1,0 +1,24 @@
+@font-face {
+    font-family: 'Inglobal';
+    src: local('inglobal'), url('inglobal.woff2') format('woff2'), url('inglobal.woff') format('woff'), url('inglobal.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Inglobal';
+    src: local('inglobal Italic'), local('inglobal-Italic'), url('inglobalitalic.woff2') format('woff2'), url('inglobalitalic.woff') format('woff'), url('inglobalitalic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Inglobal';
+    src: local('inglobal Bold'), local('inglobal-Bold'), url('inglobalbold.woff2') format('woff2'), url('inglobalbold.woff') format('woff'), url('inglobalbold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Inglobal';
+    src: local('inglobal Bold Italic'), local('inglobal-BoldItalic'), url('inglobalbolditalic.woff2') format('woff2'), url('inglobalbolditalic.woff') format('woff'), url('inglobalbolditalic.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+}
