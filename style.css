@@ -45,7 +45,7 @@ body {
 
 .add_remove_figure {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 80%;
     height: 2em;
     margin-left: auto;
@@ -88,6 +88,8 @@ border: none;
     border-radius: 20px;
     color: #2d2d2d;
     font-size: 20px;
+    text-align: center;
+    vertical-align: middle;
 }
 
 .btn_plus {
@@ -98,6 +100,8 @@ border: none;
     border-radius: 20px;
     color: #2d2d2d;
     font-size: 20px;
+    text-align: center;
+    vertical-align: middle;
 }
 
 .btn_add:hover, .btn_plus:hover, .btn_minus:hover {
