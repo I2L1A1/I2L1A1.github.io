@@ -1,18 +1,16 @@
 @font-face {
-    font-family: 'Furore';
-    src: url('furore/furore.woff2') format('woff2'), url('furore/furore.woff') format('woff'), url('furore/furore.ttf') format('truetype');
+    font-family: 'VDS';
+    src: local('VDS'), url('vds/vds.woff2') format('woff2'), url('vds/vds.woff') format('woff'), url('vds/vds.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
 }
-
 
 body {
     margin: 0;
     background-color: white;
     width: 100%;
-    /*font-family: "Oswald", sans-serif;*/
-    font-family: "Furore", sans-serif;
-    font-weight: 200;
+    font-family: "VDS", sans-serif;
+    /*font-family: "Airport", sans-serif;*/
 }
 
 .container {
@@ -77,6 +75,8 @@ body {
     transition: background-color 0.1s linear;
     font-size: 16px;
     background-color: #ffdaae;
+    font-family: "VDS", sans-serif;
+
 }
 
 .btn_minus {
@@ -125,4 +125,6 @@ body {
     grid-column-start: 1;
     grid-column-end: 3;
     width: 100%;
+    font-family: "VDS", sans-serif;
+
 }
