@@ -43,7 +43,7 @@ body {
 }
 
 .add_remove_figure {
-    width: 70%;
+    width: 80%;
     height: 2em;
     margin-left: auto;
     margin-right: auto;
@@ -72,4 +72,3 @@ body {
     grid-column-end: 3;
     width: 100%;
 }
-
