@@ -25,7 +25,7 @@ body {
 
 .item {
     display: grid;
-    grid-template-rows: 80px 50px 50px 50px;
+    grid-template-rows: 80px 60px 20px 50px;
     border: 1px solid #ddd;
     border-radius: 40px;
     margin-bottom: 15px;
@@ -50,7 +50,7 @@ body {
 
 .item_name {
     display: inline-block;
-    margin: auto 3%;
+    margin: auto 5%;
     text-align: center;
     width: auto;
 }
