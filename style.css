@@ -1,11 +1,12 @@
 body {
     margin: 0;
     background-color: white;
+    width: 100%;
 }
 
 .container {
     margin: 0;
-    width: auto;
+    width: 100%;
 }
 
 .items {
@@ -43,6 +44,8 @@ body {
 }
 
 .add_remove_figure {
+    display: flex;
+    justify-content: space-around;
     width: 80%;
     height: 2em;
     margin-left: auto;
@@ -64,6 +67,54 @@ body {
     font-size: 16px;
     background-color: #ffdaae;
 }
+
+/*
+border: none;
+    margin-right: 7px;
+    border-radius: 20px 3px 3px 20px;
+    width: 42px;
+    height: 42px;
+    color: #2d2d2d;
+    background-color: #ffdaae;
+    transition: background-color 0.1s linear;
+    font-size: 20px;
+*/
+
+.btn_minus {
+    background-color: #ffdaae;
+    height: 100%;
+    width: 35%;
+    border: 0;
+    border-radius: 20px;
+    color: #2d2d2d;
+    font-size: 20px;
+}
+
+.btn_plus {
+    background-color: #ffdaae;
+    height: 100%;
+    width: 35%;
+    border: 0;
+    border-radius: 20px;
+    color: #2d2d2d;
+    font-size: 20px;
+}
+
+.btn_add:hover, .btn_plus:hover, .btn_minus:hover {
+    background: #ffe4c4;
+}
+
+.order_item_label {
+    width: 30%;
+    height: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    border: 0;
+    text-align: center;
+    color: #2d2d2d;
+    font-size: 20px;
+}
+
 
 .choose_time_btn {
     position: fixed;
