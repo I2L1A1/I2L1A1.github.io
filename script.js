@@ -78,9 +78,9 @@ document.getElementById("shopping_cart").style.display = "none";
 
 catalog.addItem("Dish1.png", "Пельмени сибирские", "100");
 catalog.addItem("Dish1.png", "Окрошка настоящая", "200");
-catalog.addItem("Dish1.png", "Щи старорусские с яблоками и сосметаной", "150");
+catalog.addItem("Dish1.png", "Щи старорусские с яблоками", "150");
 catalog.addItem("Dish1.png", "Утиная грудка с грушей томлёной", "290");
-catalog.addItem("Dish1.png", "Биточки из медведя с яблочной полбой", "175");
+catalog.addItem("Dish1.png", "Биточки из медведя", "175");
 catalog.addItem("Dish1.png", "Бифстекс из кабана", "45");
 catalog.addItem("Dish1.png", "Жаренина изкартофеля", "444");
 catalog.addItem("Dish1.png", "Нежное сливочное мороженое", "67");
