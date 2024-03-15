@@ -16,7 +16,10 @@ body {
 .item {
     display: grid;
     grid-template-rows: 100px 50px 50px 50px;
-    border: 1px solid black;
+    border: 1px solid #ddd;
+    border-radius: 40px;
+    margin: 15px;
+    box-shadow: 5px 5px 10px #ddd;
 }
 
 .img {
