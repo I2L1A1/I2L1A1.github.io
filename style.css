@@ -2,6 +2,8 @@ body {
     margin: 0;
     background-color: white;
     width: 100%;
+    font-family: "Oswald", sans-serif;
+    font-weight: 200;
 }
 
 .container {
@@ -67,18 +69,6 @@ body {
     font-size: 16px;
     background-color: #ffdaae;
 }
-
-/*
-border: none;
-    margin-right: 7px;
-    border-radius: 20px 3px 3px 20px;
-    width: 42px;
-    height: 42px;
-    color: #2d2d2d;
-    background-color: #ffdaae;
-    transition: background-color 0.1s linear;
-    font-size: 20px;
-*/
 
 .btn_minus {
     background-color: #ffdaae;
