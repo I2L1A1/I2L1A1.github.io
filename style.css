@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Furore';
-    src: local('Furore'), url('Furore/furore.woff2') format('woff2'), url('Furore/furore.woff') format('woff'), url('Furore/furore.ttf') format('truetype');
+    src: url('furore/furore.woff2') format('woff2'), url('furore/furore.woff') format('woff'), url('furore/furore.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
 }
