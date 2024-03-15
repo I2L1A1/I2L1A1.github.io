@@ -5,12 +5,25 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Cyntho Pro';
+    src: local('CynthoPro-Italic'), url('cynthopro/Cynthopro-italic.woff2') format('woff2'), url('cynthopro/Cynthopro-italic.woff') format('woff'), url('cynthopro/Cynthopro-italic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Cyntho Pro';
+    src: local('CynthoPro-Regular'), url('cynthopro/Cynthopro-regular.woff2') format('woff2'), url('cynthopro/Cynthopro-regular.woff') format('woff'), url('cynthopro/Cynthopro-regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+
 body {
     margin: 0;
     background-color: white;
     width: 100%;
-    font-family: "VDS", sans-serif;
-    /*font-family: "Airport", sans-serif;*/
+    font-family: "Cyntho Pro", sans-serif;
 }
 
 .container {
@@ -40,9 +53,9 @@ body {
 
 .item_name {
     display: inline-block;
-    margin: auto;
+    margin: auto 5%;
     text-align: center;
-    width: 100%;
+    width: auto;
 }
 
 .item_cost {
@@ -75,8 +88,7 @@ body {
     transition: background-color 0.1s linear;
     font-size: 16px;
     background-color: #ffdaae;
-    font-family: "VDS", sans-serif;
-
+    font-family: "Cyntho Pro", sans-serif;
 }
 
 .btn_minus {
@@ -125,6 +137,5 @@ body {
     grid-column-start: 1;
     grid-column-end: 3;
     width: 100%;
-    font-family: "VDS", sans-serif;
-
+    font-family: "Cyntho Pro", sans-serif;
 }
