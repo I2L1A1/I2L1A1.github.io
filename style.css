@@ -1,11 +1,5 @@
 @font-face {
     font-family: 'Cyntho Pro';
-    src: local('CynthoPro-Italic'), url('cynthopro/Cynthopro-italic.woff2') format('woff2'), url('cynthopro/Cynthopro-italic.woff') format('woff'), url('cynthopro/Cynthopro-italic.ttf') format('truetype');
-    font-weight: 400;
-    font-style: italic;
-}
-@font-face {
-    font-family: 'Cyntho Pro';
     src: local('CynthoPro-Regular'), url('cynthopro/Cynthopro-regular.woff2') format('woff2'), url('cynthopro/Cynthopro-regular.woff') format('woff'), url('cynthopro/Cynthopro-regular.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
@@ -15,6 +9,7 @@ body {
     margin: 0;
     background-color: white;
     width: 100%;
+    font-size: 14px;
     font-family: "Cyntho Pro", sans-serif;
 }
 
@@ -30,7 +25,7 @@ body {
 
 .item {
     display: grid;
-    grid-template-rows: 100px 50px 50px 50px;
+    grid-template-rows: 80px 50px 50px 50px;
     border: 1px solid #ddd;
     border-radius: 40px;
     margin-bottom: 15px;
@@ -55,7 +50,7 @@ body {
 
 .item_name {
     display: inline-block;
-    margin: auto 5%;
+    margin: auto 10%;
     text-align: center;
     width: auto;
 }
@@ -64,6 +59,7 @@ body {
     display: inline-block;
     margin: auto;
     text-align: center;
+    font-size: 1.2em;
     width: 100%;
 }
 
@@ -72,9 +68,7 @@ body {
     justify-content: space-between;
     width: 80%;
     height: 2em;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 0;
+    margin: auto;
     border-radius: 20px;
     border: none;
     color: #2d2d2d;
@@ -88,7 +82,7 @@ body {
     border: none;
     color: #2d2d2d;
     transition: background-color 0.1s linear;
-    font-size: 16px;
+    font-size: 1em;
     background-color: #ffdaae;
     font-family: "Cyntho Pro", sans-serif;
 }
@@ -131,7 +125,6 @@ body {
     color: #2d2d2d;
     font-size: 20px;
 }
-
 
 .choose_time_btn {
     position: fixed;
