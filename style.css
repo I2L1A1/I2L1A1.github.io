@@ -25,6 +25,7 @@ body {
 .img {
     display: inline-block;
     margin: auto;
+    scale: 80%;
 }
 
 .item_name {
@@ -42,26 +43,26 @@ body {
 }
 
 .add_remove_figure {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    width: 100%;
-    height: 100%;
-    vertical-align: middle;
-}
-
-.btn_add {
-    width: auto;
+    width: 70%;
     height: 2em;
-    padding-right: 10%;
-    padding-left: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
     border-radius: 20px;
     border: none;
     color: #2d2d2d;
     background-color: #ffdaae;
+}
+
+.btn_add {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    border: none;
+    color: #2d2d2d;
     transition: background-color 0.1s linear;
     font-size: 16px;
+    background-color: #ffdaae;
 }
 
 .choose_time_btn {
