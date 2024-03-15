@@ -116,14 +116,15 @@ body {
 }
 
 .order_item_label {
+    font-size: 1.2em;
     padding: 0;
     width: 30%;
     height: auto;
-    margin-top: 5%;
+    margin-top: auto;
+    margin-bottom: auto;
     border: 0;
     text-align: center;
     color: #2d2d2d;
-    font-size: 1.2em;
     vertical-align: middle;
 }
 
