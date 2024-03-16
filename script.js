@@ -5,7 +5,7 @@ class ItemFromCatalog {
     constructor(item_img, item_name, item_cost) {
         this.item_img = item_img;
         this.item_name = item_name;
-        this.item_cost = item_cost + " ₽";
+        this.item_cost = item_cost;
     }
 }
 
@@ -105,7 +105,7 @@ for (let i = 1; i < catalog.size + 1; ++i) {
 
     graphicCatalogItems[i].item_cost = document.createElement("div");
     graphicCatalogItems[i].item_cost.className = "item_cost";
-    graphicCatalogItems[i].item_cost.textContent = catalog.Items[i].item_cost;
+    graphicCatalogItems[i].item_cost.textContent = catalog.Items[i].item_cost + " ₽";
 
     graphicCatalogItems[i].item_btn = document.createElement("button");
     graphicCatalogItems[i].item_btn.className = "btn_add";
@@ -202,7 +202,7 @@ for (let i = 1; i < catalog.size + 1; ++i) {
     graphicCatalogItems[i].item_btn.addEventListener("click", () => {
         order.user_order.set(i, 1);
 
-        order.order_cost += parseInt(catalog.Items[i].item_cost);
+        order.order_cost += +catalog.Items[i].item_cost;
 
         graphicCatalogItems[i].item_btn.style.display = "none";
 
@@ -225,7 +225,7 @@ for (let i = 1; i < catalog.size + 1; ++i) {
         graphicCatalogItems[i].plus_btn.addEventListener("click", () => {
             let new_number = order.user_order.get(i) + 1;
             order.user_order.set(i, new_number);
-            order.order_cost += parseInt(catalog.Items[i].item_cost);
+            order.order_cost += +catalog.Items[i].item_cost;
             graphicCatalogItemCounter[i].textContent = new_number;
         });
 
@@ -243,7 +243,7 @@ for (let i = 1; i < catalog.size + 1; ++i) {
                 graphicCatalogItemCounter[i].style.display = "none";
                 graphicCatalogItemCounter[i].textContent = "0";
             }
-            order.order_cost -= parseInt(catalog.Items[i].item_cost);
+            order.order_cost -= +catalog.Items[i].item_cost;
         });
     })
 }
