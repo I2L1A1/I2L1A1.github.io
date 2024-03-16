@@ -20,19 +20,18 @@ class Catalog {
 }
 
 class Order {
-    order_items = new Array(catalog.size + 1).fill(document.createElement("label"));
+    user_order = new Map();
 
     order_cost = 0;
 
     generate_data_for_send() {
-        let answer_string = "";
-        for (let i = 1; i < this.order_items.length; ++i) {
-            answer_string += `item_id=${i}, item_counter=${this.order_items[i].textContent}`
-            answer_string += ", "
+        let answer_string = "Ваш заказ:\n";
+        let item_counter = 1;
+        for (let key of order.user_order.keys()) {
+            answer_string += `${item_counter++}) ${catalog.Items[key].item_name} (${order.user_order.get(key)} шт.) – ${catalog.Items[key].item_cost}\n`;
         }
-        answer_string += `order_cost=${this.order_cost}, `;
-        answer_string += `order_time=${now_time.get_time()}`
-        return answer_string;
+        console.log(answer_string);
+        return answer_string
     }
 }
 
@@ -88,6 +87,7 @@ catalog.addItem("Dish1.png", "Нежное сливочное мороженое
 order = new Order();
 
 let graphicCatalogItems = new Array(catalog.size + 1);
+let graphicCatalogItemCounter = new Array(catalog.size + 1).fill(document.createElement("label"));
 
 for (let i = 1; i < catalog.size + 1; ++i) {
     graphicCatalogItems[i] = document.createElement("div");
@@ -158,7 +158,6 @@ checkout_btn.textContent = "Заказать к " + now_time.get_time();
 checkout_btn.style.display = "none";
 
 checkout_btn.addEventListener("click", () => {
-    console.log(order.generate_data_for_send());
     tg.sendData(order.generate_data_for_send());
 });
 
@@ -186,7 +185,6 @@ choose_time_btn.addEventListener("click", () => {
         choose_time_label.textContent = now_time.get_time();
         checkout_btn.textContent = "Заказать к " + now_time.get_time();
     });
-
 });
 
 cansel_choose_time_btn.addEventListener("click", () => {
@@ -201,6 +199,8 @@ cansel_choose_time_btn.addEventListener("click", () => {
 
 for (let i = 1; i < catalog.size + 1; ++i) {
     graphicCatalogItems[i].item_btn.addEventListener("click", () => {
+        order.user_order.set(i, 1);
+
         order.order_cost += parseInt(graphicCatalogItems[i].item_cost.textContent);
 
         graphicCatalogItems[i].item_btn.style.display = "none";
@@ -209,42 +209,40 @@ for (let i = 1; i < catalog.size + 1; ++i) {
         graphicCatalogItems[i].minus_btn.textContent = "-";
         graphicCatalogItems[i].minus_btn.className = "btn_minus"
 
-        order.order_items[i] = document.createElement("label");
-        order.order_items[i].textContent = "1";
-        order.order_items[i].className = "order_item_label";
+        graphicCatalogItemCounter[i] = document.createElement("label");
+        graphicCatalogItemCounter[i].textContent = order.user_order.get(i);
+        graphicCatalogItemCounter[i].className = "order_item_label";
 
         graphicCatalogItems[i].plus_btn = document.createElement("button");
         graphicCatalogItems[i].plus_btn.textContent = "+";
         graphicCatalogItems[i].plus_btn.className = "btn_plus"
 
         graphicCatalogItems[i].add_remove_figures.appendChild(graphicCatalogItems[i].minus_btn);
-        graphicCatalogItems[i].add_remove_figures.appendChild(order.order_items[i]);
+        graphicCatalogItems[i].add_remove_figures.appendChild(graphicCatalogItemCounter[i]);
         graphicCatalogItems[i].add_remove_figures.appendChild(graphicCatalogItems[i].plus_btn);
 
         graphicCatalogItems[i].plus_btn.addEventListener("click", () => {
-            let new_number = +(order.order_items[i].textContent);
-            new_number += 1;
+            let new_number = order.user_order.get(i) + 1;
+            order.user_order.set(i, new_number);
             order.order_cost += parseInt(graphicCatalogItems[i].item_cost.textContent);
-            order.order_items[i].textContent = new_number;
-            console.log(order.generate_data_for_send());
+            graphicCatalogItemCounter[i].textContent = new_number;
         });
 
         graphicCatalogItems[i].minus_btn.addEventListener("click", () => {
-            let new_number = +(order.order_items[i].textContent);
+            let new_number = order.user_order.get(i);
             if (new_number >= 2) {
-                new_number -= 1;
-                order.order_items[i].textContent = new_number + "";
+                new_number--;
+                order.user_order.set(i, new_number);
+                graphicCatalogItemCounter[i].textContent = new_number;
             } else {
+                order.user_order.delete(i);
                 graphicCatalogItems[i].item_btn.style.display = "inline-block";
                 graphicCatalogItems[i].minus_btn.style.display = "none";
                 graphicCatalogItems[i].plus_btn.style.display = "none";
-                order.order_items[i].style.display = "none";
-                order.order_items[i].textContent = "0";
+                graphicCatalogItemCounter[i].style.display = "none";
+                graphicCatalogItemCounter[i].textContent = "0";
             }
             order.order_cost -= parseInt(graphicCatalogItems[i].item_cost.textContent);
-            console.log(order.generate_data_for_send());
         });
-
-        console.log(order.generate_data_for_send());
     })
 }
