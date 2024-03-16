@@ -30,6 +30,7 @@ class Order {
         for (let key of order.user_order.keys()) {
             answer_string += `${item_counter++}) ${catalog.Items[key].item_name} (${order.user_order.get(key)} шт.) – ${catalog.Items[key].item_cost}\n`;
         }
+        answer_string += `\nСумма заказа: ${order.order_cost}`;
         console.log(answer_string);
         return answer_string
     }
@@ -201,7 +202,7 @@ for (let i = 1; i < catalog.size + 1; ++i) {
     graphicCatalogItems[i].item_btn.addEventListener("click", () => {
         order.user_order.set(i, 1);
 
-        order.order_cost += parseInt(graphicCatalogItems[i].item_cost.textContent);
+        order.order_cost += parseInt(catalog.Items[i].item_cost);
 
         graphicCatalogItems[i].item_btn.style.display = "none";
 
@@ -224,7 +225,7 @@ for (let i = 1; i < catalog.size + 1; ++i) {
         graphicCatalogItems[i].plus_btn.addEventListener("click", () => {
             let new_number = order.user_order.get(i) + 1;
             order.user_order.set(i, new_number);
-            order.order_cost += parseInt(graphicCatalogItems[i].item_cost.textContent);
+            order.order_cost += parseInt(catalog.Items[i].item_cost);
             graphicCatalogItemCounter[i].textContent = new_number;
         });
 
@@ -242,7 +243,7 @@ for (let i = 1; i < catalog.size + 1; ++i) {
                 graphicCatalogItemCounter[i].style.display = "none";
                 graphicCatalogItemCounter[i].textContent = "0";
             }
-            order.order_cost -= parseInt(graphicCatalogItems[i].item_cost.textContent);
+            order.order_cost -= parseInt(catalog.Items[i].item_cost);
         });
     })
 }
