@@ -74,7 +74,7 @@ class Time {
 
 catalog = new Catalog();
 
-document.getElementById("shopping_cart").style.display = "none";
+document.getElementById("shopping_cart").classList.add("hidden");
 
 catalog.addItem("Dish1.png", "Пельмени сибирские", "100");
 catalog.addItem("Dish1.png", "Окрошка настоящая", "200");
@@ -124,6 +124,7 @@ for (let i = 1; i < catalog.size + 1; ++i) {
 
 let choose_time_btn = document.createElement("button");
 choose_time_btn.className = "choose_time_btn";
+choose_time_btn.classList.add("hidden");
 document.getElementById("items").appendChild(choose_time_btn);
 choose_time_btn.textContent = "Посмотреть заказ";
 
@@ -135,19 +136,19 @@ time_slider.max = "60";
 time_slider.value = "0";
 time_slider.className = "time_slider";
 document.getElementById("shopping_cart").appendChild(time_slider);
-time_slider.style.display = "none";
+time_slider.classList.add("hidden");
 
 
 let choose_time_label = document.createElement("label");
 choose_time_label.className = "choose_time_label";
 document.getElementById("shopping_cart").appendChild(choose_time_label);
-choose_time_label.style.display = "none";
+choose_time_label.classList.add("hidden");
 
 let cansel_choose_time_btn = document.createElement("button");
 cansel_choose_time_btn.className = "cansel_choose_time_btn";
 document.getElementById("shopping_cart").appendChild(cansel_choose_time_btn);
 cansel_choose_time_btn.textContent = "×";
-cansel_choose_time_btn.style.display = "none";
+cansel_choose_time_btn.classList.add("hidden");
 
 let now_time = new Time();
 choose_time_label.textContent = now_time.get_now_time();
@@ -156,29 +157,33 @@ let checkout_btn = document.createElement("button");
 checkout_btn.className = "checkout_btn";
 document.getElementById("shopping_cart").appendChild(checkout_btn);
 checkout_btn.textContent = "Заказать к " + now_time.get_time();
-checkout_btn.style.display = "none";
+checkout_btn.classList.add("hidden");
 
 checkout_btn.addEventListener("click", () => {
     tg.sendData(order.generate_data_for_send());
 });
 
 choose_time_btn.addEventListener("click", () => {
-    document.getElementById("items").style.display = "none";
-    document.getElementById("shopping_cart").style.display = "inline-block";
-    document.getElementById("shopping_cart").style.backgroundColor = "red";
+    document.getElementById("items").classList.add("hidden");
+    document.getElementById("items").classList.remove("items");
+    choose_time_btn.classList.add("hidden");
+    document.getElementById("shopping_cart").classList.remove("hidden");
 
     let back_btn = tg.BackButton;
     back_btn.show();
     back_btn.onClick(() => {
-        document.getElementById("shopping_cart").style.display = "none";
-        document.getElementById("items").style.display = "grid";
+        document.getElementById("shopping_cart").classList.add("hidden");
+        document.getElementById("items").classList.remove("hidden");
+        document.getElementById("items").classList.add("items");
+        choose_time_btn.classList.remove("hidden");
         back_btn.hide();
     });
 
-    time_slider.style.display = "inline-block";
-    choose_time_label.style.display = "inline-block";
-    checkout_btn.style.display = "inline-block";
-    cansel_choose_time_btn.style.display = "inline-block";
+
+    time_slider.classList.remove("hidden");
+    choose_time_label.classList.remove("hidden");
+    checkout_btn.classList.remove("hidden");
+    cansel_choose_time_btn.classList.remove("hidden");
 
     time_slider.addEventListener("input", () => {
         now_time.reset_time();
@@ -189,22 +194,22 @@ choose_time_btn.addEventListener("click", () => {
 });
 
 cansel_choose_time_btn.addEventListener("click", () => {
-    time_slider.style.display = "none";
-    choose_time_label.style.display = "none";
-    cansel_choose_time_btn.style.display = "none";
-    checkout_btn.style.display = "none";
-    choose_time_btn.style.display = "inline-block";
-
+    time_slider.classList.add("hidden");
+    choose_time_label.classList.add("hidden");
+    cansel_choose_time_btn.classList.add("hidden");
+    checkout_btn.classList.add("hidden");
+    choose_time_btn.classList.remove("hidden");
 })
 
 
 for (let i = 1; i < catalog.size + 1; ++i) {
     graphicCatalogItems[i].item_btn.addEventListener("click", () => {
         order.user_order.set(i, 1);
+        choose_time_btn.classList.remove("hidden");
 
         order.order_cost += +catalog.Items[i].item_cost;
 
-        graphicCatalogItems[i].item_btn.style.display = "none";
+        graphicCatalogItems[i].item_btn.classList.add("hidden");
 
         graphicCatalogItems[i].minus_btn = document.createElement("button");
         graphicCatalogItems[i].minus_btn.textContent = "-";
@@ -237,10 +242,13 @@ for (let i = 1; i < catalog.size + 1; ++i) {
                 graphicCatalogItemCounter[i].textContent = new_number;
             } else {
                 order.user_order.delete(i);
-                graphicCatalogItems[i].item_btn.style.display = "inline-block";
-                graphicCatalogItems[i].minus_btn.style.display = "none";
-                graphicCatalogItems[i].plus_btn.style.display = "none";
-                graphicCatalogItemCounter[i].style.display = "none";
+                if (order.user_order.size === 0) {
+                    choose_time_btn.classList.add("hidden");
+                }
+                graphicCatalogItems[i].item_btn.classList.remove("hidden");
+                graphicCatalogItems[i].minus_btn.classList.add("hidden");
+                graphicCatalogItems[i].plus_btn.classList.add("hidden");
+                graphicCatalogItemCounter[i].classList.add("hidden");
                 graphicCatalogItemCounter[i].textContent = "0";
             }
             order.order_cost -= +catalog.Items[i].item_cost;
