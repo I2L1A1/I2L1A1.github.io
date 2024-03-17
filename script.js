@@ -79,7 +79,7 @@ document.querySelector(".shopping_cart").classList.add("hidden");
 catalog.addItem("Dish1.png", "Пельмени сибирские2", "100");
 catalog.addItem("Dish1.png", "Окрошка настоящая", "200");
 catalog.addItem("Dish1.png", "Щи старорусские с яблоками", "150");
-catalog.addItem("Dish1.png", "Утиная грудка с грушей томлёной", "290");
+catalog.addItem("Dish1.png", "Утиная грудка с грушей томлёной", "290");
 catalog.addItem("Dish1.png", "Биточки из медведя", "175");
 catalog.addItem("Dish1.png", "Бифстекс из кабана", "45");
 catalog.addItem("Dish1.png", "Жаренина изкартофеля", "444");
@@ -168,16 +168,16 @@ checkout_btn.addEventListener("click", () => {
 
 choose_time_btn.addEventListener("click", () => {
     document.querySelector(".items").classList.add("hidden");
-    document.querySelector(".items").classList.remove("items");
     choose_time_btn.classList.add("hidden");
     document.querySelector(".container").classList.remove("bottom_container_margin");
     document.querySelector(".shopping_cart").classList.remove("hidden");
 
     let back_btn = tg.BackButton;
     back_btn.show();
-    back_btn.onClick(() => {
+
+    back_btn.addEventListener("click", () => {
         document.querySelector(".shopping_cart").classList.add("hidden");
-        document.querySelector(".items").classList.remove("hidden");
+        document.getElementById("items").classList.remove("hidden");
         back_btn.hide();
     });
 
