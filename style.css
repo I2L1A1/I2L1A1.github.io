@@ -19,6 +19,7 @@ button {
 
 .container {
     margin: 0;
+    height: 100%;
     width: 100%;
 }
 
@@ -162,6 +163,7 @@ button {
 
 .shopping_cart {
     width: 100%;
+    height: 100%;
     display: grid;
     margin: 0;
     padding: 0;
@@ -175,9 +177,45 @@ button {
     margin-top: 0.5em;
 }
 
-.time_slider {
-    display: none;
+.shopping_cart_items {
+    width: 90%;
+    height: 200px;
+    border: 1px solid #ddd;
+    margin-top: 0.8em;
+    margin-right: 5%;
+    margin-left: 5%;
+    border-radius: 25px;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
+
+.shopping_item {
+    display: grid;
+    width: 90%;
+    height: 50px;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    margin-right: 5%;
+    margin-left: 5%;
+    border-radius: 17px;
+    box-shadow: 5px 5px 10px #ddd;
+}
+
+.shopping_item:last-child {
+    margin-bottom: 10px;
+}
+
+.time_slider {
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
+}
+
+.time_slider_area {
+    background-color: green;
+}
+
+
 
 .hidden {
     display: none;

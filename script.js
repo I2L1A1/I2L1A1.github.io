@@ -129,12 +129,6 @@ document.querySelector(".container").classList.remove("bottom_container_margin")
 document.querySelector(".items").appendChild(choose_time_btn);
 choose_time_btn.textContent = "Посмотреть заказ";
 
-
-let shopping_cart_label = document.createElement("div");
-shopping_cart_label.className = "shopping_cart_label";
-document.querySelector(".shopping_cart").appendChild(shopping_cart_label);
-shopping_cart_label.textContent = "Корзина";
-
 let time_slider = document.createElement("input");
 time_slider.type = "range";
 
@@ -142,7 +136,7 @@ time_slider.min = "0";
 time_slider.max = "60";
 time_slider.value = "0";
 time_slider.className = "time_slider";
-document.querySelector(".shopping_cart").appendChild(time_slider);
+document.querySelector(".time_slider_area").appendChild(time_slider);
 time_slider.classList.add("hidden");
 
 
@@ -177,6 +171,13 @@ choose_time_btn.addEventListener("click", () => {
     choose_time_btn.classList.add("hidden");
     document.querySelector(".container").classList.remove("bottom_container_margin");
     document.querySelector(".shopping_cart").classList.remove("hidden");
+
+    let shopping_cart_items = document.querySelector(".shopping_cart_items");
+    for (let key of order.user_order.keys()) {
+        let shopping_item = document.createElement("div");
+        shopping_cart_items.appendChild(shopping_item);
+        shopping_item.className = "shopping_item";
+    }
 
     let back_btn = tg.BackButton;
     back_btn.show();
