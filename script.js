@@ -129,6 +129,12 @@ document.querySelector(".container").classList.remove("bottom_container_margin")
 document.querySelector(".items").appendChild(choose_time_btn);
 choose_time_btn.textContent = "Посмотреть заказ";
 
+
+let shopping_cart_label = document.createElement("div");
+shopping_cart_label.className = "shopping_cart_label";
+document.querySelector(".shopping_cart").appendChild(shopping_cart_label);
+shopping_cart_label.textContent = "Корзина";
+
 let time_slider = document.createElement("input");
 time_slider.type = "range";
 
@@ -140,21 +146,21 @@ document.querySelector(".shopping_cart").appendChild(time_slider);
 time_slider.classList.add("hidden");
 
 
-let choose_time_label = document.createElement("label");
-choose_time_label.className = "choose_time_label";
-document.querySelector(".shopping_cart").appendChild(choose_time_label);
-choose_time_label.classList.add("hidden");
+// let choose_time_label = document.createElement("label");
+// choose_time_label.className = "choose_time_label";
+// document.querySelector(".shopping_cart").appendChild(choose_time_label);
+// choose_time_label.classList.add("hidden");
 
-let cansel_choose_time_btn = document.createElement("button");
-cansel_choose_time_btn.className = "cansel_choose_time_btn";
-document.querySelector(".shopping_cart").appendChild(cansel_choose_time_btn);
-cansel_choose_time_btn.textContent = "×";
-cansel_choose_time_btn.classList.add("hidden");
-document.querySelector(".container").classList.remove("bottom_container_margin");
+// let cansel_choose_time_btn = document.createElement("button");
+// cansel_choose_time_btn.className = "cansel_choose_time_btn";
+// document.querySelector(".shopping_cart").appendChild(cansel_choose_time_btn);
+// cansel_choose_time_btn.textContent = "×";
+// cansel_choose_time_btn.classList.add("hidden");
+// document.querySelector(".container").classList.remove("bottom_container_margin");
 
 
 let now_time = new Time();
-choose_time_label.textContent = now_time.get_now_time();
+// choose_time_label.textContent = now_time.get_now_time();
 
 let checkout_btn = document.createElement("button");
 checkout_btn.className = "checkout_btn";
@@ -183,28 +189,28 @@ choose_time_btn.addEventListener("click", () => {
     });
 
     time_slider.classList.remove("hidden");
-    choose_time_label.classList.remove("hidden");
+    // choose_time_label.classList.remove("hidden");
     checkout_btn.classList.remove("hidden");
-    cansel_choose_time_btn.classList.remove("hidden");
+    // cansel_choose_time_btn.classList.remove("hidden");
     document.querySelector(".container").classList.add("bottom_container_margin");
 
     time_slider.addEventListener("input", () => {
         now_time.reset_time();
         now_time.add_to_time(time_slider.value);
-        choose_time_label.textContent = now_time.get_time();
+        // choose_time_label.textContent = now_time.get_time();
         checkout_btn.textContent = "Заказать к " + now_time.get_time();
     });
 });
 
-cansel_choose_time_btn.addEventListener("click", () => {
-    time_slider.classList.add("hidden");
-    choose_time_label.classList.add("hidden");
-    cansel_choose_time_btn.classList.add("hidden");
-    document.querySelector(".container").classList.remove("bottom_container_margin");
-    checkout_btn.classList.add("hidden");
-    choose_time_btn.classList.remove("hidden");
-    document.querySelector(".container").classList.add("bottom_container_margin");
-})
+// cansel_choose_time_btn.addEventListener("click", () => {
+//     time_slider.classList.add("hidden");
+//     // choose_time_label.classList.add("hidden");
+//     cansel_choose_time_btn.classList.add("hidden");
+//     document.querySelector(".container").classList.remove("bottom_container_margin");
+//     checkout_btn.classList.add("hidden");
+//     choose_time_btn.classList.remove("hidden");
+//     document.querySelector(".container").classList.add("bottom_container_margin");
+// })
 
 
 for (let i = 1; i < catalog.size + 1; ++i) {

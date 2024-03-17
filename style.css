@@ -17,8 +17,6 @@ button {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-
-
 .container {
     margin: 0;
     width: 100%;
@@ -160,6 +158,25 @@ button {
     background-color: #ffbf74;
     font-size: 1.3em;
     opacity: 0.9;
+}
+
+.shopping_cart {
+    width: 100%;
+    display: grid;
+    margin: 0;
+    padding: 0;
+    top: -100px;
+}
+
+.shopping_cart_label {
+    width: 100%;
+    text-align: center;
+    font-size: 2em;
+    margin-top: 0.5em;
+}
+
+.time_slider {
+    display: none;
 }
 
 .hidden {
