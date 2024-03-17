@@ -178,9 +178,9 @@ choose_time_btn.addEventListener("click", () => {
     back_btn.onClick(() => {
         document.querySelector(".shopping_cart").classList.add("hidden");
         document.getElementById("items").classList.remove("hidden");
+        document.querySelector(".choose_time_btn").classList.remove("hidden");
         back_btn.hide();
     });
-
 
     time_slider.classList.remove("hidden");
     choose_time_label.classList.remove("hidden");
