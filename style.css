@@ -162,12 +162,10 @@ button {
 }
 
 .shopping_cart {
-    width: 100%;
-    height: 100%;
     display: grid;
+    height: 100%;
     margin: 0;
     padding: 0;
-    top: -100px;
 }
 
 .shopping_cart_label {
@@ -178,12 +176,12 @@ button {
 }
 
 .shopping_cart_items {
-    width: 90%;
-    height: 200px;
+    min-height: 100%;
+    max-height: 460px;
     border: 1px solid #ddd;
     margin-top: 0.8em;
-    margin-right: 5%;
-    margin-left: 5%;
+    margin-right: 5px;
+    margin-left: 5px;
     border-radius: 25px;
     overflow-x: hidden;
     overflow-y: scroll;
@@ -191,12 +189,11 @@ button {
 
 .shopping_item {
     display: grid;
-    width: 90%;
-    height: 50px;
+    height: 60px;
     margin-top: 10px;
     border: 1px solid #ddd;
-    margin-right: 5%;
-    margin-left: 5%;
+    margin-right: 10px;
+    margin-left: 10px;
     border-radius: 17px;
     box-shadow: 5px 5px 10px #ddd;
 }
@@ -212,9 +209,9 @@ button {
 }
 
 .time_slider_area {
+    margin-top: 50px;
     background-color: green;
 }
-
 
 
 .hidden {
