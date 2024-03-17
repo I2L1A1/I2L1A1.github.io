@@ -76,7 +76,7 @@ catalog = new Catalog();
 
 document.querySelector(".shopping_cart").classList.add("hidden");
 
-catalog.addItem("Dish1.png", "Пельмени сибирские2", "100");
+catalog.addItem("Dish1.png", "Пельмени сибирские3", "100");
 catalog.addItem("Dish1.png", "Окрошка настоящая", "200");
 catalog.addItem("Dish1.png", "Щи старорусские с яблоками", "150");
 catalog.addItem("Dish1.png", "Утиная грудка с грушей томлёной", "290");
