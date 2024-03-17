@@ -189,9 +189,9 @@ choose_time_btn.addEventListener("click", () => {
         back_btn.hide();
     });
 
-    // time_slider.classList.remove("hidden");
+    time_slider.classList.remove("hidden");
     // choose_time_label.classList.remove("hidden");
-    // checkout_btn.classList.remove("hidden");
+    checkout_btn.classList.remove("hidden");
     // cansel_choose_time_btn.classList.remove("hidden");
     document.querySelector(".container").classList.add("bottom_container_margin");
 
