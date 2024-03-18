@@ -114,12 +114,38 @@ for (let i = 1; i < catalog.size + 1; ++i) {
     graphicCatalogItems[i].add_remove_figures = document.createElement("figure");
     graphicCatalogItems[i].add_remove_figures.className = "add_remove_figure";
 
+    graphicCatalogItems[i].minus_btn = document.createElement("button");
+    graphicCatalogItems[i].minus_btn.textContent = "-";
+    graphicCatalogItems[i].minus_btn.className = "btn_minus"
+    graphicCatalogItems[i].minus_btn.classList.add("hidden");
+
+    graphicCatalogItemCounter[i] = document.createElement("label");
+    graphicCatalogItemCounter[i].className = "order_item_label";
+    graphicCatalogItemCounter[i].classList.add("hidden");
+
+    graphicCatalogItems[i].plus_btn = document.createElement("button");
+    graphicCatalogItems[i].plus_btn.textContent = "+";
+    graphicCatalogItems[i].plus_btn.className = "btn_plus"
+    graphicCatalogItems[i].plus_btn.classList.add("hidden");
+
+    graphicCatalogItems[i].plus_btn.addEventListener("click", () => {
+        increase_item_counter(i, graphicCatalogItemCounter[i]);
+    });
+
+    graphicCatalogItems[i].minus_btn.addEventListener("click", () => {
+        decrease_item_counter(i, "none", "catalog", graphicCatalogItemCounter[i]);
+        console.log(order.user_order);
+    });
+
     document.querySelector(".items").appendChild(graphicCatalogItems[i]);
     graphicCatalogItems[i].appendChild(graphicCatalogItems[i].item_img);
     graphicCatalogItems[i].appendChild(graphicCatalogItems[i].item_name);
     graphicCatalogItems[i].appendChild(graphicCatalogItems[i].item_cost);
     graphicCatalogItems[i].appendChild(graphicCatalogItems[i].add_remove_figures);
     graphicCatalogItems[i].add_remove_figures.appendChild(graphicCatalogItems[i].item_btn);
+    graphicCatalogItems[i].add_remove_figures.appendChild(graphicCatalogItems[i].minus_btn);
+    graphicCatalogItems[i].add_remove_figures.appendChild(graphicCatalogItemCounter[i]);
+    graphicCatalogItems[i].add_remove_figures.appendChild(graphicCatalogItems[i].plus_btn);
 }
 
 let choose_time_btn = document.createElement("button");
@@ -247,16 +273,16 @@ choose_time_btn.addEventListener("click", () => {
         });
     }
 
-    let back_btn = tg.BackButton;
-    back_btn.show();
+    // let back_btn = tg.BackButton;
+    // back_btn.show();
 
-    // let back_btn = document.createElement("button");
-    // back_btn.className = "back_btn";
-    // document.querySelector(".shopping_cart").appendChild(back_btn);
-    // back_btn.textContent = "Назад";
+    let back_btn = document.createElement("button");
+    back_btn.className = "back_btn";
+    document.querySelector(".shopping_cart").appendChild(back_btn);
+    back_btn.textContent = "Назад";
 
-    back_btn.onClick(() => {
-    // back_btn.addEventListener("click", () => {
+    // back_btn.onClick(() => {
+    back_btn.addEventListener("click", () => {
         let shopping_cart = document.querySelector(".shopping_cart");
         shopping_cart.classList.add("hidden");
         let items = document.getElementById("items");
@@ -272,6 +298,9 @@ choose_time_btn.addEventListener("click", () => {
         for (let i = 0; i < items.children.length; ++i) {
             if (items.children[i].className === "item") {
                 let old_item_label = items.children[i].querySelector(".add_remove_figure .order_item_label");
+                console.log("old_item_label: " + old_item_label);
+                console.log("elem: " + order.user_order.get(i + 1));
+                console.log(items.children[i].querySelector(".add_remove_figure"));
                 if (old_item_label) {
                     if (order.user_order.has(i + 1)) {
                         old_item_label.textContent = order.user_order.get(i + 1);
@@ -324,31 +353,36 @@ for (let i = 1; i < catalog.size + 1; ++i) {
         order.order_cost += +catalog.Items[i].item_cost;
 
         graphicCatalogItems[i].item_btn.classList.add("hidden");
+        graphicCatalogItems[i].minus_btn.classList.remove("hidden");
+        graphicCatalogItemCounter[i].classList.remove("hidden");
+        graphicCatalogItemCounter[i].textContent = "1";
+        graphicCatalogItems[i].plus_btn.classList.remove("hidden");
 
-        graphicCatalogItems[i].minus_btn = document.createElement("button");
-        graphicCatalogItems[i].minus_btn.textContent = "-";
-        graphicCatalogItems[i].minus_btn.className = "btn_minus"
+        // graphicCatalogItems[i].minus_btn = document.createElement("button");
+        // graphicCatalogItems[i].minus_btn.textContent = "-";
+        // graphicCatalogItems[i].minus_btn.className = "btn_minus"
 
-        graphicCatalogItemCounter[i] = document.createElement("label");
-        graphicCatalogItemCounter[i].textContent = order.user_order.get(i);
-        graphicCatalogItemCounter[i].className = "order_item_label";
+        // graphicCatalogItemCounter[i] = document.createElement("label");
+        // graphicCatalogItemCounter[i].textContent = order.user_order.get(i);
+        // graphicCatalogItemCounter[i].className = "order_item_label";
 
-        graphicCatalogItems[i].plus_btn = document.createElement("button");
-        graphicCatalogItems[i].plus_btn.textContent = "+";
-        graphicCatalogItems[i].plus_btn.className = "btn_plus"
+        // graphicCatalogItems[i].plus_btn = document.createElement("button");
+        // graphicCatalogItems[i].plus_btn.textContent = "+";
+        // graphicCatalogItems[i].plus_btn.className = "btn_plus"
 
-        graphicCatalogItems[i].add_remove_figures.appendChild(graphicCatalogItems[i].minus_btn);
-        graphicCatalogItems[i].add_remove_figures.appendChild(graphicCatalogItemCounter[i]);
-        graphicCatalogItems[i].add_remove_figures.appendChild(graphicCatalogItems[i].plus_btn);
+        // graphicCatalogItems[i].add_remove_figures.appendChild(graphicCatalogItems[i].minus_btn);
+        // graphicCatalogItems[i].add_remove_figures.appendChild(graphicCatalogItemCounter[i]);
+        // graphicCatalogItems[i].add_remove_figures.appendChild(graphicCatalogItems[i].plus_btn);
 
-        graphicCatalogItems[i].plus_btn.addEventListener("click", () => {
-            increase_item_counter(i, graphicCatalogItemCounter[i]);
-        });
-
-        graphicCatalogItems[i].minus_btn.addEventListener("click", () => {
-            decrease_item_counter(i, "none", "catalog", graphicCatalogItemCounter[i]);
-            console.log(order.user_order);
-        });
+        // graphicCatalogItems[i].plus_btn.addEventListener("click", () => {
+        //     increase_item_counter(i, graphicCatalogItemCounter[i]);
+        // });
+        //
+        // graphicCatalogItems[i].minus_btn.addEventListener("click", () => {
+        //     decrease_item_counter(i, "none", "catalog", graphicCatalogItemCounter[i]);
+        //     console.log(order.user_order);
+        // });
+        console.log(graphicCatalogItems[i].add_remove_figures);
     })
 }
 
