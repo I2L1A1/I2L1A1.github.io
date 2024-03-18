@@ -23,6 +23,7 @@ class Order {
     user_order = new Map();
 
     order_cost = 0;
+    order_time = "";
 
     generate_data_for_send() {
         let answer_string = "Ваш заказ:\n";
@@ -30,7 +31,7 @@ class Order {
         for (let key of order.user_order.keys()) {
             answer_string += `${item_counter++}) ${catalog.Items[key].item_name} (${order.user_order.get(key)} шт.) – ${catalog.Items[key].item_cost}\n`;
         }
-        answer_string += `\nСумма заказа: ${order.order_cost}`;
+        answer_string += `\nСумма заказа: ${order.order_cost}\nВремя заказа: ${order.order_time}`;
         console.log(answer_string);
         return answer_string
     }
@@ -297,6 +298,7 @@ choose_time_btn.addEventListener("click", () => {
         now_time.reset_time();
         now_time.add_to_time(time_slider.value);
         checkout_btn.textContent = "Заказать к " + now_time.get_time();
+        order.order_time = now_time.get_time();
     });
 });
 
