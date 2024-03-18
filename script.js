@@ -252,11 +252,29 @@ choose_time_btn.addEventListener("click", () => {
     // back_btn.addEventListener("click", () => {
         let shopping_cart = document.querySelector(".shopping_cart");
         shopping_cart.classList.add("hidden");
-        document.getElementById("items").classList.remove("hidden");
+        let items = document.getElementById("items");
+        items.classList.remove("hidden");
         document.querySelector(".choose_time_btn").classList.remove("hidden");
 
         for (let item of shopping_cart_items.children) {
             item.classList.add("hidden");
+        }
+
+        for (let i = 0; i < items.children.length; ++i) {
+            if (items.children[i].className === "item") {
+                let old_item_label = items.children[i].querySelector(".add_remove_figure .order_item_label");
+                if (old_item_label) {
+                    if (order.user_order.has(i + 1)) {
+                        old_item_label.textContent = order.user_order.get(i + 1);
+                    } else {
+                        graphicCatalogItems[i + 1].item_btn.classList.remove("hidden");
+                        graphicCatalogItemCounter[i + 1].classList.add("hidden");
+                        graphicCatalogItems[i + 1].minus_btn.classList.add("hidden");
+                        graphicCatalogItems[i + 1].plus_btn.classList.add("hidden");
+                    }
+
+                }
+            }
         }
 
         // back_btn.hide();
