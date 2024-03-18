@@ -173,6 +173,10 @@ choose_time_btn.addEventListener("click", () => {
     choose_time_btn.classList.add("hidden");
     document.querySelector(".container").classList.remove("bottom_container_margin");
     document.querySelector(".shopping_cart").classList.remove("hidden");
+    document.querySelector(".empty_shopping_cart_label").classList.add("hidden");
+    document.querySelector(".shopping_cart_items").classList.remove("hidden");
+    document.querySelector(".time_slider_area").classList.remove("hidden");
+    console.log(document.querySelector(".shopping_cart").classList);
 
     // !!!!!!!!!
 
@@ -220,17 +224,20 @@ choose_time_btn.addEventListener("click", () => {
         shopping_item.appendChild(shopping_cart_item_cost);
 
         shopping_cart_minus_btn.addEventListener("click", () => {
-            if (decrease_item_counter(key, shopping_item, "shopping cart", shopping_cart_item_label)) {
+            decrease_item_counter(key, shopping_item, "shopping cart", shopping_cart_item_label);
+            if (order.user_order.size === 0) {
                 shopping_cart_items.classList.add("hidden");
                 time_slider_area.classList.add("hidden");
                 checkout_btn.classList.add("hidden");
+                let empty_shopping_cart_label = document.querySelector(".empty_shopping_cart_label");
+                empty_shopping_cart_label.classList.remove("hidden");
 
-                let empty_shopping_cart_label = document.createElement("label");
-                empty_shopping_cart_label.textContent = "Пусто :(";
-                empty_shopping_cart_label.className = "empty_shopping_cart_label";
+                // let empty_shopping_cart_label = document.createElement("label");
+                // empty_shopping_cart_label.textContent = "Пусто :(";
+                // empty_shopping_cart_label.className = "empty_shopping_cart_label";
 
-                let shopping_cart = document.querySelector(".shopping_cart");
-                shopping_cart.appendChild(empty_shopping_cart_label);
+                // let shopping_cart = document.querySelector(".shopping_cart");
+                // shopping_cart.appendChild(empty_shopping_cart_label);
             }
             console.log(order.user_order);
         });
