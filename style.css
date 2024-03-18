@@ -164,22 +164,24 @@ button {
 
 .shopping_cart {
     display: grid;
-    height: 100%;
+    grid-template-rows: 10vh 60vh 25vh 5vh;
+    height: 100vh;
     margin: 0;
     padding: 0;
 }
 
 .shopping_cart_label {
     width: 100%;
+    height: fit-content;
     text-align: center;
     font-size: 2em;
     margin-top: 0.5em;
 }
 
 .shopping_cart_items {
+    height: fit-content;
     max-height: 50vh;
     border: 1px solid #ddd;
-    margin-top: 0.8em;
     margin-right: 5px;
     margin-left: 5px;
     border-radius: 25px;
@@ -235,17 +237,22 @@ button {
     font-size: 1.2em;
 }
 
+.time_slider_area {
+    height: 35vh;
+    bottom: 0;
+    border: 1px solid #ddd;
+    margin-right: 5px;
+    margin-left: 5px;
+    border-radius: 25px;
+    /*overflow-x: hidden;*/
+    /*overflow-y: scroll;*/
+}
+
 .time_slider {
     margin-left: 10%;
     margin-right: 10%;
     width: 80%;
 }
-
-.time_slider_area {
-    margin-top: 50px;
-    background-color: green;
-}
-
 
 .hidden {
     display: none;
