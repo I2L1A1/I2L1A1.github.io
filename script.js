@@ -247,21 +247,23 @@ choose_time_btn.addEventListener("click", () => {
         });
     }
 
-    let back_btn = tg.BackButton;
-    back_btn.show();
+    // let back_btn = tg.BackButton;
+    // back_btn.show();
 
-    // let back_btn = document.createElement("button");
-    // back_btn.className = "back_btn";
-    // document.querySelector(".shopping_cart").appendChild(back_btn);
-    // back_btn.textContent = "Назад";
+    let back_btn = document.createElement("button");
+    back_btn.className = "back_btn";
+    document.querySelector(".shopping_cart").appendChild(back_btn);
+    back_btn.textContent = "Назад";
 
-    back_btn.onClick(() => {
-    // back_btn.addEventListener("click", () => {
+    // back_btn.onClick(() => {
+    back_btn.addEventListener("click", () => {
         let shopping_cart = document.querySelector(".shopping_cart");
         shopping_cart.classList.add("hidden");
         let items = document.getElementById("items");
         items.classList.remove("hidden");
-        document.querySelector(".choose_time_btn").classList.remove("hidden");
+        if (order.user_order.size > 0) {
+            document.querySelector(".choose_time_btn").classList.remove("hidden");
+        }
 
         for (let item of shopping_cart_items.children) {
             item.classList.add("hidden");
