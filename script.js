@@ -282,7 +282,7 @@ choose_time_btn.addEventListener("click", () => {
     // back_btn.textContent = "Назад";
 
     back_btn.onClick(() => {
-    // back_btn.addEventListener("click", () => {
+        // back_btn.addEventListener("click", () => {
         let shopping_cart = document.querySelector(".shopping_cart");
         shopping_cart.classList.add("hidden");
         let items = document.getElementById("items");
@@ -315,7 +315,7 @@ choose_time_btn.addEventListener("click", () => {
             }
         }
 
-        // back_btn.hide();
+        back_btn.hide();
     });
 
     time_slider.classList.remove("hidden");
