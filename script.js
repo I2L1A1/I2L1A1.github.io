@@ -243,11 +243,23 @@ choose_time_btn.addEventListener("click", () => {
     let back_btn = tg.BackButton;
     back_btn.show();
 
+    // let back_btn = document.createElement("button");
+    // back_btn.className = "back_btn";
+    // document.querySelector(".shopping_cart").appendChild(back_btn);
+    // back_btn.textContent = "Назад";
+
     back_btn.onClick(() => {
-        document.querySelector(".shopping_cart").classList.add("hidden");
+    // back_btn.addEventListener("click", () => {
+        let shopping_cart = document.querySelector(".shopping_cart");
+        shopping_cart.classList.add("hidden");
         document.getElementById("items").classList.remove("hidden");
         document.querySelector(".choose_time_btn").classList.remove("hidden");
-        back_btn.hide();
+
+        for (let item of shopping_cart_items.children) {
+            item.classList.add("hidden");
+        }
+
+        // back_btn.hide();
     });
 
     time_slider.classList.remove("hidden");
