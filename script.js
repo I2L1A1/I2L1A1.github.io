@@ -292,6 +292,8 @@ choose_time_btn.addEventListener("click", () => {
     back_btn.show();
 
     back_btn.onClick(() => {
+        document.querySelector(".container").classList.add("bottom_container_margin");
+
         let shopping_cart = document.querySelector(".shopping_cart");
         shopping_cart.classList.add("hidden");
         let items = document.getElementById("items");
