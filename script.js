@@ -186,7 +186,8 @@ function draw_free_time_in_shopping_cart(free_time_array) {
         buttons_wrapper.appendChild(free_time_label);
 
         free_time_button.addEventListener("click", () => {
-            checkout_btn.textContent = "Заказаьть к " + free_time_button.value;
+            checkout_btn.removeAttribute("disabled");
+            checkout_btn.textContent = "Заказать к " + free_time_button.value;
             order.order_time = free_time_button.value;
 
             let time_buttons = buttons_wrapper.children;
@@ -209,7 +210,9 @@ let now_time = new Time();
 let checkout_btn = document.createElement("button");
 checkout_btn.className = "checkout_btn";
 document.querySelector(".shopping_cart").appendChild(checkout_btn);
-checkout_btn.textContent = "Заказать к " + now_time.get_time();
+
+checkout_btn.textContent = "Выберите время";
+checkout_btn.setAttribute('disabled', '');
 checkout_btn.classList.add("hidden");
 
 checkout_btn.addEventListener("click", () => {
@@ -327,6 +330,7 @@ choose_time_btn.addEventListener("click", () => {
 
     time_slider.classList.remove("hidden");
     checkout_btn.classList.remove("hidden");
+
     document.querySelector(".container").classList.add("bottom_container_margin");
 
     time_slider.addEventListener("input", () => {

@@ -162,6 +162,10 @@ button {
     opacity: 0.9;
 }
 
+.checkout_btn:disabled {
+    background-color: #FFE3C2
+}
+
 .shopping_cart {
     display: grid;
     grid-template-rows: 10vh 60vh 25vh 5vh;
@@ -277,8 +281,6 @@ button {
 }
 
 .selected_time {
-    /*box-shadow: 0 0 0 3px #FFBD69,*/
-    /*            5px 5px 10px #ddd;*/
     box-shadow: 5px 5px 10px #ddd;
 }
 
