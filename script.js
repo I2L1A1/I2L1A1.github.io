@@ -117,12 +117,12 @@ function increase_item_counter(i, textField) {
 function draw_free_time_in_shopping_cart(free_time_array) {
     let time_slider_area = document.querySelector(".time_slider_area");
 
-    let buttons_wrapper = create_div("buttons_wrapper");
+    let buttons_wrapper = create_element("div", "buttons_wrapper");
     time_slider_area.appendChild(buttons_wrapper);
 
     for (let free_time of free_time_array) {
         let free_time_button = create_input("free_time_button", "free_time", "radio", free_time, free_time);
-        let free_time_label = create_label("free_time_label", free_time);
+        let free_time_label = create_element("label", "free_time_label", free_time);
         free_time_label.htmlFor = free_time;
 
         buttons_wrapper.appendChild(free_time_button);
@@ -147,23 +147,8 @@ function draw_free_time_in_shopping_cart(free_time_array) {
     }
 }
 
-function create_div(class_name, text_content = "") {
-    let element_variable = document.createElement("div");
-    element_variable.className = class_name;
-    if (text_content !== "") {
-        element_variable.textContent = text_content;
-    }
-    return element_variable;
-}
-
-function create_figure(class_name) {
-    let element_variable = document.createElement("figure");
-    element_variable.className = class_name;
-    return element_variable;
-}
-
-function create_label(class_name="", text_content = "") {
-    let element_variable = document.createElement("label");
+function create_element(element_type, class_name = "", text_content = "") {
+    let element_variable = document.createElement(element_type);
     if (class_name !== "") {
         element_variable.className = class_name;
     }
@@ -173,16 +158,7 @@ function create_label(class_name="", text_content = "") {
     return element_variable;
 }
 
-function create_button(class_name, text_content = "") {
-    let element_variable = document.createElement("button");
-    element_variable.className = class_name;
-    if (text_content !== "") {
-        element_variable.textContent = text_content;
-    }
-    return element_variable;
-}
-
-function create_image(class_name, src, alt) {
+function create_image(class_name = "", src, alt) {
     let element_variable = document.createElement("img");
     element_variable.className = class_name;
     element_variable.src = src;
@@ -191,7 +167,7 @@ function create_image(class_name, src, alt) {
     return element_variable;
 }
 
-function create_input(class_name, name, type, value, id) {
+function create_input(class_name = "", name, type, value, id) {
     let element_variable = document.createElement("input");
     element_variable.className = class_name;
     element_variable.name = name;
@@ -218,28 +194,28 @@ catalog.addItem("Dish1.png", "Нежное сливочное мороженое
 order = new Order();
 
 let graphicCatalogItems = new Array(catalog.size + 1);
-let graphicCatalogItemCounter = new Array(catalog.size + 1).fill(create_label());
+let graphicCatalogItemCounter = new Array(catalog.size + 1).fill(create_element("label"));
 
 for (let i = 1; i < catalog.size + 1; ++i) {
 
-    graphicCatalogItems[i] = create_div("item");
+    graphicCatalogItems[i] = create_element("div", "item");
 
     graphicCatalogItems[i].item_img = create_image("img", catalog.Items[i].item_img, "");
 
-    graphicCatalogItems[i].item_name = create_div("item_name", catalog.Items[i].item_name);
-    graphicCatalogItems[i].item_cost = create_div("item_cost", catalog.Items[i].item_cost + " ₽");
+    graphicCatalogItems[i].item_name = create_element("div", "item_name", catalog.Items[i].item_name);
+    graphicCatalogItems[i].item_cost = create_element("div", "item_cost", catalog.Items[i].item_cost + " ₽");
 
-    graphicCatalogItems[i].item_btn = create_button("btn_add", "Добавить");
+    graphicCatalogItems[i].item_btn = create_element("button", "btn_add", "Добавить");
 
-    graphicCatalogItems[i].add_remove_figures = create_figure("add_remove_figure");
+    graphicCatalogItems[i].add_remove_figures = create_element("div", "add_remove_figure");
 
-    graphicCatalogItems[i].minus_btn = create_button("btn_minus", "-");
+    graphicCatalogItems[i].minus_btn = create_element("button", "btn_minus", "-");
     graphicCatalogItems[i].minus_btn.classList.add("hidden");
 
-    graphicCatalogItemCounter[i] = create_label("order_item_label");
+    graphicCatalogItemCounter[i] = create_element("label", "order_item_label");
     graphicCatalogItemCounter[i].classList.add("hidden");
 
-    graphicCatalogItems[i].plus_btn = create_button("btn_plus", "+");
+    graphicCatalogItems[i].plus_btn = create_element("button", "btn_plus", "+");
     graphicCatalogItems[i].plus_btn.classList.add("hidden");
 
     graphicCatalogItems[i].plus_btn.addEventListener("click", () => {
@@ -264,7 +240,7 @@ for (let i = 1; i < catalog.size + 1; ++i) {
 let free_time_array = ["12:05", "12:10", "12:15", "12:20", "12:25", "12:30", "12:35", "12:40", "12:45", "12:50", "12:55"];
 draw_free_time_in_shopping_cart(free_time_array);
 
-let choose_time_btn = create_button("choose_time_btn", "Посмотреть заказ");
+let choose_time_btn = create_element("button", "choose_time_btn", "Посмотреть заказ");
 choose_time_btn.classList.add("hidden");
 document.querySelector(".container").classList.remove("bottom_container_margin");
 document.querySelector(".items").appendChild(choose_time_btn);
@@ -294,22 +270,22 @@ choose_time_btn.addEventListener("click", () => {
 
     let shopping_cart_items = document.querySelector(".shopping_cart_items");
     for (let key of order.user_order.keys()) {
-        let shopping_item = create_div("shopping_item");
+        let shopping_item = create_element("div", "shopping_item");
         shopping_cart_items.appendChild(shopping_item);
 
         let shopping_cart_item_img = create_image("shopping_item_img", catalog.Items[key].item_img, "");
 
-        let shopping_cart_item_name = create_div("shopping_cart_item_name", catalog.Items[key].item_name);
+        let shopping_cart_item_name = create_element("div", "shopping_cart_item_name", catalog.Items[key].item_name);
 
-        let shopping_cart_item_cost = create_div("shopping_cart_item_cost", catalog.Items[key].item_cost + " ₽/шт.");
+        let shopping_cart_item_cost = create_element("div", "shopping_cart_item_cost", catalog.Items[key].item_cost + " ₽/шт.");
 
-        let shopping_cart_add_remove_figure = create_figure("shopping_cart_add_remove_figure");
+        let shopping_cart_add_remove_figure = create_element("div", "shopping_cart_add_remove_figure");
 
-        let shopping_cart_minus_btn = create_button("shopping_cart_minus_btn", "-");
+        let shopping_cart_minus_btn = create_element("button", "shopping_cart_minus_btn", "-");
 
-        let shopping_cart_item_label = create_label("shopping_cart_item_label", order.user_order.get(key));
+        let shopping_cart_item_label = create_element("label", "shopping_cart_item_label", order.user_order.get(key));
 
-        let shopping_cart_plus_btn = create_button("shopping_cart_plus_btn", "+");
+        let shopping_cart_plus_btn = create_element("button", "shopping_cart_plus_btn", "+");
 
         shopping_cart_add_remove_figure.appendChild(shopping_cart_minus_btn);
         shopping_cart_add_remove_figure.appendChild(shopping_cart_item_label);
