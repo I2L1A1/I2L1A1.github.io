@@ -1,6 +1,9 @@
 let tg = window.Telegram.WebApp;
 tg.expand();
 
+let back_btn = tg.BackButton;
+back_btn.hide();
+
 class ItemFromCatalog {
     constructor(item_img, item_name, item_cost) {
         this.item_img = item_img;
@@ -287,7 +290,6 @@ choose_time_btn.addEventListener("click", () => {
         });
     }
 
-    let back_btn = tg.BackButton;
     back_btn.show();
 
     back_btn.onClick(() => {
