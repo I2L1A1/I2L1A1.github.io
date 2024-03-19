@@ -146,7 +146,7 @@ button {
     vertical-align: middle;
 }
 
-.choose_time_btn {
+.show_shopping_cart {
     position: fixed;
     bottom: 0;
     grid-column-start: 1;
