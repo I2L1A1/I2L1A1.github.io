@@ -187,7 +187,30 @@ button {
     height: 100vh;
 }
 
+.shopping_cart_data_in_row_1 {
+    height: 0;
+    /*border: 1px solid blue;*/
+    vertical-align: top;
+}
+
+.shopping_cart_data_in_row_2 {
+    /*width: 0;*/
+}
+
+.shopping_cart_data_in_row_3 {
+    /*border: 1px solid orange;*/
+    vertical-align: top;
+}
+
+.shopping_cart_data_in_row_4 {
+    /*border: 1px solid green;*/
+    height: 0;
+    vertical-align: bottom;
+}
+
 .shopping_cart_data_in_row_5 {
+    /*border: 1px solid red;*/
+    height: 0;
     vertical-align: bottom;
 }
 
@@ -266,6 +289,7 @@ button {
     bottom: 2.2em;
     margin-left: 5px;
     margin-right: 5px;
+    margin-bottom: 15px;
 }
 
 .buttons_wrapper {
