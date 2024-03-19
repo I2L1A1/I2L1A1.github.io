@@ -332,8 +332,6 @@ choose_time_btn.addEventListener("click", () => {
     time_slider.classList.remove("hidden");
     checkout_btn.classList.remove("hidden");
 
-    // document.querySelector(".container").classList.add("bottom_container_margin");
-
     time_slider.addEventListener("input", () => {
         now_time.reset_time();
         now_time.add_to_time(time_slider.value);
