@@ -187,7 +187,7 @@ function draw_free_time_in_shopping_cart(free_time_array) {
 
         free_time_button.addEventListener("click", () => {
             checkout_btn.textContent = "Заказаьть к " + free_time_button.value;
-            console.log(free_time_button);
+            order.order_time = free_time_button.value;
         })
     }
 }
