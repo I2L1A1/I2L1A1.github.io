@@ -172,13 +172,25 @@ function draw_free_time_in_shopping_cart(free_time_array) {
     time_slider_area.appendChild(buttons_wrapper);
 
     for (let free_time of free_time_array) {
-        let free_time_button = document.createElement("button");
+        let free_time_button = document.createElement("input");
+        free_time_button.name = "free_time";
+        free_time_button.type = "radio";
         free_time_button.className = "free_time_button";
-        free_time_button.textContent = free_time;
+        free_time_button.value = free_time;
+        free_time_button.id = free_time;
+        let free_time_label = document.createElement("label");
+        free_time_label.textContent = free_time;
+        free_time_label.htmlFor = free_time;
+        free_time_label.className = "free_time_label";
         buttons_wrapper.appendChild(free_time_button);
+        buttons_wrapper.appendChild(free_time_label);
+
+        free_time_button.addEventListener("click", () => {
+            checkout_btn.textContent = "Заказаьть к " + free_time_button.value;
+            console.log(free_time_button);
+        })
     }
 }
-
 
 let now_time = new Time();
 
