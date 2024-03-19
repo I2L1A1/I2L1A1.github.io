@@ -207,9 +207,8 @@ function draw_free_time_in_shopping_cart(free_time_array) {
 
 let now_time = new Time();
 
-let checkout_btn = document.createElement("button");
-checkout_btn.className = "checkout_btn";
-document.querySelector(".shopping_cart").appendChild(checkout_btn);
+let checkout_btn = document.querySelector(".checkout_btn");
+// document.querySelector(".shopping_cart").appendChild(checkout_btn);
 
 checkout_btn.textContent = "Выберите время";
 checkout_btn.setAttribute('disabled', '');
@@ -227,7 +226,8 @@ choose_time_btn.addEventListener("click", () => {
     document.querySelector(".empty_shopping_cart_label").classList.add("hidden");
     document.querySelector(".shopping_cart_items").classList.remove("hidden");
     document.querySelector(".time_slider_area").classList.remove("hidden");
-    console.log(document.querySelector(".shopping_cart").classList);
+    console.log(123);
+    console.log(document.querySelector(".shopping_cart").children);
 
     let shopping_cart_items = document.querySelector(".shopping_cart_items");
     for (let key of order.user_order.keys()) {

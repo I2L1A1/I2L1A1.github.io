@@ -9,6 +9,7 @@ body {
     margin: 0;
     background-color: white;
     width: 100%;
+    height: 100vh;
     font-size: 14px;
     font-family: "Cyntho Pro", sans-serif;
 }
@@ -19,7 +20,7 @@ button {
 
 .container {
     margin: 0;
-    height: 100%;
+    height: 100vh;
     width: 100%;
 }
 
@@ -146,11 +147,25 @@ button {
     vertical-align: middle;
 }
 
-.choose_time_btn, .checkout_btn {
+.choose_time_btn {
     position: fixed;
     bottom: 0;
     grid-column-start: 1;
     grid-column-end: 3;
+    width: 100%;
+    height: 2.2em;
+    font-family: "Cyntho Pro", sans-serif;
+
+    border: none;
+    color: #2d2d2d;
+    background-color: #ffbf74;
+    font-size: 1.3em;
+    opacity: 0.9;
+}
+
+.checkout_btn {
+    /*grid-column-start: 1;*/
+    /*grid-column-end: 3;*/
     width: 100%;
     height: 2.2em;
     font-family: "Cyntho Pro", sans-serif;
@@ -167,11 +182,13 @@ button {
 }
 
 .shopping_cart {
-    display: grid;
-    grid-template-rows: 10vh 60vh 25vh 5vh;
+    border-spacing: 0;
+    width: 100%;
     height: 100vh;
-    margin: 0;
-    padding: 0;
+}
+
+.shopping_cart_data_in_row_5 {
+    vertical-align: bottom;
 }
 
 .shopping_cart_label {
