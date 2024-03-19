@@ -283,7 +283,7 @@ button {
 }
 
 .not_selected_time {
-    background-color: #FFF2E0;
+    background-color: gray;
 }
 
 .hidden {
