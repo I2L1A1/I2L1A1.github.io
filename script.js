@@ -149,7 +149,7 @@ for (let i = 1; i < catalog.size + 1; ++i) {
     graphicCatalogItems[i].add_remove_figures.appendChild(graphicCatalogItems[i].plus_btn);
 }
 
-let free_time_array = ["12:05", "12:10", "12:15", "12:20", "12:25", "12:30", "12:35", "12:40", "12:45", "12:50", "12:50", "12:55"];
+let free_time_array = ["12:05", "12:10", "12:15", "12:20", "12:25", "12:30", "12:35", "12:40", "12:45", "12:50", "12:55"];
 draw_free_time_in_shopping_cart(free_time_array);
 
 let choose_time_btn = document.createElement("button");
@@ -188,7 +188,19 @@ function draw_free_time_in_shopping_cart(free_time_array) {
         free_time_button.addEventListener("click", () => {
             checkout_btn.textContent = "Заказаьть к " + free_time_button.value;
             order.order_time = free_time_button.value;
-        })
+
+            let time_buttons = buttons_wrapper.children;
+            for (let time_button of time_buttons) {
+                if (time_button.className.includes("free_time_label")) {
+                    time_button.classList.remove("selected_time");
+                    time_button.classList.add("not_selected_time");
+                }
+                console.log(time_button);
+            }
+            free_time_label.classList.add("selected_time");
+            free_time_label.classList.remove("not_selected_time");
+
+        });
     }
 }
 

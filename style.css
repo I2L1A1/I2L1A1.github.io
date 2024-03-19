@@ -243,30 +243,16 @@ button {
     border: 1px solid #ddd;
     border-radius: 25px;
     bottom: 2.2em;
-    /*padding: 5px;*/
-    /*overflow-x: hidden;*/
-    /*overflow-y: scroll;*/
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .buttons_wrapper {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(65px, 1fr));
-    /*margin-right: auto;*/
-    /*margin-left: auto;*/
     margin: 10px;
     gap: 10px;
 }
-
-/*.free_time_button {*/
-/*    height: 30px;*/
-/*    border-radius: 20px;*/
-/*    border: none;*/
-/*    color: #2d2d2d;*/
-/*    transition: background-color 0.1s linear;*/
-/*    font-size: 1em;*/
-/*    background-color: #ffdaae;*/
-/*    font-family: "Cyntho Pro", sans-serif;*/
-/*}*/
 
 .free_time_button {
     display: none;
@@ -287,6 +273,15 @@ button {
     font-family: "Cyntho Pro", sans-serif;
 }
 
+.selected_time {
+    /*box-shadow: 0 0 0 3px #FFBD69,*/
+    /*            5px 5px 10px #ddd;*/
+    box-shadow: 5px 5px 10px #ddd;
+}
+
+.not_selected_time {
+    background-color: #FFF2E0;
+}
 
 .hidden {
     display: none;
