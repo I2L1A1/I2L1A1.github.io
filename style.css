@@ -9,7 +9,6 @@ body {
     margin: 0;
     background-color: white;
     width: 100%;
-    height: 100vh;
     font-size: 14px;
     font-family: "Cyntho Pro", sans-serif;
 }
@@ -20,13 +19,13 @@ button {
 
 .container {
     margin: 0;
-    height: 100vh;
+    height: 100%;
     width: 100%;
 }
 
-.bottom_container_margin {
-    margin-bottom: 2.5em;
-}
+/*.bottom_container_margin {*/
+/*    margin-bottom: 2.5em;*/
+/*}*/
 
 .items {
     display: grid;
@@ -164,8 +163,6 @@ button {
 }
 
 .checkout_btn {
-    /*grid-column-start: 1;*/
-    /*grid-column-end: 3;*/
     width: 100%;
     height: 2.2em;
     font-family: "Cyntho Pro", sans-serif;
@@ -175,6 +172,7 @@ button {
     background-color: #ffbf74;
     font-size: 1.3em;
     opacity: 0.9;
+    align-self: flex-end;
 }
 
 .checkout_btn:disabled {
@@ -182,36 +180,15 @@ button {
 }
 
 .shopping_cart {
-    border-spacing: 0;
-    width: 100%;
+    display: flex;
+    flex-direction: column;
     height: 100vh;
-}
 
-.shopping_cart_data_in_row_1 {
-    height: 0;
-    /*border: 1px solid blue;*/
-    vertical-align: top;
-}
+    justify-content: space-between;
 
-.shopping_cart_data_in_row_2 {
-    /*width: 0;*/
-}
-
-.shopping_cart_data_in_row_3 {
-    /*border: 1px solid orange;*/
-    vertical-align: top;
-}
-
-.shopping_cart_data_in_row_4 {
-    /*border: 1px solid green;*/
-    height: 0;
-    vertical-align: bottom;
-}
-
-.shopping_cart_data_in_row_5 {
-    /*border: 1px solid red;*/
-    height: 0;
-    vertical-align: bottom;
+    /*grid-template-rows: 10vh 60vh 25vh 5vh;*/
+    margin: 0;
+    padding: 0;
 }
 
 .shopping_cart_label {
@@ -289,7 +266,6 @@ button {
     bottom: 2.2em;
     margin-left: 5px;
     margin-right: 5px;
-    margin-bottom: 15px;
 }
 
 .buttons_wrapper {

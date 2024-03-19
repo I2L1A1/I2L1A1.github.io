@@ -208,7 +208,7 @@ function draw_free_time_in_shopping_cart(free_time_array) {
 let now_time = new Time();
 
 let checkout_btn = document.querySelector(".checkout_btn");
-// document.querySelector(".shopping_cart").appendChild(checkout_btn);
+document.querySelector(".shopping_cart").appendChild(checkout_btn);
 
 checkout_btn.textContent = "Выберите время";
 checkout_btn.setAttribute('disabled', '');
@@ -226,8 +226,7 @@ choose_time_btn.addEventListener("click", () => {
     document.querySelector(".empty_shopping_cart_label").classList.add("hidden");
     document.querySelector(".shopping_cart_items").classList.remove("hidden");
     document.querySelector(".time_slider_area").classList.remove("hidden");
-    console.log(123);
-    console.log(document.querySelector(".shopping_cart").children);
+    console.log(document.querySelector(".shopping_cart").classList);
 
     let shopping_cart_items = document.querySelector(".shopping_cart_items");
     for (let key of order.user_order.keys()) {
@@ -371,7 +370,7 @@ function decrease_item_counter(i, object_to_delete, location, textField) {
         if (order.user_order.size === 0) {
             if (location === "catalog") {
                 choose_time_btn.classList.add("hidden");
-                document.querySelector(".container").classList.remove("bottom_container_margin");
+                // document.querySelector(".container").classList.remove("bottom_container_margin");
             } else {
                 object_to_delete.classList.add("hidden");
                 return -1;
