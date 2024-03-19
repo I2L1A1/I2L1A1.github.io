@@ -174,9 +174,20 @@ for (let i = 1; i < catalog.size + 1; ++i) {
     graphicCatalogItems[i].item_cost = create_element("div", "item_cost", catalog.Items[i].item_cost + " ₽");
     graphicCatalogItems[i].item_btn = create_element("button", "btn_add", "Добавить");
     graphicCatalogItems[i].add_remove_figures = create_element("div", "add_remove_figure");
+
     graphicCatalogItems[i].minus_btn = create_element("button", "btn_minus", "-", true);
+
     graphicCatalogItemCounter[i] = create_element("label", "order_item_label", "", true);
+
     graphicCatalogItems[i].plus_btn = create_element("button", "btn_plus", "+", true);
+
+    graphicCatalogItems[i].plus_btn.addEventListener("click", () => {
+        increase_item_counter(i, graphicCatalogItemCounter[i]);
+    });
+
+    graphicCatalogItems[i].minus_btn.addEventListener("click", () => {
+        decrease_item_counter(i, "none", "catalog", graphicCatalogItemCounter[i]);
+    });
 
     items_object.appendChild(graphicCatalogItems[i]);
     graphicCatalogItems[i].appendChild(graphicCatalogItems[i].item_img);
@@ -187,14 +198,6 @@ for (let i = 1; i < catalog.size + 1; ++i) {
     graphicCatalogItems[i].add_remove_figures.appendChild(graphicCatalogItems[i].minus_btn);
     graphicCatalogItems[i].add_remove_figures.appendChild(graphicCatalogItemCounter[i]);
     graphicCatalogItems[i].add_remove_figures.appendChild(graphicCatalogItems[i].plus_btn);
-
-    graphicCatalogItems[i].plus_btn.addEventListener("click", () => {
-        increase_item_counter(i, graphicCatalogItemCounter[i]);
-    });
-
-    graphicCatalogItems[i].minus_btn.addEventListener("click", () => {
-        decrease_item_counter(i, "none", "catalog", graphicCatalogItemCounter[i]);
-    });
 }
 
 for (let i = 1; i < catalog.size + 1; ++i) {
@@ -278,7 +281,6 @@ show_shopping_cart.addEventListener("click", () => {
 
     back_btn.onClick(() => {
         container_object.classList.add("bottom_container_margin");
-
         shopping_cart_object.classList.add("hidden");
         let items = document.getElementById("items");
         items.classList.remove("hidden");
@@ -310,3 +312,4 @@ show_shopping_cart.addEventListener("click", () => {
     });
     checkout_btn.classList.remove("hidden");
 });
+
