@@ -221,14 +221,13 @@ checkout_btn.addEventListener("click", () => {
 });
 
 choose_time_btn.addEventListener("click", () => {
+    document.querySelector(".container").classList.remove("bottom_container_margin");
     document.querySelector(".items").classList.add("hidden");
     choose_time_btn.classList.add("hidden");
-    document.querySelector(".container").classList.remove("bottom_container_margin");
     document.querySelector(".shopping_cart").classList.remove("hidden");
     document.querySelector(".empty_shopping_cart_label").classList.add("hidden");
     document.querySelector(".shopping_cart_items").classList.remove("hidden");
     document.querySelector(".time_slider_area").classList.remove("hidden");
-    console.log(document.querySelector(".shopping_cart").classList);
 
     let shopping_cart_items = document.querySelector(".shopping_cart_items");
     for (let key of order.user_order.keys()) {
@@ -331,7 +330,7 @@ choose_time_btn.addEventListener("click", () => {
     time_slider.classList.remove("hidden");
     checkout_btn.classList.remove("hidden");
 
-    document.querySelector(".container").classList.add("bottom_container_margin");
+    // document.querySelector(".container").classList.add("bottom_container_margin");
 
     time_slider.addEventListener("input", () => {
         now_time.reset_time();
@@ -371,7 +370,7 @@ function decrease_item_counter(i, object_to_delete, location, textField) {
         if (order.user_order.size === 0) {
             if (location === "catalog") {
                 choose_time_btn.classList.add("hidden");
-                // document.querySelector(".container").classList.remove("bottom_container_margin");
+                document.querySelector(".container").classList.remove("bottom_container_margin");
             } else {
                 object_to_delete.classList.add("hidden");
                 return -1;
