@@ -149,6 +149,9 @@ for (let i = 1; i < catalog.size + 1; ++i) {
     graphicCatalogItems[i].add_remove_figures.appendChild(graphicCatalogItems[i].plus_btn);
 }
 
+let free_time_array = ["12:05", "12:10", "12:15", "12:20", "12:25", "12:30", "12:35", "12:40", "12:45", "12:50", "12:50", "12:55"];
+draw_free_time_in_shopping_cart(free_time_array);
+
 let choose_time_btn = document.createElement("button");
 choose_time_btn.className = "choose_time_btn";
 choose_time_btn.classList.add("hidden");
@@ -157,16 +160,24 @@ document.querySelector(".items").appendChild(choose_time_btn);
 choose_time_btn.textContent = "Посмотреть заказ";
 
 let time_slider = document.createElement("input");
-time_slider.type = "range";
-
-time_slider.min = "0";
-time_slider.max = "60";
-time_slider.value = "0";
-time_slider.className = "time_slider";
 
 let time_slider_area = document.querySelector(".time_slider_area");
-time_slider_area.appendChild(time_slider);
-time_slider.classList.add("hidden");
+
+
+function draw_free_time_in_shopping_cart(free_time_array) {
+    let time_slider_area = document.querySelector(".time_slider_area");
+
+    let buttons_wrapper = document.createElement("div");
+    buttons_wrapper.className = "buttons_wrapper";
+    time_slider_area.appendChild(buttons_wrapper);
+
+    for (let free_time of free_time_array) {
+        let free_time_button = document.createElement("button");
+        free_time_button.className = "free_time_button";
+        free_time_button.textContent = free_time;
+        buttons_wrapper.appendChild(free_time_button);
+    }
+}
 
 
 let now_time = new Time();

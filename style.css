@@ -238,21 +238,36 @@ button {
 }
 
 .time_slider_area {
-    height: 35vh;
-    bottom: 0;
+    align-items: center;
+    height: fit-content;
     border: 1px solid #ddd;
-    margin-right: 5px;
-    margin-left: 5px;
     border-radius: 25px;
+    bottom: 2.2em;
+    /*padding: 5px;*/
     /*overflow-x: hidden;*/
     /*overflow-y: scroll;*/
 }
 
-.time_slider {
-    margin-left: 10%;
-    margin-right: 10%;
-    width: 80%;
+.buttons_wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(65px, 1fr));
+    /*margin-right: auto;*/
+    /*margin-left: auto;*/
+    margin: 10px;
+    gap: 10px;
 }
+
+.free_time_button {
+    height: 30px;
+    border-radius: 20px;
+    border: none;
+    color: #2d2d2d;
+    transition: background-color 0.1s linear;
+    font-size: 1em;
+    background-color: #ffdaae;
+    font-family: "Cyntho Pro", sans-serif;
+}
+
 
 .hidden {
     display: none;
