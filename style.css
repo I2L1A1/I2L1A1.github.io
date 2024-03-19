@@ -146,7 +146,7 @@ button {
     vertical-align: middle;
 }
 
-.show_shopping_cart {
+.choose_time_btn {
     position: fixed;
     bottom: 0;
     grid-column-start: 1;
@@ -255,7 +255,7 @@ button {
     font-size: 1.2em;
 }
 
-.choose_time_area {
+.time_slider_area {
     align-items: center;
     height: 100%;
     border: 1px solid #ddd;
