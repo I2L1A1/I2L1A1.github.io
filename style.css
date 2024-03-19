@@ -205,6 +205,7 @@ button {
     border: 1px solid #ddd;
     margin-right: 5px;
     margin-left: 5px;
+    margin-top: 10px;
     border-radius: 25px;
     overflow-x: hidden;
     overflow-y: scroll;
@@ -266,6 +267,7 @@ button {
     bottom: 2.2em;
     margin-left: 5px;
     margin-right: 5px;
+    margin-bottom: 20px;
 }
 
 .buttons_wrapper {
@@ -303,6 +305,14 @@ button {
 
 .not_selected_time {
     background-color: #FFF2E0;
+}
+
+.header_and_shopping_cart_items {
+    /*background-color: green;*/
+}
+
+.time_selection_and_checkout {
+    /*background-color: red;*/
 }
 
 .hidden {

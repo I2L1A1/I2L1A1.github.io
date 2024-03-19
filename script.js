@@ -208,7 +208,6 @@ function draw_free_time_in_shopping_cart(free_time_array) {
 let now_time = new Time();
 
 let checkout_btn = document.querySelector(".checkout_btn");
-document.querySelector(".shopping_cart").appendChild(checkout_btn);
 
 checkout_btn.textContent = "Выберите время";
 checkout_btn.setAttribute('disabled', '');
