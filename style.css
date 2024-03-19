@@ -200,7 +200,6 @@ button {
 }
 
 .shopping_cart_items {
-    height: fit-content;
     max-height: 50vh;
     border: 1px solid #ddd;
     margin-right: 5px;
@@ -262,12 +261,13 @@ button {
 .time_slider_area {
     align-items: center;
     height: fit-content;
+    max-height: 20vh;
     border: 1px solid #ddd;
     border-radius: 25px;
     bottom: 2.2em;
-    margin-left: 5px;
-    margin-right: 5px;
-    margin-bottom: 20px;
+    margin: 10px 5px;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 .buttons_wrapper {
