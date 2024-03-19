@@ -255,6 +255,7 @@ button {
 }
 
 .free_time_button {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     display: none;
 }
 
@@ -267,10 +268,12 @@ button {
 
     border-radius: 20px;
     border: none;
-    transition: background-color 0.1s linear;
+    transition: background-color 0.2s linear;
     font-size: 1em;
     background-color: #ffdaae;
     font-family: "Cyntho Pro", sans-serif;
+
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 .selected_time {
