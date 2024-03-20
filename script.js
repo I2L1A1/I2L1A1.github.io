@@ -130,7 +130,7 @@ async function get_data_from_server(url) {
     }
 }
 
-get_data_from_server("https://api.jsonsilo.com/demo/5124f557-a81f-47f6-8b14-d337cc20a4ff").then((data_from_server) => {
+get_data_from_server("https://api.npoint.io/0db23552ec629d2d5ada").then((data_from_server) => {
     if (data_from_server) {
         for (let catalog_item of data_from_server["catalog"]) {
             catalog.addItem(catalog_item["name"], catalog_item["img"], catalog_item["cost"]);
