@@ -29,13 +29,20 @@ class Order {
     order_time = "";
 
     generate_data_for_send() {
-        let answer_string = "Ваш заказ:\n";
-        let item_counter = 1;
+        let data_for_send = {
+            order: [],
+            cost: 0,
+            time: ""
+        };
         for (let key of order.user_order.keys()) {
-            answer_string += `${item_counter++}) ${catalog.Items[key].item_name} (${order.user_order.get(key)} шт.) – ${catalog.Items[key].item_cost}\n`;
+            data_for_send.order.push([catalog.Items[key].item_name, order.user_order.get(key), catalog.Items[key].item_cost]);
         }
-        answer_string += `\nСумма заказа: ${order.order_cost}\nВремя заказа: ${order.order_time}`;
-        return answer_string
+        data_for_send.cost = order.order_cost;
+        data_for_send.time = order.order_time;
+
+        data_for_send = JSON.stringify(data_for_send);
+
+        return data_for_send;
     }
 }
 
