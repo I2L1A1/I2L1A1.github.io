@@ -147,6 +147,8 @@ button {
 }
 
 .choose_time_btn {
+    z-index: 999;
+
     position: fixed;
     bottom: 0;
     grid-column-start: 1;
