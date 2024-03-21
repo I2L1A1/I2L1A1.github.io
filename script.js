@@ -37,11 +37,24 @@ class Order {
         console.log(order.user_order);
 
         let data_for_send = {
-            order: [], cost: 0, time: ""
+            items: [], orderCost: 0, time: ""
         };
+
+        let item_for_send = {
+            itemName: "",
+            itemId: "",
+            itemCost: "",
+            itemNumber: ""
+        };
+
         for (let key of order.user_order.keys()) {
-            data_for_send.order.push([catalog.Items.get(key).item_name, order.user_order.get(key), catalog.Items.get(key).item_cost, catalog.Items.get(key).item_id]);
+            item_for_send.itemName = catalog.Items.get(key).item_name;
+            item_for_send.itemId = catalog.Items.get(key).item_id;
+            item_for_send.itemCost = catalog.Items.get(key).item_cost;
+            item_for_send.itemNumber = order.user_order.get(key);
+            data_for_send.items.push(item_for_send);
         }
+
         data_for_send.cost = order.order_cost;
         data_for_send.time = order.order_time;
 
