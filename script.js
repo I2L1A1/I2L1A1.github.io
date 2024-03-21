@@ -35,9 +35,7 @@ class Order {
 
     generate_data_for_send() {
         let data_for_send = {
-            order: [],
-            cost: 0,
-            time: ""
+            order: [], cost: 0, time: ""
         };
         for (let key of order.user_order.keys()) {
             data_for_send.order.push([catalog.Items[key].item_name, order.user_order.get(key), catalog.Items[key].item_cost]);
@@ -60,6 +58,11 @@ function increase_item_counter(i, textField) {
 }
 
 function draw_free_time_in_shopping_cart(free_time_array) {
+    let time_area = document.querySelector(".time_slider_area");
+    for (let wrapper of time_area.children) {
+        wrapper.remove();
+    }
+
     let time_slider_area = document.querySelector(".time_slider_area");
 
     let buttons_wrapper = create_element("div", "buttons_wrapper");
@@ -136,17 +139,8 @@ function seconds_to_time(seconds) {
     return hours + ":" + minutes;
 }
 
-document.querySelector(".shopping_cart").classList.add("hidden");
-
-let catalog = new Catalog();
-
-order = new Order();
-
-let graphicCatalogItemCounter = new Array(catalog.size + 1).fill(create_element("label"));
-
 async function get_data_from_server(url) {
     const response = await fetch(url);
-    console.log(response.status);
     if (response.status === 404) {
         let error_404_label = document.querySelector(".error_404_label");
         error_404_label.classList.remove("hidden");
@@ -155,190 +149,206 @@ async function get_data_from_server(url) {
     }
 }
 
+
+document.querySelector(".shopping_cart").classList.add("hidden");
+
+let catalog = new Catalog();
+
+order = new Order();
+
+let graphicCatalogItemCounter = new Array(catalog.size + 1).fill(create_element("label"));
+
 get_data_from_server(url_addresses.catalog_url).then((data_from_server) => {
-    if (data_from_server) {
-        for (let catalog_item of data_from_server["catalog"]) {
-            catalog.addItem(catalog_item["name"], catalog_item["img"], catalog_item["cost"]);
-        }
+    for (let catalog_item of data_from_server["catalog"]) {
+        catalog.addItem(catalog_item["name"], catalog_item["img"], catalog_item["cost"]);
+    }
 
-        let graphicCatalogItems = new Array(catalog.size + 1);
-
-        function decrease_item_counter(i, object_to_delete, location, textField) {
-            let new_number = order.user_order.get(i);
-            if (new_number >= 2) {
-                new_number--;
-                order.user_order.set(i, new_number);
-                textField.textContent = new_number;
-            } else {
-                order.user_order.delete(i);
-                if (order.user_order.size === 0) {
-                    if (location === "catalog") {
-                        choose_time_btn.classList.add("hidden");
-                        document.querySelector(".container").classList.remove("bottom_container_margin");
-                    } else {
-                        object_to_delete.classList.add("hidden");
-                        return -1;
-                    }
-                }
+    function decrease_item_counter(i, object_to_delete, location, textField) {
+        let new_number = order.user_order.get(i);
+        if (new_number >= 2) {
+            new_number--;
+            order.user_order.set(i, new_number);
+            textField.textContent = new_number;
+        } else {
+            order.user_order.delete(i);
+            if (order.user_order.size === 0) {
                 if (location === "catalog") {
-                    graphicCatalogItems[i].item_btn.classList.remove("hidden");
-                    graphicCatalogItems[i].minus_btn.classList.add("hidden");
-                    graphicCatalogItems[i].plus_btn.classList.add("hidden");
-                    textField.classList.add("hidden");
-                    textField.textContent = "0";
+                    choose_time_btn.classList.add("hidden");
+                    document.querySelector(".container").classList.remove("bottom_container_margin");
                 } else {
                     object_to_delete.classList.add("hidden");
+                    return -1;
                 }
             }
-            order.order_cost -= +catalog.Items[i].item_cost;
-            choose_time_btn.textContent = `Посмотреть заказ • ${order.order_cost} ₽`;
+            if (location === "catalog") {
+                graphicCatalogItems[i].item_btn.classList.remove("hidden");
+                graphicCatalogItems[i].minus_btn.classList.add("hidden");
+                graphicCatalogItems[i].plus_btn.classList.add("hidden");
+                textField.classList.add("hidden");
+                textField.textContent = "0";
+            } else {
+                object_to_delete.classList.add("hidden");
+            }
         }
+        order.order_cost -= +catalog.Items[i].item_cost;
+        choose_time_btn.textContent = `Посмотреть заказ • ${order.order_cost} ₽`;
+    }
 
-        for (let i = 1; i < catalog.size + 1; ++i) {
-            graphicCatalogItems[i] = create_element("div", "item");
-            graphicCatalogItems[i].item_img = create_image("catalog_image", catalog.Items[i].item_img, "");
-            graphicCatalogItems[i].item_name = create_element("div", "item_name", catalog.Items[i].item_name);
-            graphicCatalogItems[i].item_cost = create_element("div", "item_cost", catalog.Items[i].item_cost + " ₽");
-            graphicCatalogItems[i].item_btn = create_element("button", "btn_add", "Добавить");
-            graphicCatalogItems[i].add_remove_figures = create_element("div", "add_remove_figure");
+    let graphicCatalogItems = new Array(catalog.size + 1);
 
-            graphicCatalogItems[i].minus_btn = create_element("button", "btn_minus", "-", true);
+    for (let i = 1; i < catalog.size + 1; ++i) {
+        graphicCatalogItems[i] = create_element("div", "item");
+        graphicCatalogItems[i].item_img = create_image("catalog_image", catalog.Items[i].item_img, "");
+        graphicCatalogItems[i].item_name = create_element("div", "item_name", catalog.Items[i].item_name);
+        graphicCatalogItems[i].item_cost = create_element("div", "item_cost", catalog.Items[i].item_cost + " ₽");
+        graphicCatalogItems[i].item_btn = create_element("button", "btn_add", "Добавить");
+        graphicCatalogItems[i].add_remove_figures = create_element("div", "add_remove_figure");
 
-            graphicCatalogItemCounter[i] = create_element("label", "order_item_label", "", true);
+        graphicCatalogItems[i].minus_btn = create_element("button", "btn_minus", "-", true);
 
-            graphicCatalogItems[i].plus_btn = create_element("button", "btn_plus", "+", true);
+        graphicCatalogItemCounter[i] = create_element("label", "order_item_label", "", true);
 
-            graphicCatalogItems[i].plus_btn.addEventListener("click", () => {
-                increase_item_counter(i, graphicCatalogItemCounter[i]);
-            });
+        graphicCatalogItems[i].plus_btn = create_element("button", "btn_plus", "+", true);
 
-            graphicCatalogItems[i].minus_btn.addEventListener("click", () => {
-                decrease_item_counter(i, "none", "catalog", graphicCatalogItemCounter[i]);
-            });
+        graphicCatalogItems[i].plus_btn.addEventListener("click", () => {
+            increase_item_counter(i, graphicCatalogItemCounter[i]);
+        });
 
-            document.querySelector(".items").appendChild(graphicCatalogItems[i]);
-            graphicCatalogItems[i].appendChild(graphicCatalogItems[i].item_img);
-            graphicCatalogItems[i].appendChild(graphicCatalogItems[i].item_name);
-            graphicCatalogItems[i].appendChild(graphicCatalogItems[i].item_cost);
-            graphicCatalogItems[i].appendChild(graphicCatalogItems[i].add_remove_figures);
-            graphicCatalogItems[i].add_remove_figures.appendChild(graphicCatalogItems[i].item_btn);
-            graphicCatalogItems[i].add_remove_figures.appendChild(graphicCatalogItems[i].minus_btn);
-            graphicCatalogItems[i].add_remove_figures.appendChild(graphicCatalogItemCounter[i]);
-            graphicCatalogItems[i].add_remove_figures.appendChild(graphicCatalogItems[i].plus_btn);
-        }
+        graphicCatalogItems[i].minus_btn.addEventListener("click", () => {
+            decrease_item_counter(i, "none", "catalog", graphicCatalogItemCounter[i]);
+        });
 
-        choose_time_btn.addEventListener("click", () => {
-            get_data_from_server(url_addresses.free_order_time_url).then((data_from_server) => {
-                let free_time_array = [];
-                for (let free_time of data_from_server["freetime"]) {
-                    console.log(free_time);
-                    free_time_array.push(seconds_to_time(free_time));
+        document.querySelector(".items").appendChild(graphicCatalogItems[i]);
+        graphicCatalogItems[i].appendChild(graphicCatalogItems[i].item_img);
+        graphicCatalogItems[i].appendChild(graphicCatalogItems[i].item_name);
+        graphicCatalogItems[i].appendChild(graphicCatalogItems[i].item_cost);
+        graphicCatalogItems[i].appendChild(graphicCatalogItems[i].add_remove_figures);
+        graphicCatalogItems[i].add_remove_figures.appendChild(graphicCatalogItems[i].item_btn);
+        graphicCatalogItems[i].add_remove_figures.appendChild(graphicCatalogItems[i].minus_btn);
+        graphicCatalogItems[i].add_remove_figures.appendChild(graphicCatalogItemCounter[i]);
+        graphicCatalogItems[i].add_remove_figures.appendChild(graphicCatalogItems[i].plus_btn);
+    }
+
+    choose_time_btn.addEventListener("click", () => {
+        get_data_from_server(url_addresses.free_order_time_url).then((data_from_server) => {
+            let free_time_array = [];
+            for (let free_time of data_from_server["freetime"]) {
+                free_time_array.push(seconds_to_time(free_time));
+            }
+
+            draw_free_time_in_shopping_cart(free_time_array);
+        });
+
+        document.querySelector(".container").classList.remove("bottom_container_margin");
+        document.querySelector(".items").classList.add("hidden");
+        choose_time_btn.classList.add("hidden");
+        document.querySelector(".shopping_cart").classList.remove("hidden");
+        document.querySelector(".empty_shopping_cart_label").classList.add("hidden");
+        document.querySelector(".shopping_cart_items").classList.remove("hidden");
+        document.querySelector(".time_slider_area").classList.remove("hidden");
+
+        let shopping_cart_items = document.querySelector(".shopping_cart_items");
+        for (let key of order.user_order.keys()) {
+            let shopping_item = create_element("div", "shopping_item");
+            shopping_cart_items.appendChild(shopping_item);
+
+            let shopping_cart_item_img = create_image("shopping_item_img", catalog.Items[key].item_img, "");
+            let shopping_cart_item_name = create_element("div", "shopping_cart_item_name", catalog.Items[key].item_name);
+            let shopping_cart_item_cost = create_element("div", "shopping_cart_item_cost", catalog.Items[key].item_cost + " ₽/шт.");
+            let shopping_cart_add_remove_figure = create_element("div", "shopping_cart_add_remove_figure");
+            let shopping_cart_minus_btn = create_element("button", "shopping_cart_minus_btn", "-");
+            let shopping_cart_item_label = create_element("label", "shopping_cart_item_label", order.user_order.get(key));
+            let shopping_cart_plus_btn = create_element("button", "shopping_cart_plus_btn", "+");
+
+            shopping_cart_add_remove_figure.appendChild(shopping_cart_minus_btn);
+            shopping_cart_add_remove_figure.appendChild(shopping_cart_item_label);
+            shopping_cart_add_remove_figure.appendChild(shopping_cart_plus_btn);
+
+            shopping_item.appendChild(shopping_cart_item_img);
+            shopping_item.appendChild(shopping_cart_item_name);
+            shopping_item.appendChild(shopping_cart_add_remove_figure);
+            shopping_item.appendChild(shopping_cart_item_cost);
+
+            shopping_cart_minus_btn.addEventListener("click", () => {
+                decrease_item_counter(key, shopping_item, "shopping cart", shopping_cart_item_label);
+                if (order.user_order.size === 0) {
+                    shopping_cart_items.classList.add("hidden");
+                    time_slider_area.classList.add("hidden");
+                    checkout_btn.classList.add("hidden");
+                    let empty_shopping_cart_label = document.querySelector(".empty_shopping_cart_label");
+                    empty_shopping_cart_label.classList.remove("hidden");
                 }
-
-                draw_free_time_in_shopping_cart(free_time_array);
             });
 
+            shopping_cart_plus_btn.addEventListener("click", () => {
+                increase_item_counter(key, shopping_cart_item_label);
+            });
+        }
 
-            document.querySelector(".container").classList.remove("bottom_container_margin");
-            document.querySelector(".items").classList.add("hidden");
-            choose_time_btn.classList.add("hidden");
-            document.querySelector(".shopping_cart").classList.remove("hidden");
-            document.querySelector(".empty_shopping_cart_label").classList.add("hidden");
-            document.querySelector(".shopping_cart_items").classList.remove("hidden");
-            document.querySelector(".time_slider_area").classList.remove("hidden");
+        back_btn.show();
 
-            let shopping_cart_items = document.querySelector(".shopping_cart_items");
-            for (let key of order.user_order.keys()) {
-                let shopping_item = create_element("div", "shopping_item");
-                shopping_cart_items.appendChild(shopping_item);
+        // let back_btn = document.querySelector(".back_btn");
 
-                let shopping_cart_item_img = create_image("shopping_item_img", catalog.Items[key].item_img, "");
-                let shopping_cart_item_name = create_element("div", "shopping_cart_item_name", catalog.Items[key].item_name);
-                let shopping_cart_item_cost = create_element("div", "shopping_cart_item_cost", catalog.Items[key].item_cost + " ₽/шт.");
-                let shopping_cart_add_remove_figure = create_element("div", "shopping_cart_add_remove_figure");
-                let shopping_cart_minus_btn = create_element("button", "shopping_cart_minus_btn", "-");
-                let shopping_cart_item_label = create_element("label", "shopping_cart_item_label", order.user_order.get(key));
-                let shopping_cart_plus_btn = create_element("button", "shopping_cart_plus_btn", "+");
+        back_btn.onClick(() => {
+        // back_btn.addEventListener("click", () => {
+            document.querySelector(".container").classList.add("bottom_container_margin");
 
-                shopping_cart_add_remove_figure.appendChild(shopping_cart_minus_btn);
-                shopping_cart_add_remove_figure.appendChild(shopping_cart_item_label);
-                shopping_cart_add_remove_figure.appendChild(shopping_cart_plus_btn);
+            let shopping_cart = document.querySelector(".shopping_cart");
+            shopping_cart.classList.add("hidden");
+            let items = document.getElementById("items");
+            items.classList.remove("hidden");
+            if (order.user_order.size > 0) {
+                document.querySelector(".choose_time_btn").classList.remove("hidden");
+            }
 
-                shopping_item.appendChild(shopping_cart_item_img);
-                shopping_item.appendChild(shopping_cart_item_name);
-                shopping_item.appendChild(shopping_cart_add_remove_figure);
-                shopping_item.appendChild(shopping_cart_item_cost);
+            for (let item of shopping_cart_items.children) {
+                item.classList.add("hidden");
+            }
 
-                shopping_cart_minus_btn.addEventListener("click", () => {
-                    decrease_item_counter(key, shopping_item, "shopping cart", shopping_cart_item_label);
-                    if (order.user_order.size === 0) {
-                        shopping_cart_items.classList.add("hidden");
-                        time_slider_area.classList.add("hidden");
-                        checkout_btn.classList.add("hidden");
-                        let empty_shopping_cart_label = document.querySelector(".empty_shopping_cart_label");
-                        empty_shopping_cart_label.classList.remove("hidden");
+            console.log(graphicCatalogItems);
+
+            for (let i = 0; i < items.children.length; ++i) {
+                if (items.children[i].className === "item") {
+                    let old_item_label;
+                    if (i + 1 < items.children.length) {
+                        old_item_label = items.children[i + 1].querySelector(".add_remove_figure .order_item_label");
                     }
-                });
-
-                shopping_cart_plus_btn.addEventListener("click", () => {
-                    increase_item_counter(key, shopping_cart_item_label);
-                });
-            }
-
-            back_btn.show();
-
-            back_btn.onClick(() => {
-                document.querySelector(".container").classList.add("bottom_container_margin");
-
-                let shopping_cart = document.querySelector(".shopping_cart");
-                shopping_cart.classList.add("hidden");
-                let items = document.getElementById("items");
-                items.classList.remove("hidden");
-                if (order.user_order.size > 0) {
-                    document.querySelector(".choose_time_btn").classList.remove("hidden");
-                }
-
-                for (let item of shopping_cart_items.children) {
-                    item.classList.add("hidden");
-                }
-
-                for (let i = 0; i < items.children.length; ++i) {
-                    if (items.children[i].className === "item") {
-                        let old_item_label = items.children[i].querySelector(".add_remove_figure .order_item_label");
-                        if (old_item_label) {
-                            if (order.user_order.has(i + 1)) {
-                                old_item_label.textContent = order.user_order.get(i + 1);
-                            } else {
+                    if (old_item_label) {
+                        if (order.user_order.has(i + 1)) {
+                            old_item_label.textContent = order.user_order.get(i + 1);
+                            console.log(order.user_order);
+                        } else {
+                            if (i + 1 < items.children.length) {
                                 graphicCatalogItems[i + 1].item_btn.classList.remove("hidden");
                                 graphicCatalogItemCounter[i + 1].classList.add("hidden");
                                 graphicCatalogItems[i + 1].minus_btn.classList.add("hidden");
                                 graphicCatalogItems[i + 1].plus_btn.classList.add("hidden");
                             }
-
                         }
+
                     }
                 }
-                back_btn.hide();
-            });
-            checkout_btn.classList.remove("hidden");
+            }
+            back_btn.hide();
         });
+        checkout_btn.classList.remove("hidden");
+    });
 
-        for (let i = 1; i < catalog.size + 1; ++i) {
-            graphicCatalogItems[i].item_btn.addEventListener("click", () => {
-                order.user_order.set(i, 1);
-                choose_time_btn.classList.remove("hidden");
-                document.querySelector(".container").classList.add("bottom_container_margin");
+    for (let i = 1; i < catalog.size + 1; ++i) {
+        graphicCatalogItems[i].item_btn.addEventListener("click", () => {
+            order.user_order.set(i, 1);
+            choose_time_btn.classList.remove("hidden");
+            document.querySelector(".container").classList.add("bottom_container_margin");
 
-                order.order_cost += +catalog.Items[i].item_cost;
-                choose_time_btn.textContent = `Посмотреть заказ • ${order.order_cost} ₽`;
+            order.order_cost += +catalog.Items[i].item_cost;
+            choose_time_btn.textContent = `Посмотреть заказ • ${order.order_cost} ₽`;
 
-                graphicCatalogItems[i].item_btn.classList.add("hidden");
-                graphicCatalogItems[i].minus_btn.classList.remove("hidden");
-                graphicCatalogItemCounter[i].classList.remove("hidden");
-                graphicCatalogItemCounter[i].textContent = "1";
-                graphicCatalogItems[i].plus_btn.classList.remove("hidden");
-            });
-        }
+            graphicCatalogItems[i].item_btn.classList.add("hidden");
+            graphicCatalogItems[i].minus_btn.classList.remove("hidden");
+            graphicCatalogItemCounter[i].classList.remove("hidden");
+            graphicCatalogItemCounter[i].textContent = "1";
+            graphicCatalogItems[i].plus_btn.classList.remove("hidden");
+        });
     }
 })
 
