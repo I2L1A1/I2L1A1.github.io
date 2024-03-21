@@ -1,3 +1,8 @@
+let url_addresses = {
+    catalog_url: "https://api.npoint.io/e8788c3df8ed585a512f",
+    free_order_time_url: "https://api.npoint.io/bb051384b63b14a8cdd8"
+};
+
 let tg = window.Telegram.WebApp;
 tg.expand();
 
@@ -150,7 +155,7 @@ async function get_data_from_server(url) {
     }
 }
 
-get_data_from_server("https://api.npoint.io/e8788c3df8ed585a512f").then((data_from_server) => {
+get_data_from_server(url_addresses.catalog_url).then((data_from_server) => {
     if (data_from_server) {
         for (let catalog_item of data_from_server["catalog"]) {
             catalog.addItem(catalog_item["name"], catalog_item["img"], catalog_item["cost"]);
@@ -223,7 +228,7 @@ get_data_from_server("https://api.npoint.io/e8788c3df8ed585a512f").then((data_fr
         }
 
         choose_time_btn.addEventListener("click", () => {
-            get_data_from_server("https://api.npoint.io/bb051384b63b14a8cdd8").then((data_from_server) => {
+            get_data_from_server(url_addresses.free_order_time_url).then((data_from_server) => {
                 let free_time_array = [];
                 for (let free_time of data_from_server["freetime"]) {
                     console.log(free_time);
