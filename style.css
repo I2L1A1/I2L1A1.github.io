@@ -326,3 +326,7 @@ button {
 .hidden {
     display: none;
 }
+
+.menu_link {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
