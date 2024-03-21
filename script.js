@@ -56,7 +56,7 @@ class Order {
             data_for_send.items.push(item_for_send);
         }
 
-        data_for_send.cost = order.order_cost;
+        data_for_send.orderCost = order.order_cost;
         data_for_send.time = order.order_time;
 
         data_for_send = JSON.stringify(data_for_send);
