@@ -357,4 +357,3 @@ checkout_btn.addEventListener("click", () => {
     tg.sendData(order.generate_data_for_send());
 });
 
-
