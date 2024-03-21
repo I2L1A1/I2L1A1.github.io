@@ -11,7 +11,6 @@ tg.expand();
 
 class ItemFromCatalog {
     constructor(item_id, item_name, item_img, item_cost) {
-        this.item_number = 0;
         this.item_id = item_id;
         this.item_name = item_name;
         this.item_img = item_img;
@@ -73,7 +72,7 @@ function draw_free_time_in_shopping_cart(free_time_array) {
 
     for (let free_time of free_time_array) {
         let free_time_button = create_input("free_time_button", "free_time", "radio", free_time, free_time);
-        let free_time_label = create_element("label", "free_time_label", free_time);
+        let free_time_label = create_element("label", "free_time_label", seconds_to_time(free_time));
         free_time_label.htmlFor = free_time;
 
         buttons_wrapper.appendChild(free_time_button);
@@ -81,7 +80,7 @@ function draw_free_time_in_shopping_cart(free_time_array) {
 
         free_time_button.addEventListener("click", () => {
             checkout_btn.removeAttribute("disabled");
-            checkout_btn.textContent = `Заказать к ${free_time_button.value} • ${order.order_cost} ₽`;
+            checkout_btn.textContent = `Заказать к ${free_time_label.textContent} • ${order.order_cost} ₽`;
             order.order_time = free_time_button.value;
 
             let time_buttons = buttons_wrapper.children;
@@ -234,12 +233,12 @@ get_data_from_server(url_addresses.catalog_url).then((data_from_server) => {
         graphicCatalogItems[i].add_remove_figures.appendChild(graphicCatalogItemCounter[i]);
         graphicCatalogItems[i].add_remove_figures.appendChild(graphicCatalogItems[i].plus_btn);
     }
-    
+
     choose_time_btn.addEventListener("click", () => {
         get_data_from_server(url_addresses.free_order_time_url).then((data_from_server) => {
             let free_time_array = [];
             for (let free_time of data_from_server["freetime"]) {
-                free_time_array.push(seconds_to_time(free_time));
+                free_time_array.push(free_time);
             }
 
             draw_free_time_in_shopping_cart(free_time_array);
@@ -362,4 +361,3 @@ checkout_btn.classList.add("hidden");
 checkout_btn.addEventListener("click", () => {
     tg.sendData(order.generate_data_for_send());
 });
-
