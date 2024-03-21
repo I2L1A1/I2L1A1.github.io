@@ -6,11 +6,13 @@ let url_addresses = {
 let tg = window.Telegram.WebApp;
 tg.expand();
 
-let back_btn = tg.BackButton;
-back_btn.hide();
+// let back_btn = tg.BackButton;
+// back_btn.hide();
 
 class ItemFromCatalog {
-    constructor(item_name, item_img, item_cost) {
+    constructor(item_id, item_name, item_img, item_cost) {
+        this.item_number = 0;
+        this.item_id = item_id;
         this.item_name = item_name;
         this.item_img = item_img;
         this.item_cost = item_cost;
@@ -18,12 +20,11 @@ class ItemFromCatalog {
 }
 
 class Catalog {
-    Items = new Array(1);
+    Items = new Map();
     size = 0;
 
-    addItem(item_name, item_img, item_cost) {
-        this.Items.push(new ItemFromCatalog(item_name, item_img, item_cost));
-        this.size += 1;
+    addItem(item_id, item_name, item_img, item_cost) {
+        this.Items.set(item_id, new ItemFromCatalog(item_id, item_name, item_img, item_cost))
     }
 }
 
@@ -34,11 +35,13 @@ class Order {
     order_time = "";
 
     generate_data_for_send() {
+        console.log(order.user_order);
+
         let data_for_send = {
             order: [], cost: 0, time: ""
         };
         for (let key of order.user_order.keys()) {
-            data_for_send.order.push([catalog.Items[key].item_name, order.user_order.get(key), catalog.Items[key].item_cost]);
+            data_for_send.order.push([catalog.Items.get(key).item_name, order.user_order.get(key), catalog.Items.get(key).item_cost, catalog.Items.get(key).item_id]);
         }
         data_for_send.cost = order.order_cost;
         data_for_send.time = order.order_time;
@@ -52,7 +55,7 @@ class Order {
 function increase_item_counter(i, textField) {
     let new_number = order.user_order.get(i) + 1;
     order.user_order.set(i, new_number);
-    order.order_cost += +catalog.Items[i].item_cost;
+    order.order_cost += +catalog.Items.get(i).item_cost;
     choose_time_btn.textContent = `Посмотреть заказ • ${order.order_cost} ₽`;
     textField.textContent = new_number;
 }
@@ -156,11 +159,14 @@ let catalog = new Catalog();
 
 order = new Order();
 
-let graphicCatalogItemCounter = new Array(catalog.size + 1).fill(create_element("label"));
+let graphicCatalogItemCounter = new Map();
 
 get_data_from_server(url_addresses.catalog_url).then((data_from_server) => {
-    for (let catalog_item of data_from_server["catalog"]) {
-        catalog.addItem(catalog_item["name"], catalog_item["img"], catalog_item["cost"]);
+
+    catalog.size = data_from_server["size"];
+
+    for (let catalog_item of data_from_server["items"]) {
+        catalog.addItem(catalog_item["itemId"], catalog_item["itemName"], "Dish1.png", catalog_item["itemCost"]);
     }
 
     function decrease_item_counter(i, object_to_delete, location, textField) {
@@ -190,17 +196,17 @@ get_data_from_server(url_addresses.catalog_url).then((data_from_server) => {
                 object_to_delete.classList.add("hidden");
             }
         }
-        order.order_cost -= +catalog.Items[i].item_cost;
+        order.order_cost -= +catalog.Items.get(i).item_cost;
         choose_time_btn.textContent = `Посмотреть заказ • ${order.order_cost} ₽`;
     }
 
-    let graphicCatalogItems = new Array(catalog.size + 1);
+    let graphicCatalogItems = new Map();
 
-    for (let i = 1; i < catalog.size + 1; ++i) {
+    for (let i of catalog.Items.keys()) {
         graphicCatalogItems[i] = create_element("div", "item");
-        graphicCatalogItems[i].item_img = create_image("catalog_image", catalog.Items[i].item_img, "");
-        graphicCatalogItems[i].item_name = create_element("div", "item_name", catalog.Items[i].item_name);
-        graphicCatalogItems[i].item_cost = create_element("div", "item_cost", catalog.Items[i].item_cost + " ₽");
+        graphicCatalogItems[i].item_img = create_image("catalog_image", catalog.Items.get(i).item_img, "");
+        graphicCatalogItems[i].item_name = create_element("div", "item_name", catalog.Items.get(i).item_name);
+        graphicCatalogItems[i].item_cost = create_element("div", "item_cost", catalog.Items.get(i).item_cost + " ₽");
         graphicCatalogItems[i].item_btn = create_element("button", "btn_add", "Добавить");
         graphicCatalogItems[i].add_remove_figures = create_element("div", "add_remove_figure");
 
@@ -228,7 +234,7 @@ get_data_from_server(url_addresses.catalog_url).then((data_from_server) => {
         graphicCatalogItems[i].add_remove_figures.appendChild(graphicCatalogItemCounter[i]);
         graphicCatalogItems[i].add_remove_figures.appendChild(graphicCatalogItems[i].plus_btn);
     }
-
+    
     choose_time_btn.addEventListener("click", () => {
         get_data_from_server(url_addresses.free_order_time_url).then((data_from_server) => {
             let free_time_array = [];
@@ -252,9 +258,9 @@ get_data_from_server(url_addresses.catalog_url).then((data_from_server) => {
             let shopping_item = create_element("div", "shopping_item");
             shopping_cart_items.appendChild(shopping_item);
 
-            let shopping_cart_item_img = create_image("shopping_item_img", catalog.Items[key].item_img, "");
-            let shopping_cart_item_name = create_element("div", "shopping_cart_item_name", catalog.Items[key].item_name);
-            let shopping_cart_item_cost = create_element("div", "shopping_cart_item_cost", catalog.Items[key].item_cost + " ₽/шт.");
+            let shopping_cart_item_img = create_image("shopping_item_img", catalog.Items.get(key).item_img, "");
+            let shopping_cart_item_name = create_element("div", "shopping_cart_item_name", catalog.Items.get(key).item_name);
+            let shopping_cart_item_cost = create_element("div", "shopping_cart_item_cost", catalog.Items.get(key).item_cost + " ₽/шт.");
             let shopping_cart_add_remove_figure = create_element("div", "shopping_cart_add_remove_figure");
             let shopping_cart_minus_btn = create_element("button", "shopping_cart_minus_btn", "-");
             let shopping_cart_item_label = create_element("label", "shopping_cart_item_label", order.user_order.get(key));
@@ -285,12 +291,12 @@ get_data_from_server(url_addresses.catalog_url).then((data_from_server) => {
             });
         }
 
-        back_btn.show();
+        // back_btn.show();
 
-        // let back_btn = document.querySelector(".back_btn");
+        let back_btn = document.querySelector(".back_btn");
 
-        back_btn.onClick(() => {
-        // back_btn.addEventListener("click", () => {
+        // back_btn.onClick(() => {
+        back_btn.addEventListener("click", () => {
             document.querySelector(".container").classList.add("bottom_container_margin");
 
             let shopping_cart = document.querySelector(".shopping_cart");
@@ -305,42 +311,32 @@ get_data_from_server(url_addresses.catalog_url).then((data_from_server) => {
                 item.classList.add("hidden");
             }
 
-            console.log(graphicCatalogItems);
-
-            for (let i = 0; i < items.children.length; ++i) {
-                if (items.children[i].className === "item") {
-                    let old_item_label;
-                    if (i + 1 < items.children.length) {
-                        old_item_label = items.children[i + 1].querySelector(".add_remove_figure .order_item_label");
-                    }
-                    if (old_item_label) {
-                        if (order.user_order.has(i + 1)) {
-                            old_item_label.textContent = order.user_order.get(i + 1);
-                            console.log(order.user_order);
-                        } else {
-                            if (i + 1 < items.children.length) {
-                                graphicCatalogItems[i + 1].item_btn.classList.remove("hidden");
-                                graphicCatalogItemCounter[i + 1].classList.add("hidden");
-                                graphicCatalogItems[i + 1].minus_btn.classList.add("hidden");
-                                graphicCatalogItems[i + 1].plus_btn.classList.add("hidden");
-                            }
-                        }
-
+            for (let i of catalog.Items.keys()) {
+                let old_item_label;
+                old_item_label = graphicCatalogItems[i].querySelector(".add_remove_figure .order_item_label");
+                if (old_item_label) {
+                    if (order.user_order.has(i)) {
+                        old_item_label.textContent = order.user_order.get(i);
+                    } else {
+                        graphicCatalogItems[i].item_btn.classList.remove("hidden");
+                        graphicCatalogItemCounter[i].classList.add("hidden");
+                        graphicCatalogItems[i].minus_btn.classList.add("hidden");
+                        graphicCatalogItems[i].plus_btn.classList.add("hidden");
                     }
                 }
             }
-            back_btn.hide();
+            // back_btn.hide();
         });
         checkout_btn.classList.remove("hidden");
     });
 
-    for (let i = 1; i < catalog.size + 1; ++i) {
+    for (let i of catalog.Items.keys()) {
         graphicCatalogItems[i].item_btn.addEventListener("click", () => {
             order.user_order.set(i, 1);
             choose_time_btn.classList.remove("hidden");
             document.querySelector(".container").classList.add("bottom_container_margin");
 
-            order.order_cost += +catalog.Items[i].item_cost;
+            order.order_cost += +catalog.Items.get(i).item_cost;
             choose_time_btn.textContent = `Посмотреть заказ • ${order.order_cost} ₽`;
 
             graphicCatalogItems[i].item_btn.classList.add("hidden");
