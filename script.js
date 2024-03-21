@@ -7,7 +7,7 @@ let tg = window.Telegram.WebApp;
 tg.expand();
 
 let back_btn = tg.BackButton;
-back_btn.hide();
+// back_btn.hide();
 
 class ItemFromCatalog {
     constructor(item_id, item_name, item_img, item_cost) {
@@ -336,7 +336,7 @@ get_data_from_server(url_addresses.catalog_url).then((data_from_server) => {
                     }
                 }
             }
-            back_btn.hide();
+            // back_btn.hide();
         });
         checkout_btn.classList.remove("hidden");
     });
