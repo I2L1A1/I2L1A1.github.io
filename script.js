@@ -34,8 +34,6 @@ class Order {
     order_time = "";
 
     generate_data_for_send() {
-        console.log(order.user_order);
-
         let data_for_send = {
             items: [], orderCost: 0, time: ""
         };
@@ -95,7 +93,7 @@ function draw_free_time_in_shopping_cart(free_time_array) {
         free_time_button.addEventListener("click", () => {
             checkout_btn.removeAttribute("disabled");
             checkout_btn.textContent = `Заказать к ${free_time_label.textContent} • ${order.order_cost} ₽`;
-            order.order_time = free_time_button.value;
+            order.order_time = +free_time_button.value;
 
             let time_buttons = buttons_wrapper.children;
             for (let time_button of time_buttons) {
