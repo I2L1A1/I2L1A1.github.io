@@ -41,13 +41,14 @@ class Order {
         };
 
         let item_for_send = {
-            itemName: "",
-            itemId: "",
-            itemCost: "",
-            itemNumber: ""
+            itemName: "", itemId: "", itemCost: "", itemNumber: ""
         };
 
         for (let key of order.user_order.keys()) {
+            item_for_send = {
+                itemName: "", itemId: "", itemCost: "", itemNumber: ""
+            };
+
             item_for_send.itemName = catalog.Items.get(key).item_name;
             item_for_send.itemId = catalog.Items.get(key).item_id;
             item_for_send.itemCost = catalog.Items.get(key).item_cost;
