@@ -6,8 +6,8 @@ let url_addresses = {
 let tg = window.Telegram.WebApp;
 tg.expand();
 
-// let back_btn = tg.BackButton;
-// back_btn.hide();
+let back_btn = tg.BackButton;
+back_btn.hide();
 
 class ItemFromCatalog {
     constructor(item_id, item_name, item_img, item_cost) {
@@ -302,12 +302,12 @@ get_data_from_server(url_addresses.catalog_url).then((data_from_server) => {
             });
         }
 
-        // back_btn.show();
+        back_btn.show();
 
-        let back_btn = document.querySelector(".back_btn");
+        // let back_btn = document.querySelector(".back_btn");
 
-        // back_btn.onClick(() => {
-        back_btn.addEventListener("click", () => {
+        back_btn.onClick(() => {
+            // back_btn.addEventListener("click", () => {
             document.querySelector(".container").classList.add("bottom_container_margin");
 
             let shopping_cart = document.querySelector(".shopping_cart");
@@ -336,7 +336,7 @@ get_data_from_server(url_addresses.catalog_url).then((data_from_server) => {
                     }
                 }
             }
-            // back_btn.hide();
+            back_btn.hide();
         });
         checkout_btn.classList.remove("hidden");
     });
