@@ -309,6 +309,13 @@ get_data_from_server(url_addresses.catalog_url).then((data_from_server) => {
 
         back_btn.show();
 
+        const textarea = document.querySelector('.order_comment');
+
+        textarea.addEventListener('blur', () => {
+            textarea.blur();
+            document.querySelector(".container").style.backgroundColor = "red";
+        });
+
         // let back_btn = document.querySelector(".back_btn");
 
         back_btn.onClick(() => {
