@@ -337,7 +337,7 @@ button {
 
 .order_comment {
     width: calc(100% - 70px);
-    outline : none;
+    outline: none;
     resize: none;
     font-family: "Cyntho Pro", sans-serif;
     padding: 10px;
@@ -349,15 +349,16 @@ button {
 }
 
 .order_comment_button {
+    padding: 0;
     height: 45px;
     width: 45px;
     margin-top: auto;
     margin-bottom: auto;
     background-color: #ffdaae;
     border: 0;
-    border-radius: 20px;
+    border-radius: 25px;
     color: #2d2d2d;
-    font-size: 1em;
+    font-size: 0.9em;
     text-align: center;
     vertical-align: middle;
 }
