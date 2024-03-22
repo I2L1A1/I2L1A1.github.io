@@ -45,9 +45,9 @@ body {
     height: 100%;
 }
 
-a.menu_link:active,
-a.menu_link:hover,
-a.menu_link {
+.menu_link:active,
+.menu_link:hover,
+.menu_link {
     text-decoration: none;
     color: #2d2d2d;
 }
