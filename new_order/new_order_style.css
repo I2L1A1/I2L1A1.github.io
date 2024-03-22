@@ -263,7 +263,7 @@ button {
     border: 1px solid #ddd;
     border-radius: 25px;
     bottom: 2.2em;
-    margin: 10px 5px;
+    margin: 0 5px 10px;
     overflow-x: hidden;
     overflow-y: scroll;
 }
@@ -325,4 +325,16 @@ button {
 
 .hidden {
     display: none;
+}
+
+.order_comment {
+    resize: none;
+    font-family: "Cyntho Pro", sans-serif;
+    box-sizing: border-box;
+    padding: 10px;
+    width: calc(100vw - 10px);
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    margin: 5px;
 }

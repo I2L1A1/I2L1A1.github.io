@@ -170,7 +170,7 @@ document.querySelector(".shopping_cart").classList.add("hidden");
 
 let catalog = new Catalog();
 
-order = new Order();
+let order = new Order();
 
 let graphicCatalogItemCounter = new Map();
 
