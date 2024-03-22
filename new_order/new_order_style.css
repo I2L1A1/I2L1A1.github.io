@@ -328,13 +328,22 @@ button {
 }
 
 .order_comment {
-    resize: none;
-    font-family: "Cyntho Pro", sans-serif;
-    box-sizing: border-box;
-    padding: 10px;
-    width: calc(100vw - 10px);
-    height: auto;
-    border: 1px solid #ddd;
-    border-radius: 25px;
-    margin: 5px;
+    appearance: auto;
+    color: canvastext;
+    background-color: canvas;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    -webkit-rtl-ordering: logical;
+    -webkit-user-select: text;
+    padding-top: 2px;
+    flex-direction: column;
+    cursor: auto;
+    white-space-collapse: preserve;
+    overflow-wrap: break-word;
 }

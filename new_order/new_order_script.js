@@ -309,22 +309,6 @@ get_data_from_server(url_addresses.catalog_url).then((data_from_server) => {
 
         back_btn.show();
 
-        const textarea = document.querySelector('.order_comment');
-
-        textarea.addEventListener('blur', () => {
-            const fakeInput = document.createElement('input');
-            fakeInput.style.position = 'absolute';
-            fakeInput.style.opacity = '0';
-
-            document.body.appendChild(fakeInput);
-
-            console.log(123);
-            fakeInput.focus();
-            textarea.blur();
-
-            document.querySelector(".container").style.backgroundColor = "green";
-        });
-
         // let back_btn = document.querySelector(".back_btn");
 
         back_btn.onClick(() => {
