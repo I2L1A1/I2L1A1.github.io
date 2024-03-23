@@ -125,7 +125,7 @@ button {
 .back_btn_to_menu_svg {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     display: flex;
-    stroke: #2d2d2d;
+    stroke: red;
 }
 
 .back_btn_to_menu {
@@ -139,7 +139,7 @@ button {
     z-index: 999;
     top: 0;
     width: 100%;
-    height: fit-content;
+    height: 40px;
     position: fixed;
     display: grid;
     grid-template-columns: 32px calc(100% - 32px);
