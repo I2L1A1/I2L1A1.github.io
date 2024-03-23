@@ -43,6 +43,10 @@ button {
     overflow-y: scroll;
 }
 
+.order_wrapper:first-child {
+    margin-top: 50px;
+}
+
 .order_item {
     padding: 0;
     display: grid;
