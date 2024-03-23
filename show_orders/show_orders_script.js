@@ -27,6 +27,14 @@ function create_element(element_type, class_name = "", text_content = "", is_hid
     return element_variable;
 }
 
+function create_image(class_name = "", src, alt) {
+    let element_variable = document.createElement("img");
+    element_variable.className = class_name;
+    element_variable.src = src;
+    element_variable.alt = alt;
+    return element_variable;
+}
+
 
 let items_element = document.querySelector(".orders");
 console.log(items_element);
@@ -41,6 +49,15 @@ get_data_from_server(url_addresses.user_url).then((data_from_server) => {
         let order_wrapper = create_element("div", "order_wrapper");
         for (let item of data_from_server["orders"][i]["items"]) {
             let order_item = create_element("div", "order_item");
+            let order_item_img = create_image("order_item_img", "Dish1.png", "");
+            let order_item_name = create_element("div", "order_item_name", item["item"]["itemName"]);
+            let order_item_cost = create_element("div", "order_item_cost", item["item"]["itemCost"] + " ₽/шт.");
+            let order_item_number = create_element("div", "order_item_number", item["itemNumber"] + " шт.");
+
+            order_item.appendChild(order_item_img);
+            order_item.appendChild(order_item_name);
+            order_item.appendChild(order_item_cost);
+            order_item.appendChild(order_item_number);
             order_wrapper.appendChild(order_item);
         }
         items_element.appendChild(order_wrapper);

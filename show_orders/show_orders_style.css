@@ -58,3 +58,32 @@ button {
 .order_item:last-child, .order_wrapper:last-child {
     margin-bottom: 10px;
 }
+
+.order_item_img {
+    display: inline-block;
+    margin: auto 10px;
+    width: 50px;
+    height: auto;
+}
+
+.order_item_name {
+    margin: auto 10px;
+    text-align: center;
+    font-size: 0.8em;
+}
+
+.order_item_cost {
+    font-size: 0.8em;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: fit-content;
+    height: fit-content;
+}
+
+.order_item_number {
+    font-size: 0.8em;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: fit-content;
+    height: fit-content;
+}
