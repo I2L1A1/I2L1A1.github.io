@@ -13,19 +13,38 @@ async function get_data_from_server(url) {
     return await response.json();
 }
 
+function create_element(element_type, class_name = "", text_content = "", is_hidden = false) {
+    let element_variable = document.createElement(element_type);
+    if (class_name !== "") {
+        element_variable.className = class_name;
+    }
+    if (text_content !== "") {
+        element_variable.textContent = text_content;
+    }
+    if (is_hidden) {
+        element_variable.classList.add("hidden");
+    }
+    return element_variable;
+}
+
 
 let items_element = document.querySelector(".orders");
 console.log(items_element);
 
 get_data_from_server(url_addresses.user_url).then((data_from_server) => {
     let orders_length = data_from_server["orders"].length;
-    let res_str = ""
     for (let i = 0; i < orders_length; ++i) {
-        res_str += "---------- " + data_from_server["orders"][i]["orderId"] + " ----------\n";
+        // res_str += "---------- " + data_from_server["orders"][i]["orderId"] + " ----------\n";
+        // for (let item of data_from_server["orders"][i]["items"]) {
+        //     res_str += item["item"]["itemName"] + ", " + "\n";
+        // }
+        let order_wrapper = create_element("div", "order_wrapper");
         for (let item of data_from_server["orders"][i]["items"]) {
-            res_str += item["item"]["itemName"] + ", " + "\n";
+            let order_item = create_element("div", "order_item");
+            order_wrapper.appendChild(order_item);
         }
+        items_element.appendChild(order_wrapper);
+
     }
     let test_label = document.querySelector(".test_label");
-    test_label.textContent = res_str;
 });

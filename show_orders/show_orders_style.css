@@ -23,6 +23,38 @@ button {
     width: 100%;
 }
 
-.test_label {
+.show_orders_label {
+    width: 100%;
+    height: fit-content;
+    text-align: center;
+    font-size: 2em;
+    margin-top: 0.5em;
+}
 
+
+.order_wrapper {
+    border: 1px solid #ddd;
+    margin-right: 5px;
+    margin-left: 5px;
+    margin-top: 20px;
+    border-radius: 25px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.order_item {
+    padding: 0;
+    display: grid;
+    grid-template-columns: 20% 35% 30% 20%;
+    height: 60px;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    margin-right: 10px;
+    margin-left: 10px;
+    border-radius: 17px;
+    box-shadow: 5px 5px 10px #ddd;
+}
+
+.order_item:last-child, .order_wrapper:last-child {
+    margin-bottom: 10px;
 }
