@@ -120,11 +120,15 @@ button {
 .back_btn_to_menu_svg {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     display: flex;
-    margin-left: 10px;
-    margin-top: 10px;
     stroke: #ffdaae;
 }
 
 .back_btn_to_menu {
+    margin-left: 10px;
+    margin-top: 10px;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.page_header {
+    background-color: red;
 }
