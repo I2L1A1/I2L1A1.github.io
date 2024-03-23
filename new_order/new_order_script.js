@@ -7,6 +7,7 @@ let tg = window.Telegram.WebApp;
 tg.expand();
 
 let back_btn = tg.BackButton;
+back_btn.show();
 
 // back_btn.hide();
 
@@ -314,8 +315,9 @@ get_data_from_server(url_addresses.catalog_url).then((data_from_server) => {
             });
         }
 
-        back_btn.show();
+        // back_btn.show();
 
+        // let back_btn = document.querySelector(".back_btn");
         // let back_btn = document.querySelector(".back_btn");
 
         back_btn.onClick(() => {
