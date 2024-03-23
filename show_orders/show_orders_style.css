@@ -57,14 +57,31 @@ button {
 
 .order_info {
     padding: 0;
-    display: grid;
-    height: 80px;
-    margin-top: 10px;
-    border: 1px solid #ddd;
+    height: fit-content;
+    margin-bottom: 1.3em;
     margin-right: 10px;
     margin-left: 10px;
-    /*border-radius: 17px;*/
-    /*box-shadow: 5px 5px 10px #ddd;*/
+}
+
+.order_id, .order_time, .order_status {
+    width: 100%;
+    height: fit-content;
+    text-align: center;
+    font-size: 1.2em;
+    margin-top: 0.6em;
+    margin-bottom: 0.6em;
+}
+
+.order_time {
+    font-size: 1em;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.order_status {
+    font-size: 1em;
+    margin-top: 0.2em;
+    margin-bottom: 0;
 }
 
 .order_item:last-child, .order_wrapper:last-child {

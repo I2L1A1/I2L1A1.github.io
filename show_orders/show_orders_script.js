@@ -55,16 +55,17 @@ console.log(items_element);
 get_data_from_server(url_addresses.user_url).then((data_from_server) => {
     let orders_length = data_from_server["orders"].length;
     for (let i = 0; i < orders_length; ++i) {
-        // res_str += "---------- " + data_from_server["orders"][i]["orderId"] + " ----------\n";
-        // for (let item of data_from_server["orders"][i]["items"]) {
-        //     res_str += item["item"]["itemName"] + ", " + "\n";
-        // }
         let order_wrapper = create_element("div", "order_wrapper");
         let order_info = create_element("div", "order_info");
 
         let order_id = create_element("div", "order_id", "ID " + data_from_server["orders"][i]["orderId"]);
-        let order_time = create_element("div", "order_time", seconds_to_time(data_from_server["orders"][i]["time"]));
-        let order_status = create_element("div", "order_status", "Оплачено ✅");
+        let order_time = create_element("div", "order_time", "Заказ на " + seconds_to_time(data_from_server["orders"][i]["time"]));
+        let order_status = create_element("div", "order_status");
+        if (data_from_server["orders"][i]["status"] === "waiting for payment") {
+            order_status.textContent = "Не оплачено ❌";
+        } else {
+            order_status.textContent = "Оплачено ✅";
+        }
 
         order_info.appendChild(order_id);
         order_info.appendChild(order_time);
@@ -86,5 +87,4 @@ get_data_from_server(url_addresses.user_url).then((data_from_server) => {
         }
         items_element.appendChild(order_wrapper);
     }
-    let test_label = document.querySelector(".test_label");
 });
