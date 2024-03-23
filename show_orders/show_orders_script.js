@@ -1,6 +1,5 @@
 let url_addresses = {
-    catalog_url: "https://api.npoint.io/e8788c3df8ed585a512f",
-    free_order_time_url: "https://api.npoint.io/bb051384b63b14a8cdd8"
+    user_url: "https://api.npoint.io/df9386412941a86767d4"
 };
 
 async function get_data_from_server(url) {
@@ -8,10 +7,21 @@ async function get_data_from_server(url) {
     return await response.json();
 }
 
+let back_btn_show_orders = tg.BackButton;
+back_btn_show_orders.show();
 
 let items_element = document.querySelector(".orders");
 console.log(items_element);
 
-get_data_from_server(url_addresses.catalog_url).then((data_from_server) => {
-    console.log(data_from_server);
+get_data_from_server(url_addresses.user_url).then((data_from_server) => {
+    let orders_length = data_from_server["orders"].length;
+    let res_str = ""
+    for (let i = 0; i < orders_length; ++i) {
+        res_str += "---------- " + data_from_server["orders"][i]["orderId"] + " ----------\n";
+        for (let item of data_from_server["orders"][i]["items"]) {
+            res_str += item["item"]["itemName"] + ", " + "\n";
+        }
+    }
+    let test_label = document.querySelector(".test_label");
+    test_label.textContent = res_str;
 });

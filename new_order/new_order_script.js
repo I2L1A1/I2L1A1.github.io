@@ -277,7 +277,7 @@ get_data_from_server(url_addresses.catalog_url).then((data_from_server) => {
 
             let shopping_cart_item_img = create_image("shopping_item_img", catalog.Items.get(key).item_img, "");
             let shopping_cart_item_name = create_element("div", "shopping_cart_item_name", catalog.Items.get(key).item_name);
-            let shopping_cart_item_cost = create_element("label", "shopping_cart_item_cost", catalog.Items.get(key).item_cost + " ₽/шт.");
+            let shopping_cart_item_cost = create_element("div", "shopping_cart_item_cost", catalog.Items.get(key).item_cost + " ₽/шт.");
             let shopping_cart_add_remove_figure = create_element("div", "shopping_cart_add_remove_figure");
             let shopping_cart_minus_btn = create_element("button", "shopping_cart_minus_btn", "-");
             let shopping_cart_item_label = create_element("label", "shopping_cart_item_label", order.user_order.get(key));

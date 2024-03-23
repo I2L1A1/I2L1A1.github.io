@@ -72,23 +72,10 @@ button {
     width: 100%;
 }
 
-.add_remove_figure {
+.add_remove_figure, .shopping_cart_add_remove_figure {
     display: flex;
     justify-content: space-between;
     width: 80%;
-    height: 2em;
-    margin: auto;
-    border-radius: 20px;
-    border: none;
-    color: #2d2d2d;
-    background-color: #ffdaae;
-}
-
-.shopping_cart_add_remove_figure {
-    display: flex;
-    justify-content: space-between;
-    width: 40%;
-    max-width: 100px;
     height: 2em;
     margin: auto;
     border-radius: 20px;
@@ -224,7 +211,9 @@ button {
 }
 
 .shopping_item {
-    display: flex;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 20% 35% 30% 20%;
     height: 60px;
     margin-top: 10px;
     border: 1px solid #ddd;
@@ -248,7 +237,7 @@ button {
 .shopping_cart_item_name {
     margin: auto 10px;
     text-align: center;
-    font-size: 1em;
+    font-size: 0.8em;
 }
 
 .shopping_cart_item_cost {
@@ -256,9 +245,8 @@ button {
     font-size: 0.8em;
     margin-top: auto;
     margin-bottom: auto;
-    width: 60px;
-    vertical-align: center;
-    justify-content: center
+    width: fit-content;
+    height: fit-content;
 }
 
 .empty_shopping_cart_label {
@@ -352,7 +340,6 @@ button {
     outline: none;
     resize: none;
     font-family: "Cyntho Pro", sans-serif;
-    font-size: 1em;
     padding: 10px;
     height: auto;
     border: 1px solid #ddd;
@@ -362,6 +349,7 @@ button {
 }
 
 .order_comment_button {
+    padding: 0;
     height: 45px;
     width: 45px;
     margin-top: auto;
@@ -373,35 +361,4 @@ button {
     font-size: 0.9em;
     text-align: center;
     vertical-align: middle;
-}
-
-@media (width < 300px) {
-    body {
-        font-size: 10px;
-    }
-
-    .shopping_item_img {
-        display: none;
-    }
-
-    .shopping_cart_item_cost {
-        display: none;
-    }
-
-    .shopping_cart_item_name {
-        width: 100%;
-        margin-left: 3px;
-    }
-
-    .shopping_cart_add_remove_figure {
-        width: 100%;
-        height: 1.5em;
-        margin-right: 3px;
-    }
-}
-
-@media (width < 410px) {
-    .shopping_cart_item_cost {
-        font-size: 0.6em;
-    }
 }
