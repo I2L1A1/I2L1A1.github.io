@@ -260,7 +260,7 @@ get_data_from_server(url_addresses.catalog_url).then((data_from_server) => {
 
     choose_time_btn.addEventListener("click", () => {
         checkout_btn.setAttribute('disabled', '');
-        checkout_btn.textContent = "Выбрать время";
+        checkout_btn.textContent = "Выберите время";
 
         get_data_from_server(url_addresses.free_order_time_url).then((data_from_server) => {
             let free_time_array = [];
@@ -315,6 +315,7 @@ get_data_from_server(url_addresses.catalog_url).then((data_from_server) => {
 
             shopping_cart_plus_btn.addEventListener("click", () => {
                 increase_item_counter(key, shopping_cart_item_label);
+                console.log(checkout_btn.textContent);
                 if (checkout_btn.textContent !== "Выберите время") {
                     checkout_btn.textContent = `Заказать к ${seconds_to_time(order.order_time)} • ${order.order_cost} ₽`;
                 }
