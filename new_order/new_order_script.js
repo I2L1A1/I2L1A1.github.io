@@ -6,8 +6,8 @@ let url_addresses = {
 let tg = window.Telegram.WebApp;
 tg.expand();
 
-let back_btn = tg.BackButton;
-back_btn.show();
+// let back_btn = tg.BackButton;
+// back_btn.show();
 
 // back_btn.hide();
 
@@ -207,7 +207,6 @@ get_data_from_server(url_addresses.catalog_url).then((data_from_server) => {
                     document.querySelector(".container").classList.remove("bottom_container_margin");
                 } else {
                     object_to_delete.classList.add("hidden");
-                    return -1;
                 }
             }
             if (location === "catalog") {
@@ -308,20 +307,29 @@ get_data_from_server(url_addresses.catalog_url).then((data_from_server) => {
                     let empty_shopping_cart_label = document.querySelector(".empty_shopping_cart_label");
                     empty_shopping_cart_label.classList.remove("hidden");
                 }
+                if (checkout_btn.textContent !== "Выберите время") {
+                    checkout_btn.textContent = `Заказать к ${seconds_to_time(order.order_time)} • ${order.order_cost} ₽`;
+                }
             });
 
             shopping_cart_plus_btn.addEventListener("click", () => {
                 increase_item_counter(key, shopping_cart_item_label);
+                if (checkout_btn.textContent !== "Выберите время") {
+                    checkout_btn.textContent = `Заказать к ${seconds_to_time(order.order_time)} • ${order.order_cost} ₽`;
+                }
             });
         }
 
         // back_btn.show();
 
-        // let back_btn = document.querySelector(".back_btn");
-        // let back_btn = document.querySelector(".back_btn");
+        let back_btn = document.querySelector(".back_btn");
 
-        back_btn.onClick(() => {
-            // back_btn.addEventListener("click", () => {
+        if (checkout_btn.textContent !== "Выберите время") {
+            checkout_btn.textContent = `Заказать к ${seconds_to_time(order.order_time)} • ${order.order_cost} ₽`;
+        }
+
+        // back_btn.onClick(() => {
+        back_btn.addEventListener("click", () => {
             document.querySelector(".container").classList.add("bottom_container_margin");
 
             let shopping_cart = document.querySelector(".shopping_cart");
