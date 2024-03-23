@@ -116,3 +116,10 @@ button {
     width: fit-content;
     height: fit-content;
 }
+
+.back_btn_to_menu_svg {
+    display: flex;
+    margin-left: 10px;
+    margin-top: 10px;
+    stroke: #ffdaae;
+}

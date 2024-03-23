@@ -1,3 +1,6 @@
+let items_element = document.querySelector(".orders");
+let back_btn_to_menu = document.querySelector(".back_btn_to_menu");
+
 let tg = window.Telegram.WebApp;
 tg.expand();
 
@@ -58,10 +61,6 @@ function seconds_to_time(seconds) {
 
     return hours + ":" + minutes;
 }
-
-
-let items_element = document.querySelector(".orders");
-console.log(items_element);
 
 get_data_from_server(url_addresses.user_url).then((data_from_server) => {
     let orders_length = data_from_server["orders"].length;
