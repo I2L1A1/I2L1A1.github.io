@@ -55,6 +55,18 @@ button {
     box-shadow: 5px 5px 10px #ddd;
 }
 
+.order_info {
+    padding: 0;
+    display: grid;
+    height: 80px;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    margin-right: 10px;
+    margin-left: 10px;
+    /*border-radius: 17px;*/
+    /*box-shadow: 5px 5px 10px #ddd;*/
+}
+
 .order_item:last-child, .order_wrapper:last-child {
     margin-bottom: 10px;
 }

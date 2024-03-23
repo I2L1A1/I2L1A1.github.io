@@ -35,6 +35,19 @@ function create_image(class_name = "", src, alt) {
     return element_variable;
 }
 
+function seconds_to_time(seconds) {
+    let hours = Math.floor(seconds / 3600);
+    let minutes = Math.floor((seconds % 3600) / 60);
+    if (hours < 10) {
+        hours = "0" + hours;
+    }
+    if (minutes < 10) {
+        minutes = "0" + minutes;
+    }
+
+    return hours + ":" + minutes;
+}
+
 
 let items_element = document.querySelector(".orders");
 console.log(items_element);
@@ -47,6 +60,17 @@ get_data_from_server(url_addresses.user_url).then((data_from_server) => {
         //     res_str += item["item"]["itemName"] + ", " + "\n";
         // }
         let order_wrapper = create_element("div", "order_wrapper");
+        let order_info = create_element("div", "order_info");
+
+        let order_id = create_element("div", "order_id", "ID " + data_from_server["orders"][i]["orderId"]);
+        let order_time = create_element("div", "order_time", seconds_to_time(data_from_server["orders"][i]["time"]));
+        let order_status = create_element("div", "order_status", "Оплачено ✅");
+
+        order_info.appendChild(order_id);
+        order_info.appendChild(order_time);
+        order_info.appendChild(order_status);
+        order_wrapper.appendChild(order_info);
+
         for (let item of data_from_server["orders"][i]["items"]) {
             let order_item = create_element("div", "order_item");
             let order_item_img = create_image("order_item_img", "Dish1.png", "");
@@ -54,14 +78,13 @@ get_data_from_server(url_addresses.user_url).then((data_from_server) => {
             let order_item_cost = create_element("div", "order_item_cost", item["item"]["itemCost"] + " ₽/шт.");
             let order_item_number = create_element("div", "order_item_number", item["itemNumber"] + " шт.");
 
+            order_wrapper.appendChild(order_item);
             order_item.appendChild(order_item_img);
             order_item.appendChild(order_item_name);
             order_item.appendChild(order_item_cost);
             order_item.appendChild(order_item_number);
-            order_wrapper.appendChild(order_item);
         }
         items_element.appendChild(order_wrapper);
-
     }
     let test_label = document.querySelector(".test_label");
 });
