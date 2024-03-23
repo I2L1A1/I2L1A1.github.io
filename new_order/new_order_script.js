@@ -259,6 +259,9 @@ get_data_from_server(url_addresses.catalog_url).then((data_from_server) => {
     }
 
     choose_time_btn.addEventListener("click", () => {
+        checkout_btn.setAttribute('disabled', '');
+        checkout_btn.textContent = "Выбрать время";
+
         get_data_from_server(url_addresses.free_order_time_url).then((data_from_server) => {
             let free_time_array = [];
             for (let free_time of data_from_server["times"]) {
@@ -321,10 +324,6 @@ get_data_from_server(url_addresses.catalog_url).then((data_from_server) => {
         // back_btn.show();
 
         let back_btn = document.querySelector(".back_btn");
-
-        if (checkout_btn.textContent !== "Выберите время") {
-            checkout_btn.textContent = `Заказать к ${seconds_to_time(order.order_time)} • ${order.order_cost} ₽`;
-        }
 
         // back_btn.onClick(() => {
         back_btn.addEventListener("click", () => {
