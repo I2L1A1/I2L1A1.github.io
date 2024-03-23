@@ -268,13 +268,13 @@ get_data_from_server(url_addresses.catalog_url).then((data_from_server) => {
             draw_free_time_in_shopping_cart(free_time_array);
         });
 
+        document.querySelector(".time_selection_and_checkout").classList.remove("hidden");
         document.querySelector(".container").classList.remove("bottom_container_margin");
         document.querySelector(".items").classList.add("hidden");
         choose_time_btn.classList.add("hidden");
         document.querySelector(".shopping_cart").classList.remove("hidden");
         document.querySelector(".empty_shopping_cart_label").classList.add("hidden");
         document.querySelector(".shopping_cart_items").classList.remove("hidden");
-        document.querySelector(".time_slider_area").classList.remove("hidden");
 
         let shopping_cart_items = document.querySelector(".shopping_cart_items");
         for (let key of order.user_order.keys()) {
@@ -301,11 +301,9 @@ get_data_from_server(url_addresses.catalog_url).then((data_from_server) => {
             shopping_cart_minus_btn.addEventListener("click", () => {
                 decrease_item_counter(key, shopping_item, "shopping cart", shopping_cart_item_label);
                 if (order.user_order.size === 0) {
+                    document.querySelector(".time_selection_and_checkout").classList.add("hidden");
                     shopping_cart_items.classList.add("hidden");
-                    time_slider_area.classList.add("hidden");
-                    checkout_btn.classList.add("hidden");
-                    let empty_shopping_cart_label = document.querySelector(".empty_shopping_cart_label");
-                    empty_shopping_cart_label.classList.remove("hidden");
+                    document.querySelector(".empty_shopping_cart_label").classList.remove("hidden");
                 }
                 if (checkout_btn.textContent !== "Выберите время") {
                     checkout_btn.textContent = `Заказать к ${seconds_to_time(order.order_time)} • ${order.order_cost} ₽`;
