@@ -25,7 +25,7 @@ button {
 }
 
 .show_orders_label {
-    width: calc(100% - 32px);
+    width: calc(100% - 80px);
     text-align: center;
     font-size: 1.5em;
     margin-top: auto;
@@ -124,17 +124,24 @@ button {
 }
 
 .back_btn_to_menu_svg {
+    width: 80px;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     display: flex;
     stroke: #2d2d2d;
-    scale: 0.9;
+    scale: 1;
 }
 
 .back_btn_to_menu {
-    margin-left: 5px;
     margin-top: auto;
     margin-bottom: auto;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.back_btn_to_menu_label {
+    font-family: "Cyntho Pro", sans-serif;
+    font-size: 1.1em;
+    fill: #2d2d2d;
+    stroke: #2d2d2d;
 }
 
 .page_header {
@@ -144,9 +151,9 @@ button {
     height: 45px;
     position: fixed;
     display: grid;
-    grid-template-columns: 32px calc(100% - 32px);
+    grid-template-columns: 80px calc(100% - 80px);
 
-    background-color: rgba(255,191,116, 0.3);
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
+    background-color: rgba(255, 191, 116, 0.3);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
 }
