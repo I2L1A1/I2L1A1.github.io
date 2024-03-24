@@ -1,5 +1,5 @@
 let items_element = document.querySelector(".orders");
-let back_btn_to_menu = document.querySelector(".back_btn_to_menu");
+let show_orders_label = document.querySelector(".show_orders_label");
 
 let tg = window.Telegram.WebApp;
 tg.expand();
@@ -102,8 +102,6 @@ get_data_from_server(url_addresses.user_url).then((data_from_server) => {
     }
 });
 
-let show_orders_label = document.querySelector(".show_orders_label");
-console.log(show_orders_label);
 
 const smoothScrollTo = (end, duration) => {
     const start = window.scrollY;
@@ -118,7 +116,20 @@ const smoothScrollTo = (end, duration) => {
     };
 
     const animateScroll = () => {
-        currentTime += 20;
+        if (window.scrollY < 15) {
+            currentTime += 1;
+        } else if (window.scrollY < 25) {
+            currentTime += 2;
+        } else if (window.scrollY < 50) {
+            currentTime += 3;
+        } else if (window.scrollY < 80) {
+            currentTime += 4;
+        } else if (window.scrollY < 400) {
+            currentTime += 10;
+        } else {
+            currentTime += 20;
+        }
+        // console.log(currentTime);
         const val = easeInOutQuad(currentTime, start, change, duration);
         window.scrollTo(0, val);
         if (currentTime < duration) {
@@ -129,6 +140,6 @@ const smoothScrollTo = (end, duration) => {
 };
 
 show_orders_label.addEventListener("click", () => {
-    smoothScrollTo(0, 900);
+    smoothScrollTo(0, 600);
 });
 
