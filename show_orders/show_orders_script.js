@@ -101,3 +101,34 @@ get_data_from_server(url_addresses.user_url).then((data_from_server) => {
         items_element.appendChild(order_wrapper);
     }
 });
+
+let show_orders_label = document.querySelector(".show_orders_label");
+console.log(show_orders_label);
+
+const smoothScrollTo = (end, duration) => {
+    const start = window.scrollY;
+    const change = end - start;
+    let currentTime = 0;
+
+    const easeInOutQuad = (time, start, change, duration) => {
+        time /= duration / 2;
+        if (time < 1) return (change / 2) * time * time + start;
+        time--;
+        return (-change / 2) * (time * (time - 2) - 1) + start;
+    };
+
+    const animateScroll = () => {
+        currentTime += 20;
+        const val = easeInOutQuad(currentTime, start, change, duration);
+        window.scrollTo(0, val);
+        if (currentTime < duration) {
+            requestAnimationFrame(animateScroll);
+        }
+    };
+    animateScroll();
+};
+
+show_orders_label.addEventListener("click", () => {
+    smoothScrollTo(0, 900);
+});
+
