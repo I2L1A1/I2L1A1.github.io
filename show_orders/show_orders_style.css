@@ -156,4 +156,5 @@ button {
     background-color: rgba(255, 191, 116, 0.3);
     -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px);
+    box-shadow: 0 0 50px #ddd;
 }
