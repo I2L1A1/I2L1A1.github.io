@@ -230,7 +230,7 @@ get_data_from_server(url_addresses.catalog_url).then((data_from_server) => {
         graphicCatalogItems[i].item_img = create_image("catalog_image", catalog.Items.get(i).item_img, "");
         graphicCatalogItems[i].item_name = create_element("div", "item_name", catalog.Items.get(i).item_name);
         graphicCatalogItems[i].item_cost = create_element("div", "item_cost", catalog.Items.get(i).item_cost + " ₽");
-        graphicCatalogItems[i].item_btn = create_element("button", "btn_add", "Добавить1");
+        graphicCatalogItems[i].item_btn = create_element("button", "btn_add", "Добавить");
         graphicCatalogItems[i].add_remove_figures = create_element("div", "add_remove_figure");
 
         graphicCatalogItems[i].minus_btn = create_element("button", "btn_minus", "-", true);
@@ -395,18 +395,3 @@ checkout_btn.addEventListener("click", () => {
     order.order_comment = order_comment.value;
     tg.sendData(order.generate_data_for_send());
 });
-
-history.pushState({}, '');
-
-window.onpopstate = function (event) {
-    if (event.state) {
-    } else {
-        history.pushState({}, '', window.location.href);
-    }
-};
-
-window.location.hash = 'no-back';
-
-window.onhashchange = function () {
-    window.location.hash = 'no-back';
-};

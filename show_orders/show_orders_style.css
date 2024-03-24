@@ -25,11 +25,11 @@ button {
 }
 
 .show_orders_label {
-    width: calc(100% - 80px);
+    width: calc(100% - 50px);
     text-align: center;
-    font-size: 1.2em;
+    font-size: 1.1em;
     margin-top: auto;
-    margin-bottom: 12px;
+    margin-bottom: auto;
     color: #2d2d2d;
 }
 
@@ -124,7 +124,6 @@ button {
 }
 
 .back_btn_to_menu_svg {
-    width: 80px;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     display: flex;
     stroke: #2d2d2d;
@@ -132,8 +131,9 @@ button {
 }
 
 .back_btn_to_menu {
+    margin-left: 5px;
     margin-top: auto;
-    margin-bottom: 5px;
+    margin-bottom: auto;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
@@ -151,7 +151,7 @@ button {
     height: 45px;
     position: fixed;
     display: grid;
-    grid-template-columns: 80px calc(100% - 80px);
+    grid-template-columns: 50px calc(100% - 50px);
 
     background-color: rgba(255, 191, 116, 0.3);
     -webkit-backdrop-filter: blur(8px);
