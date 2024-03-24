@@ -88,12 +88,15 @@ get_data_from_server(url_addresses.user_url).then((data_from_server) => {
             let order_item_name = create_element("div", "order_item_name", item["item"]["itemName"]);
             let order_item_cost = create_element("div", "order_item_cost", item["item"]["itemCost"] + " ₽/шт.");
             let order_item_number = create_element("div", "order_item_number", item["itemNumber"] + " шт.");
+            let order_item_cost_number_wrapper = create_element("div", "order_item_cost_number_wrapper");
 
             order_wrapper.appendChild(order_item);
             order_item.appendChild(order_item_img);
             order_item.appendChild(order_item_name);
-            order_item.appendChild(order_item_cost);
-            order_item.appendChild(order_item_number);
+            order_item_cost_number_wrapper.appendChild(order_item_cost);
+            order_item_cost_number_wrapper.appendChild(order_item_number);
+            order_item.appendChild(order_item_cost_number_wrapper);
+
         }
         items_element.appendChild(order_wrapper);
     }

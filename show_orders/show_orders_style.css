@@ -33,6 +33,13 @@ button {
     color: #2d2d2d;
 }
 
+.orders {
+    margin-top: 35px;
+    margin-bottom: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
 
 .order_wrapper {
     border: 1px solid #ddd;
@@ -44,14 +51,11 @@ button {
     overflow-y: scroll;
 }
 
-.order_wrapper:first-child {
-    margin-top: 50px;
-}
-
 .order_item {
+    align-items: center;
     padding: 0;
     display: grid;
-    grid-template-columns: 20% 35% 30% 20%;
+    grid-template-columns: 80px calc(100% - 160px) 80px;
     height: 60px;
     margin-top: 10px;
     border: 1px solid #ddd;
@@ -73,30 +77,33 @@ button {
     width: 100%;
     height: fit-content;
     text-align: center;
-    font-size: 1.2em;
     margin-top: 0.6em;
     margin-bottom: 0.6em;
 }
 
+.order_id {
+    font-size: 1.2em;
+}
+
 .order_time {
-    font-size: 1em;
+    font-size: 1.1em;
     margin-top: 0;
     margin-bottom: 0;
 }
 
 .order_status {
-    font-size: 1em;
-    margin-top: 0.2em;
+    font-size: 1.1em;
+    margin-top: 0.4em;
     margin-bottom: 0;
 }
 
-.order_item:last-child, .order_wrapper:last-child {
+.order_item:last-child {
     margin-bottom: 10px;
 }
 
 .order_item_img {
     display: inline-block;
-    margin: auto 10px;
+    margin: auto;
     width: 50px;
     height: auto;
 }
@@ -104,23 +111,24 @@ button {
 .order_item_name {
     margin: auto 10px;
     text-align: center;
-    font-size: 0.8em;
+    font-size: 1em;
 }
 
 .order_item_cost {
-    font-size: 0.8em;
-    margin-top: auto;
-    margin-bottom: auto;
-    width: fit-content;
-    height: fit-content;
+    font-size: 0.9em;
 }
 
 .order_item_number {
-    font-size: 0.8em;
-    margin-top: auto;
-    margin-bottom: auto;
-    width: fit-content;
-    height: fit-content;
+    font-size: 0.9em;
+    color: #A5A5A5;
+}
+
+.order_item_cost_number_wrapper {
+    height: 60%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
 }
 
 .back_btn_to_menu_svg {
@@ -156,5 +164,5 @@ button {
     background-color: rgba(255, 191, 116, 0.3);
     -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px);
-    box-shadow: 0 0 50px #ddd;
+    box-shadow: 0 0 60px #ddd;
 }
