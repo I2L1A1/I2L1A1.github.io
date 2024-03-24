@@ -102,43 +102,39 @@ get_data_from_server(url_addresses.user_url).then((data_from_server) => {
     }
 });
 
+animated_page_scroll = (end, duration) => {
+    let start = window.scrollY;
+    let change = end - start;
+    let current_time = 0;
 
-const smoothScrollTo = (end, duration) => {
-    const start = window.scrollY;
-    const change = end - start;
-    let currentTime = 0;
-
-    const easeInOutQuad = (time, start, change, duration) => {
+    function easeInOutAnimation(time, start, change, duration) {
         time /= duration / 2;
         if (time < 1) return (change / 2) * time * time + start;
         time--;
         return (-change / 2) * (time * (time - 2) - 1) + start;
-    };
+    }
 
-    const animateScroll = () => {
-        if (window.scrollY < 5) {
-            currentTime += 1;
-        } else if (window.scrollY < 10) {
-            currentTime += 2;
+    function animate_scroll() {
+        if (window.scrollY < 20) {
+            current_time += 2;
         } else if (window.scrollY < 40) {
-            currentTime += 3;
+            current_time += 3;
         } else if (window.scrollY < 70) {
-            currentTime += 4;
+            current_time += 4;
         } else if (window.scrollY < 400) {
-            currentTime += 10;
+            current_time += 10;
         } else {
-            currentTime += 20;
+            current_time += 20;
         }
-        const val = easeInOutQuad(currentTime, start, change, duration);
-        window.scrollTo(0, val);
-        if (currentTime < duration) {
-            requestAnimationFrame(animateScroll);
+        window.scrollTo(0, easeInOutAnimation(current_time, start, change, duration));
+        if (current_time < duration) {
+            requestAnimationFrame(animate_scroll);
         }
-    };
-    animateScroll();
-};
+    }
+
+    animate_scroll();
+}
 
 show_orders_label.addEventListener("click", () => {
-    smoothScrollTo(0, 600);
+    animated_page_scroll(0, 600);
 });
-
