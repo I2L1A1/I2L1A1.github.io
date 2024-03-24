@@ -78,7 +78,7 @@ button {
     height: fit-content;
     text-align: center;
     margin-top: 0.6em;
-    margin-bottom: 0.6em;
+    margin-bottom: 0.9em;
 }
 
 .order_id {
@@ -111,7 +111,7 @@ button {
 .order_item_name {
     margin: auto 10px;
     text-align: center;
-    font-size: 1em;
+    font-size: 0.9em;
 }
 
 .order_item_cost {
