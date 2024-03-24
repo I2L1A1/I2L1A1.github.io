@@ -116,20 +116,19 @@ const smoothScrollTo = (end, duration) => {
     };
 
     const animateScroll = () => {
-        if (window.scrollY < 15) {
+        if (window.scrollY < 5) {
             currentTime += 1;
-        } else if (window.scrollY < 25) {
+        } else if (window.scrollY < 10) {
             currentTime += 2;
-        } else if (window.scrollY < 50) {
+        } else if (window.scrollY < 40) {
             currentTime += 3;
-        } else if (window.scrollY < 80) {
+        } else if (window.scrollY < 70) {
             currentTime += 4;
         } else if (window.scrollY < 400) {
             currentTime += 10;
         } else {
             currentTime += 20;
         }
-        // console.log(currentTime);
         const val = easeInOutQuad(currentTime, start, change, duration);
         window.scrollTo(0, val);
         if (currentTime < duration) {
