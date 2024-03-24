@@ -109,13 +109,15 @@ animated_page_scroll = (end, duration) => {
 
     function easeInOutAnimation(time, start, change, duration) {
         time /= duration / 2;
-        if (time < 1) return (change / 2) * time * time + start;
+        if (time < 1) {
+            return (change / 2) * time * time + start;
+        }
         time--;
         return (-change / 2) * (time * (time - 2) - 1) + start;
     }
 
     function animate_scroll() {
-        if (window.scrollY < 20) {
+        if (window.scrollY < 10) {
             current_time += 2;
         } else if (window.scrollY < 40) {
             current_time += 3;
@@ -136,5 +138,15 @@ animated_page_scroll = (end, duration) => {
 }
 
 show_orders_label.addEventListener("click", () => {
-    animated_page_scroll(0, 600);
+    if (window.scrollY < 50) {
+        animated_page_scroll(0, 50);
+    } else if (window.scrollY < 100) {
+        animated_page_scroll(0, 100);
+    } else if (window.scrollY < 200) {
+        animated_page_scroll(0, 200);
+    } else if (window.scrollY < 400) {
+        animated_page_scroll(0, 400);
+    } else {
+        animated_page_scroll(0, 600);
+    }
 });
