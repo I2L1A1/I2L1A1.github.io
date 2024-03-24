@@ -27,9 +27,9 @@ button {
 .show_orders_label {
     width: calc(100% - 80px);
     text-align: center;
-    font-size: 1.5em;
+    font-size: 1.2em;
     margin-top: auto;
-    margin-bottom: auto;
+    margin-bottom: 12px;
     color: #2d2d2d;
 }
 
@@ -133,7 +133,7 @@ button {
 
 .back_btn_to_menu {
     margin-top: auto;
-    margin-bottom: auto;
+    margin-bottom: 5px;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
@@ -141,7 +141,7 @@ button {
     font-family: "Cyntho Pro", sans-serif;
     font-size: 1.1em;
     fill: #2d2d2d;
-    stroke: #2d2d2d;
+    stroke-width: 0;
 }
 
 .page_header {
