@@ -1,5 +1,5 @@
 let items_element = document.querySelector(".orders");
-let show_orders_label_wrapper = document.querySelector(".show_orders_label_wrapper");
+let show_orders_label_wrapper = document.querySelector(".header_label_wrapper");
 
 let tg = window.Telegram.WebApp;
 tg.expand();
