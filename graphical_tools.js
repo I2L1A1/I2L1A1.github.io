@@ -20,6 +20,16 @@ export function create_image(class_name = "", src, alt) {
     return element_variable;
 }
 
+export function create_input(class_name = "", name, type, value, id) {
+    let element_variable = document.createElement("input");
+    element_variable.className = class_name;
+    element_variable.name = name;
+    element_variable.type = type;
+    element_variable.value = value;
+    element_variable.id = id;
+    return element_variable;
+}
+
 export function seconds_to_time(seconds) {
     let hours = Math.floor(seconds / 3600);
     let minutes = Math.floor((seconds % 3600) / 60);

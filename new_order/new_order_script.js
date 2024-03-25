@@ -4,7 +4,7 @@ import {
     get_data_from_server, send_data_to_server
 } from "../networking_tools.js"
 import {
-    create_element, create_image, seconds_to_time
+    create_element, create_image, seconds_to_time, create_input
 } from "../graphical_tools.js";
 
 animated_page_scroll(0, ".header_label_wrapper");
@@ -115,19 +115,6 @@ function draw_free_time_in_shopping_cart(free_time_array) {
     }
 }
 
-
-function create_input(class_name = "", name, type, value, id) {
-    let element_variable = document.createElement("input");
-    element_variable.className = class_name;
-    element_variable.name = name;
-    element_variable.type = type;
-    element_variable.value = value;
-    element_variable.id = id;
-    return element_variable;
-}
-
-
-document.querySelector(".shopping_cart").classList.add("hidden");
 
 let catalog = new Catalog();
 
