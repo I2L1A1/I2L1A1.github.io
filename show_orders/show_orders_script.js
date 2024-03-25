@@ -16,8 +16,6 @@ let tg = window.Telegram.WebApp;
 tg.expand();
 
 get_data_from_server(user_url).then((data_from_server) => {
-    localStorage.clear();
-    localStorage.setItem('var', 'АБВ');
     let orders_length = data_from_server["orders"].length;
     for (let i = 0; i < orders_length; ++i) {
         let order_wrapper = create_element("div", "order_wrapper");
@@ -56,7 +54,4 @@ get_data_from_server(user_url).then((data_from_server) => {
         items_element.appendChild(order_wrapper);
     }
 });
-
-let order_id_tmp = document.querySelector(".header_label");
-order_id_tmp.textContent = localStorage.getItem('var');
 
