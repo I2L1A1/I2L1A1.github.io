@@ -75,11 +75,6 @@ get_data_from_server(catalog_url).then((data_from_server) => {
 
     let graphicCatalogItems = new Map();
 
-    if (order.user_order.has(1)) {
-        console.log(order.user_order.get(1));
-    }
-    console.log(order.user_order);
-
     for (let i of catalog.Items.keys()) {
         let is_item_in_order = order.user_order.has(i);
 

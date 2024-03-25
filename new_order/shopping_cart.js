@@ -8,7 +8,6 @@ let back_btn = document.querySelector(".back_btn");
 let checkout_btn = document.querySelector(".checkout_btn");
 checkout_btn.textContent = "Выберите время";
 checkout_btn.setAttribute('disabled', '');
-checkout_btn.classList.add("hidden");
 
 let tg = window.Telegram.WebApp;
 tg.expand();
@@ -75,8 +74,6 @@ let catalog = new Catalog();
 
 catalog.get_data_from_cash();
 order.get_data_from_cash();
-
-console.log(order);
 
 
 function draw_free_time_in_shopping_cart(free_time_array) {
@@ -167,7 +164,6 @@ for (let key of order.user_order.keys()) {
 
     shopping_cart_plus_btn.addEventListener("click", () => {
         increase_item_counter(key, shopping_cart_item_label);
-        console.log(checkout_btn.textContent);
         if (checkout_btn.textContent !== "Выберите время") {
             checkout_btn.textContent = `Заказать к ${seconds_to_time(order.order_time)} • ${order.order_cost} ₽`;
         }
