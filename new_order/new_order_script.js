@@ -11,8 +11,6 @@ import {Catalog, Order} from "./main_classs.js";
 animated_page_scroll(0, ".header_label_wrapper");
 animated_page_scroll(0, ".header_label_wrapper");
 
-console.log("localStorage: " + localStorage["user_order"]);
-
 let page_header_catalog = document.querySelector(".page_header_catalog");
 
 let tg = window.Telegram.WebApp;
@@ -32,6 +30,10 @@ let catalog = new Catalog();
 let order = new Order();
 
 let graphicCatalogItemCounter = new Map();
+
+order.get_data_from_cash();
+
+console.log(order);
 
 get_data_from_server(catalog_url).then((data_from_server) => {
 
@@ -111,12 +113,8 @@ get_data_from_server(catalog_url).then((data_from_server) => {
 
     choose_time_btn.addEventListener("click", () => {
         localStorage.clear();
-        let json_order = JSON.stringify(Array.from(order.user_order));
-        localStorage.setItem("user_order", json_order);
-
-        let json_catalog = JSON.stringify(Array.from(catalog.Items));
-
-        localStorage.setItem("user_catalog", json_catalog);
+        catalog.push_data_to_cash();
+        order.push_data_to_cash();
 
         let back_btn = document.querySelector(".back_btn");
 

@@ -69,15 +69,10 @@ let page_header_catalog = document.querySelector(".page_header_catalog");
 let order = new Order();
 let catalog = new Catalog();
 
-let order_from_catalog_page = JSON.parse(localStorage.getItem("user_order"));
-for (let item of order_from_catalog_page) {
-    order.user_order.set(item[0], item[1]);
-}
+catalog.get_data_from_cash();
+order.get_data_from_cash();
 
-let catalog_from_catalog_page = JSON.parse(localStorage.getItem("user_catalog"));
-for (let item of catalog_from_catalog_page) {
-    catalog.addItem(item[1]["item_id"], item[1]["item_name"], item[1]["item_img"], item[1]["item_cost"]);
-}
+console.log(order);
 
 
 function draw_free_time_in_shopping_cart(free_time_array) {
@@ -181,9 +176,10 @@ checkout_btn.addEventListener("click", () => {
     tg.sendData(generate_data_for_send());
 });
 
-console.log(back_btn);
-
 back_btn.addEventListener("click", () => {
-    let json_order = JSON.stringify(Array.from(order.user_order));
-    localStorage.setItem("user_order", json_order);
+    let order_comment = document.querySelector(".order_comment");
+    order.order_comment = order_comment.value;
+
+    localStorage.clear();
+    order.push_data_to_cash();
 });
