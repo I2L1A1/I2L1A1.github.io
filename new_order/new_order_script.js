@@ -33,8 +33,6 @@ let graphicCatalogItemCounter = new Map();
 
 order.get_data_from_cash();
 
-console.log(order);
-
 get_data_from_server(catalog_url).then((data_from_server) => {
 
     catalog.size = data_from_server["size"];
@@ -78,19 +76,31 @@ get_data_from_server(catalog_url).then((data_from_server) => {
 
     let graphicCatalogItems = new Map();
 
+    if (order.user_order.has(1)) {
+        console.log(order.user_order.get(1));
+    }
+    console.log(order.user_order);
+
     for (let i of catalog.Items.keys()) {
+        let is_item_in_order = order.user_order.has(i);
+
         graphicCatalogItems[i] = create_element("div", "item");
         graphicCatalogItems[i].item_img = create_image("catalog_image", catalog.Items.get(i).item_img, "");
         graphicCatalogItems[i].item_name = create_element("div", "item_name", catalog.Items.get(i).item_name);
         graphicCatalogItems[i].item_cost = create_element("div", "item_cost", catalog.Items.get(i).item_cost + " ₽");
-        graphicCatalogItems[i].item_btn = create_element("button", "btn_add", "Добавить1");
+        graphicCatalogItems[i].item_btn = create_element("button", "btn_add", "Добавить", is_item_in_order);
         graphicCatalogItems[i].add_remove_figures = create_element("div", "add_remove_figure");
 
-        graphicCatalogItems[i].minus_btn = create_element("button", "btn_minus", "-", true);
 
-        graphicCatalogItemCounter[i] = create_element("label", "order_item_label", "", true);
+        graphicCatalogItems[i].minus_btn = create_element("button", "btn_minus", "-", !is_item_in_order);
 
-        graphicCatalogItems[i].plus_btn = create_element("button", "btn_plus", "+", true);
+        graphicCatalogItemCounter[i] = create_element("label", "order_item_label", "", !is_item_in_order);
+
+        if (is_item_in_order) {
+            graphicCatalogItemCounter[i].textContent = order.user_order.get(i);
+        }
+
+        graphicCatalogItems[i].plus_btn = create_element("button", "btn_plus", "+", !is_item_in_order);
 
         graphicCatalogItems[i].plus_btn.addEventListener("click", () => {
             increase_item_counter(i, graphicCatalogItemCounter[i]);
@@ -164,7 +174,7 @@ get_data_from_server(catalog_url).then((data_from_server) => {
             graphicCatalogItems[i].plus_btn.classList.remove("hidden");
         });
     }
-})
+});
 
 let choose_time_btn = create_element("a", "choose_time_btn", "Посмотреть заказ", true);
 choose_time_btn.href = "shopping_cart.html";
