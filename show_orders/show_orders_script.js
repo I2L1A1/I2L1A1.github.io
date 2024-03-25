@@ -1,4 +1,5 @@
 import {animated_page_scroll} from "../animated_page_scroll.js";
+import {user_url} from "../URL_storage.js";
 
 animated_page_scroll(0, ".header_label_wrapper");
 
@@ -6,13 +7,6 @@ let items_element = document.querySelector(".orders");
 
 let tg = window.Telegram.WebApp;
 tg.expand();
-
-// let back_btn_show_orders = tg.BackButton;
-// back_btn_show_orders.show();
-
-let url_addresses = {
-    user_url: "https://api.npoint.io/df9386412941a86767d4"
-};
 
 async function get_data_from_server(url) {
     const response = await fetch(url, {
@@ -65,7 +59,7 @@ function seconds_to_time(seconds) {
     return hours + ":" + minutes;
 }
 
-get_data_from_server(url_addresses.user_url).then((data_from_server) => {
+get_data_from_server(user_url).then((data_from_server) => {
     let orders_length = data_from_server["orders"].length;
     for (let i = 0; i < orders_length; ++i) {
         let order_wrapper = create_element("div", "order_wrapper");

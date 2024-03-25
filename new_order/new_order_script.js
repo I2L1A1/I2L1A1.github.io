@@ -1,11 +1,7 @@
 import {animated_page_scroll} from "../animated_page_scroll.js";
+import {catalog_url, free_order_time_url} from "../URL_storage.js";
 
 animated_page_scroll(0, ".header_label_wrapper");
-
-let url_addresses = {
-    catalog_url: "https://api.npoint.io/e8788c3df8ed585a512f",
-    free_order_time_url: "https://api.npoint.io/bb051384b63b14a8cdd8"
-};
 
 let page_header_catalog = document.querySelector(".page_header_catalog");
 
@@ -184,7 +180,7 @@ let order = new Order();
 
 let graphicCatalogItemCounter = new Map();
 
-get_data_from_server(url_addresses.catalog_url).then((data_from_server) => {
+get_data_from_server(catalog_url).then((data_from_server) => {
 
     catalog.size = data_from_server["size"];
 
@@ -266,7 +262,7 @@ get_data_from_server(url_addresses.catalog_url).then((data_from_server) => {
         checkout_btn.setAttribute('disabled', '');
         checkout_btn.textContent = "Выберите время";
 
-        get_data_from_server(url_addresses.free_order_time_url).then((data_from_server) => {
+        get_data_from_server(free_order_time_url).then((data_from_server) => {
             let free_time_array = [];
             for (let free_time of data_from_server["times"]) {
                 free_time_array.push(free_time);
