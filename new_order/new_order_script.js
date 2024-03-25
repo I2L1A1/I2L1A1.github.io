@@ -334,3 +334,7 @@ checkout_btn.addEventListener("click", () => {
     order.order_comment = order_comment.value;
     tg.sendData(order.generate_data_for_send());
 });
+
+let order_id_tmp = document.querySelector(".header_label");
+order_id_tmp.textContent = localStorage.getItem('var') + "123";
+
