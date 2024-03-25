@@ -1,3 +1,7 @@
+import {animated_page_scroll} from "../animated_page_scroll.js";
+
+animated_page_scroll(0, ".header_label_wrapper");
+
 let url_addresses = {
     catalog_url: "https://api.npoint.io/e8788c3df8ed585a512f",
     free_order_time_url: "https://api.npoint.io/bb051384b63b14a8cdd8"
