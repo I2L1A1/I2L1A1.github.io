@@ -5,10 +5,15 @@ import {Catalog, Order} from "./main_classs.js";
 
 let back_btn = document.querySelector(".back_btn");
 
+let checkout_btn = document.querySelector(".checkout_btn");
+checkout_btn.textContent = "Выберите время";
+checkout_btn.setAttribute('disabled', '');
+checkout_btn.classList.add("hidden");
+
 let tg = window.Telegram.WebApp;
 tg.expand();
 
-function decrease_item_counter(i, object_to_delete, location, textField) {
+function decrease_item_counter(i, object_to_delete, textField) {
     let new_number = order.user_order.get(i);
     if (new_number >= 2) {
         new_number--;
@@ -63,7 +68,6 @@ function generate_data_for_send() {
 }
 
 
-let checkout_btn = document.querySelector(".checkout_btn");
 let page_header_catalog = document.querySelector(".page_header_catalog");
 
 let order = new Order();
@@ -150,7 +154,7 @@ for (let key of order.user_order.keys()) {
     shopping_item.appendChild(shopping_cart_item_cost);
 
     shopping_cart_minus_btn.addEventListener("click", () => {
-        decrease_item_counter(key, shopping_item, "shopping cart", shopping_cart_item_label);
+        decrease_item_counter(key, shopping_item, shopping_cart_item_label);
         if (order.user_order.size === 0) {
             document.querySelector(".time_selection_and_checkout").classList.add("hidden");
             shopping_cart_items.classList.add("hidden");

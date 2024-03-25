@@ -11,8 +11,6 @@ import {Catalog, Order} from "./main_classs.js";
 animated_page_scroll(0, ".header_label_wrapper");
 animated_page_scroll(0, ".header_label_wrapper");
 
-let page_header_catalog = document.querySelector(".page_header_catalog");
-
 let tg = window.Telegram.WebApp;
 tg.expand();
 
@@ -24,14 +22,23 @@ function increase_item_counter(i, textField) {
     textField.textContent = new_number;
 }
 
-
 let catalog = new Catalog();
 
 let order = new Order();
 
 let graphicCatalogItemCounter = new Map();
 
+let choose_time_btn = document.querySelector(".choose_time_btn");
+let choose_time_btn_div = document.querySelector(".choose_time_btn_div");
+
+document.querySelector(".container").classList.remove("bottom_container_margin");
+
 order.get_data_from_cash();
+
+if (order.user_order.size) {
+    choose_time_btn_div.classList.remove("hidden");
+    choose_time_btn.textContent = `Посмотреть заказ • ${order.order_cost} ₽`;
+}
 
 get_data_from_server(catalog_url).then((data_from_server) => {
 
@@ -44,7 +51,7 @@ get_data_from_server(catalog_url).then((data_from_server) => {
             catalog_item["itemCost"]);
     }
 
-    function decrease_item_counter(i, object_to_delete, location, textField) {
+    function decrease_item_counter(i, textField) {
         let new_number = order.user_order.get(i);
         if (new_number >= 2) {
             new_number--;
@@ -53,22 +60,14 @@ get_data_from_server(catalog_url).then((data_from_server) => {
         } else {
             order.user_order.delete(i);
             if (order.user_order.size === 0) {
-                if (location === "catalog") {
-                    choose_time_btn.classList.add("hidden");
-                    document.querySelector(".container").classList.remove("bottom_container_margin");
-                } else {
-                    object_to_delete.classList.add("hidden");
-                }
+                choose_time_btn_div.classList.add("hidden");
+                document.querySelector(".container").classList.remove("bottom_container_margin");
             }
-            if (location === "catalog") {
-                graphicCatalogItems[i].item_btn.classList.remove("hidden");
-                graphicCatalogItems[i].minus_btn.classList.add("hidden");
-                graphicCatalogItems[i].plus_btn.classList.add("hidden");
-                textField.classList.add("hidden");
-                textField.textContent = "0";
-            } else {
-                object_to_delete.classList.add("hidden");
-            }
+            graphicCatalogItems[i].item_btn.classList.remove("hidden");
+            graphicCatalogItems[i].minus_btn.classList.add("hidden");
+            graphicCatalogItems[i].plus_btn.classList.add("hidden");
+            textField.classList.add("hidden");
+            textField.textContent = "0";
         }
         order.order_cost -= +catalog.Items.get(i).item_cost;
         choose_time_btn.textContent = `Посмотреть заказ • ${order.order_cost} ₽`;
@@ -107,7 +106,7 @@ get_data_from_server(catalog_url).then((data_from_server) => {
         });
 
         graphicCatalogItems[i].minus_btn.addEventListener("click", () => {
-            decrease_item_counter(i, "none", "catalog", graphicCatalogItemCounter[i]);
+            decrease_item_counter(i, graphicCatalogItemCounter[i]);
         });
 
         document.querySelector(".items").appendChild(graphicCatalogItems[i]);
@@ -121,47 +120,16 @@ get_data_from_server(catalog_url).then((data_from_server) => {
         graphicCatalogItems[i].add_remove_figures.appendChild(graphicCatalogItems[i].plus_btn);
     }
 
-    choose_time_btn.addEventListener("click", () => {
+    choose_time_btn_div.addEventListener("click", () => {
         localStorage.clear();
         catalog.push_data_to_cash();
         order.push_data_to_cash();
-
-        let back_btn = document.querySelector(".back_btn");
-
-        back_btn.addEventListener("click", () => {
-            page_header_catalog.classList.remove("hidden");
-            document.querySelector(".container").classList.add("bottom_container_margin");
-
-            let shopping_cart = document.querySelector(".shopping_cart");
-            shopping_cart.classList.add("hidden");
-            let items = document.getElementById("items");
-            items.classList.remove("hidden");
-            if (order.user_order.size > 0) {
-                document.querySelector(".choose_time_btn").classList.remove("hidden");
-            }
-
-            for (let i of catalog.Items.keys()) {
-                let old_item_label;
-                old_item_label = graphicCatalogItems[i].querySelector(".add_remove_figure .order_item_label");
-                if (old_item_label) {
-                    if (order.user_order.has(i)) {
-                        old_item_label.textContent = order.user_order.get(i);
-                    } else {
-                        graphicCatalogItems[i].item_btn.classList.remove("hidden");
-                        graphicCatalogItemCounter[i].classList.add("hidden");
-                        graphicCatalogItems[i].minus_btn.classList.add("hidden");
-                        graphicCatalogItems[i].plus_btn.classList.add("hidden");
-                    }
-                }
-            }
-        });
-        checkout_btn.classList.remove("hidden");
     });
 
     for (let i of catalog.Items.keys()) {
         graphicCatalogItems[i].item_btn.addEventListener("click", () => {
             order.user_order.set(i, 1);
-            choose_time_btn.classList.remove("hidden");
+            choose_time_btn_div.classList.remove("hidden");
             document.querySelector(".container").classList.add("bottom_container_margin");
 
             order.order_cost += +catalog.Items.get(i).item_cost;
@@ -176,12 +144,3 @@ get_data_from_server(catalog_url).then((data_from_server) => {
     }
 });
 
-let choose_time_btn = create_element("a", "choose_time_btn", "Посмотреть заказ", true);
-choose_time_btn.href = "shopping_cart.html";
-document.querySelector(".container").classList.remove("bottom_container_margin");
-document.querySelector(".items").appendChild(choose_time_btn);
-
-let checkout_btn = document.querySelector(".checkout_btn");
-checkout_btn.textContent = "Выберите время";
-checkout_btn.setAttribute('disabled', '');
-checkout_btn.classList.add("hidden");
