@@ -81,7 +81,7 @@ get_data_from_server(user_url).then((data_from_server) => {
 
         for (let item of data_from_server["orders"][i]["items"]) {
             let order_item = create_element("div", "order_item");
-            let order_item_img = create_image("order_item_img", "Dish1.png", "");
+            let order_item_img = create_image("order_item_img", "../Dish1.png", "");
             let order_item_name = create_element("div", "order_item_name", item["item"]["itemName"]);
             let order_item_cost = create_element("div", "order_item_cost", item["item"]["itemCost"] + " ₽/шт.");
             let order_item_number = create_element("div", "order_item_number", item["itemNumber"] + " шт.");

@@ -187,7 +187,7 @@ get_data_from_server(catalog_url).then((data_from_server) => {
     for (let catalog_item of data_from_server["items"]) {
         catalog.addItem(catalog_item["itemId"],
             catalog_item["itemName"],
-            "Dish1.png",
+            "../Dish1.png",
             catalog_item["itemCost"]);
     }
 
