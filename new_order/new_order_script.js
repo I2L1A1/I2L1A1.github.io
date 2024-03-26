@@ -75,11 +75,12 @@ get_data_from_server(catalog_url).then((data_from_server) => {
 
     let graphicCatalogItems = new Map();
 
+    let index_for_animation = 0;
     for (let i of catalog.Items.keys()) {
         let is_item_in_order = order.user_order.has(i);
 
         graphicCatalogItems[i] = create_element("div", "item");
-        graphicCatalogItems[i].style.animationDelay = `${i * 0.02}s`;
+        graphicCatalogItems[i].style.animationDelay = `${(index_for_animation++) * 0.02}s`;
         graphicCatalogItems[i].item_img = create_image("catalog_image", catalog.Items.get(i).item_img, "");
         graphicCatalogItems[i].item_name = create_element("div", "item_name", catalog.Items.get(i).item_name);
         graphicCatalogItems[i].item_cost = create_element("div", "item_cost", catalog.Items.get(i).item_cost + " ₽");
