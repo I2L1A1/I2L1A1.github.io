@@ -6,7 +6,7 @@ import {
 import {
     create_element, create_image
 } from "../graphical_tools.js";
-import {Catalog, Order} from "./main_classs.js";
+import {Catalog, Order} from "../main_classs.js";
 
 animated_page_scroll(0, ".header_label_wrapper");
 animated_page_scroll(0, ".header_label_wrapper");
@@ -31,11 +31,10 @@ let graphicCatalogItemCounter = new Map();
 let choose_time_btn = document.querySelector(".choose_time_btn");
 let choose_time_btn_div = document.querySelector(".choose_time_btn_div");
 
-document.querySelector(".container").classList.remove("bottom_container_margin");
-
 order.get_data_from_cash();
 
 if (order.user_order.size) {
+    document.querySelector(".container").classList.add("bottom_container_margin");
     choose_time_btn_div.classList.remove("hidden");
     choose_time_btn.textContent = `Посмотреть заказ • ${order.order_cost} ₽`;
 }
