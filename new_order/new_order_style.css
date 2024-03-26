@@ -25,6 +25,45 @@ button, div {
     width: 100%;
 }
 
+.loading_image_wrapper {
+    z-index: 999;
+    width: 100px;
+    height: 100px;
+    /*position: fixed;*/
+    display: flex;
+    margin-top: 50%;
+    /*top: 45px;*/
+    /*left: 0;*/
+    /*right: 0;*/
+    margin-left: auto;
+    margin-right: auto;
+    /*border: 1px solid red;*/
+}
+
+.loading_image {
+    display: flex;
+    margin: auto;
+
+    width: 100px;
+    height: 20px;
+    border-radius: 20px;
+    background-color: #FFE0BC;
+    animation-name: rotate;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-duration: 0.5s;
+    animation-direction: alternate;
+}
+
+@keyframes rotate {
+    100% {
+        width: 30px;
+        height: 30px;
+        background-color: #fdb262;
+        transform: rotate(360deg);
+    }
+}
+
 .bottom_container_margin {
     margin-bottom: 2.5em;
 }

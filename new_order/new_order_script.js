@@ -40,6 +40,7 @@ if (order.user_order.size) {
 }
 
 get_data_from_server(catalog_url).then((data_from_server) => {
+    document.querySelector(".loading_image_wrapper").classList.add("hidden");
 
     catalog.size = data_from_server["size"];
 
