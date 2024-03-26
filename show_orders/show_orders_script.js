@@ -19,7 +19,7 @@ get_data_from_server(user_url).then((data_from_server) => {
     let orders_length = data_from_server["orders"].length;
     for (let i = 0; i < orders_length; ++i) {
         let order_wrapper = create_element("div", "order_wrapper");
-        order_wrapper.style.animationDelay = `${i * 0.01}s`;
+        order_wrapper.style.animationDelay = `${i * 0.02}s`;
         let order_info = create_element("div", "order_info");
 
         let order_id = create_element("div", "order_id", "ID " + data_from_server["orders"][i]["orderId"]);
