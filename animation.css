@@ -1,0 +1,30 @@
+@keyframes rotate {
+    100% {
+        /*border-radius: 15px;*/
+        width: 30px;
+        height: 30px;
+        background-color: #FFE0BC;
+    }
+}
+
+@keyframes element_appearance_animation {
+    0% {
+        opacity: 0.1;
+        scale: 0.95;
+    }
+    100% {
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+@keyframes show_orders_appearance_animation {
+    0% {
+        opacity: 0.1;
+        scale: 0.98;
+    }
+    100% {
+        opacity: 1;
+        scale: 1;
+    }
+}
