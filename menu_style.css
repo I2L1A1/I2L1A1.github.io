@@ -29,7 +29,6 @@ body {
 }
 
 .menu {
-    cursor: pointer;
     display: grid;
     align-items: center;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -51,11 +50,13 @@ body {
 .menu_link:active,
 .menu_link:hover,
 .menu_link {
+    cursor: pointer;
     text-decoration: none;
     color: #2d2d2d;
 }
 
 .menu_div {
+    cursor: pointer;
     margin-right: 5px;
     margin-left: 5px;
     border-radius: 50px;
