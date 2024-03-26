@@ -129,6 +129,7 @@ button, div {
 }
 
 .shopping_cart_items {
+    padding-top: 10px;
     max-height: 50vh;
     border: 1px solid #ddd;
     margin-right: 5px;
@@ -144,16 +145,12 @@ button, div {
     display: grid;
     grid-template-columns: 20% 35% 30% 20%;
     height: 60px;
-    margin-top: 10px;
+    margin-bottom: 10px;
     border: 1px solid #ddd;
     margin-right: 10px;
     margin-left: 10px;
     border-radius: 17px;
     box-shadow: 5px 5px 10px #ddd;
-}
-
-.shopping_item:last-child {
-    margin-bottom: 10px;
 }
 
 .shopping_item_img {
