@@ -1,12 +1,12 @@
-import {animated_page_scroll} from "../animated_page_scroll_tools_tools.js";
+import {animated_page_scroll} from "../tools/animated_page_scroll_tools.js";
 import {catalog_url} from "../URL_storage.js";
 import {
     get_data_from_server, send_data_to_server
-} from "../networking_tools.js"
+} from "../tools/networking_tools.js"
 import {
     create_element, create_image
-} from "../graphical_tools.js";
-import {Catalog, Order} from "./main_classs.js";
+} from "../tools/graphical_tools.js";
+import {Catalog, Order} from "../main_classs.js";
 
 animated_page_scroll(0, ".header_label_wrapper");
 animated_page_scroll(0, ".header_label_wrapper");
@@ -31,11 +31,10 @@ let graphicCatalogItemCounter = new Map();
 let choose_time_btn = document.querySelector(".choose_time_btn");
 let choose_time_btn_div = document.querySelector(".choose_time_btn_div");
 
-document.querySelector(".container").classList.remove("bottom_container_margin");
-
 order.get_data_from_cash();
 
 if (order.user_order.size) {
+    document.querySelector(".container").classList.add("bottom_container_margin");
     choose_time_btn_div.classList.remove("hidden");
     choose_time_btn.textContent = `Посмотреть заказ • ${order.order_cost} ₽`;
 }
@@ -47,7 +46,7 @@ get_data_from_server(catalog_url).then((data_from_server) => {
     for (let catalog_item of data_from_server["items"]) {
         catalog.addItem(catalog_item["itemId"],
             catalog_item["itemName"],
-            "../Dish1.png",
+            "../images/Dish1.png",
             catalog_item["itemCost"]);
     }
 

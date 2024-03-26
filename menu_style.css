@@ -29,6 +29,7 @@ body {
 }
 
 .menu {
+    cursor: pointer;
     display: grid;
     align-items: center;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -36,6 +37,7 @@ body {
 }
 
 .menu_link {
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
