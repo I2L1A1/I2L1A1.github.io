@@ -16,6 +16,8 @@ let tg = window.Telegram.WebApp;
 tg.expand();
 
 get_data_from_server(user_url).then((data_from_server) => {
+    document.querySelector(".loading_image_wrapper").classList.add("hidden");
+
     let orders_length = data_from_server["orders"].length;
     let index_for_animation = 0;
     for (let i = 0; i < orders_length; ++i) {
