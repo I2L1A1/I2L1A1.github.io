@@ -1,11 +1,11 @@
-import {animated_page_scroll} from "../animated_page_scroll_tools_tools.js";
+import {animated_page_scroll} from "../tools/animated_page_scroll_tools.js";
 import {catalog_url} from "../URL_storage.js";
 import {
     get_data_from_server, send_data_to_server
-} from "../networking_tools.js"
+} from "../tools/networking_tools.js"
 import {
     create_element, create_image
-} from "../graphical_tools.js";
+} from "../tools/graphical_tools.js";
 import {Catalog, Order} from "../main_classs.js";
 
 animated_page_scroll(0, ".header_label_wrapper");
@@ -46,7 +46,7 @@ get_data_from_server(catalog_url).then((data_from_server) => {
     for (let catalog_item of data_from_server["items"]) {
         catalog.addItem(catalog_item["itemId"],
             catalog_item["itemName"],
-            "../Dish1.png",
+            "../images/Dish1.png",
             catalog_item["itemCost"]);
     }
 
