@@ -1,7 +1,7 @@
-import {create_element, create_input, create_image, seconds_to_time} from "../tools/graphical_tools.js";
-import {get_data_from_server} from "../tools/networking_tools.js";
+import {create_element, create_input, create_image, seconds_to_time} from "../graphical_tools.js";
+import {get_data_from_server} from "../networking_tools.js";
 import {free_order_time_url} from "../URL_storage.js";
-import {Catalog, Order} from "../main_classs.js";
+import {Catalog, Order} from "./main_classs.js";
 
 let back_btn = document.querySelector(".back_btn");
 
