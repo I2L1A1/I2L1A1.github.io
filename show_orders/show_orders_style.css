@@ -25,6 +25,10 @@ button {
     width: 100%;
 }
 
+.loading_image_wrapper {
+    margin-top: 80px;
+}
+
 .orders {
     margin-top: 35px;
     margin-bottom: 10px;

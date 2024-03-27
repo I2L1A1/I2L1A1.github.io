@@ -92,6 +92,8 @@ function draw_free_time_in_shopping_cart(free_time_array) {
     let buttons_wrapper = create_element("div", "buttons_wrapper");
     time_slider_area.appendChild(buttons_wrapper);
 
+    let gap_for_animation = 0;
+
     for (let free_time of free_time_array) {
         let free_time_button = create_input("free_time_button", "free_time", "radio", free_time, free_time);
         let free_time_label = create_element("label", "free_time_label", seconds_to_time(free_time));
@@ -99,6 +101,9 @@ function draw_free_time_in_shopping_cart(free_time_array) {
 
         buttons_wrapper.appendChild(free_time_button);
         buttons_wrapper.appendChild(free_time_label);
+
+        gap_for_animation += 0.03;
+        free_time_label.style.animationDelay = `${gap_for_animation}s`;
 
         free_time_button.addEventListener("click", () => {
             checkout_btn.removeAttribute("disabled");
@@ -134,8 +139,11 @@ get_data_from_server(free_order_time_url).then((data_from_server) => {
 });
 
 let shopping_cart_items = document.querySelector(".shopping_cart_items");
+let gap_for_animation = 0;
 for (let key of order.user_order.keys()) {
     let shopping_item = create_element("div", "shopping_item");
+    gap_for_animation += 0.05;
+    shopping_item.style.animationDelay = `${gap_for_animation}s`;
     shopping_cart_items.appendChild(shopping_item);
 
     let shopping_cart_item_img = create_image("shopping_item_img", catalog.Items.get(key).item_img, "");
