@@ -88,6 +88,9 @@ button, div {
 }
 
 .checkout_btn {
+    position: fixed;
+    bottom: 0;
+    z-index: 999;
     width: 100%;
     min-height: 2.2em;
     height: 2.2em;
@@ -329,3 +332,11 @@ button, div {
     }
 }
 
+.comprehensive_button {
+    position: fixed;
+    z-index: -1;
+    background-color: orange;
+    margin-top: 46px;
+    width: 100%;
+    height: 90vh;
+}
