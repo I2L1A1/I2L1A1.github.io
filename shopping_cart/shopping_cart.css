@@ -186,6 +186,7 @@ button, div {
 
 @media (width <= 350px) {
     .shopping_cart_items {
+        background-color: #A5A5A5;
         grid-template-columns: none;
     }
 
@@ -268,6 +269,7 @@ button, div {
 }
 
 .order_comment_div {
+    background-color: #A5A5A5;
     display: flex;
     justify-content: space-between;
     box-sizing: border-box;
