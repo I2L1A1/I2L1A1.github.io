@@ -129,9 +129,11 @@ button, div {
 
 .shopping_cart_items {
     display: grid;
-    /*grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));*/
+    @media (min-width: 360px) {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    }
     padding-top: 10px;
-    max-height: 50vh;
+    max-height: 40vh;
     border: 1px solid #ddd;
     margin-right: 5px;
     margin-left: 5px;
@@ -146,7 +148,7 @@ button, div {
     display: grid;
     width: calc(100% - 20px);
     grid-template-columns: 15% 50% 35%;
-    height: 60px;
+    height: 70px;
     margin-bottom: 10px;
     border: 1px solid #ddd;
     margin-right: 10px;
@@ -177,7 +179,7 @@ button, div {
     margin-top: auto;
     margin-bottom: auto;
     margin-right: 10px;
-    height: 80%;
+    height: 75%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -296,3 +298,34 @@ button, div {
     text-align: center;
     vertical-align: middle;
 }
+
+@media (max-height: 500px) {
+    .shopping_cart_items {
+        max-height: 25vh;
+    }
+
+    .shopping_item {
+        height: 60px;
+    }
+
+    .buttons_and_cost_wrapper {
+        height: 85%;
+    }
+
+    .free_time_label {
+        line-height: 25px;
+        font-size: 0.9em;
+    }
+
+    .order_comment {
+        height: 5vh;
+        width: calc(100% - 60px);
+    }
+
+    .order_comment_button {
+        height: 35px;
+        width: 35px;
+        font-size: 0.7em;
+    }
+}
+
