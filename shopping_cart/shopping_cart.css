@@ -129,7 +129,6 @@ button, div {
 }
 
 .shopping_cart_items {
-    background-color: green;
     display: grid;
     /*grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));*/
     padding-top: 10px;
@@ -277,7 +276,6 @@ button, div {
 }
 
 .order_comment_div {
-    background-color: red;
     display: flex;
     justify-content: space-between;
     box-sizing: border-box;
