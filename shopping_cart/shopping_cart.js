@@ -118,6 +118,9 @@ function draw_free_time_in_shopping_cart(free_time_array) {
     }
 }
 
+
+page_header_catalog.classList.add("hidden");
+
 checkout_btn.setAttribute('disabled', '');
 checkout_btn.textContent = "Выберите время";
 
@@ -187,4 +190,3 @@ back_btn.addEventListener("click", () => {
     localStorage.clear();
     order.push_data_to_cash();
 });
-
