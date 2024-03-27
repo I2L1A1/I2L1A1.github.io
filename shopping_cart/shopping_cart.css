@@ -171,7 +171,6 @@ button, div {
     width: fit-content;
     height: fit-content;
     font-size: 0.8em;
-    color: red;
 }
 
 .buttons_and_cost_wrapper {
@@ -193,17 +192,15 @@ button, div {
     font-size: 1.2em;
 }
 
-@media (max-width: 600px) {
-    body {
-        background: lightblue;
+@media (max-width: 280px) {
+    .shopping_item_img {
+        display: none;
+    }
+
+    .shopping_item {
+        grid-template-columns: 50% 50%;
     }
 }
-
-/*@media (max-width: 10px) {*/
-/*    body {*/
-/*        background-color: red;*/
-/*    }*/
-/*}*/
 
 .time_slider_area {
     align-items: center;
