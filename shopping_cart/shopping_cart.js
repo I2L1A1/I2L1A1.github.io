@@ -102,8 +102,7 @@ function draw_free_time_in_shopping_cart(free_time_array) {
 
         free_time_button.addEventListener("click", () => {
             checkout_btn.removeAttribute("disabled");
-            // checkout_btn.textContent = `Заказать к ${free_time_label.textContent} • ${order.order_cost} ₽`;
-            checkout_btn.textContent = window.innerWidth.toString();
+            checkout_btn.textContent = `Заказать к ${free_time_label.textContent} • ${order.order_cost} ₽`;
             order.order_time = +free_time_button.value;
 
             let time_buttons = buttons_wrapper.children;

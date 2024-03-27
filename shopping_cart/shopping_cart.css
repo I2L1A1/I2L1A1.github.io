@@ -146,13 +146,13 @@ button, div {
 .shopping_item {
     padding: 0;
     display: grid;
-    width: calc(100% - 20px);
-    grid-template-columns: 60px calc(100% - 115px - 30%) 30% 55px;
+    width: calc(100% - 16px);
+    grid-template-columns: 55px calc(100% - 115px - 30%) 30% 55px;
     height: 60px;
     margin-bottom: 10px;
     border: 1px solid #ddd;
-    margin-right: 10px;
-    margin-left: 10px;
+    margin-right: 8px;
+    margin-left: 8px;
     border-radius: 17px;
     box-shadow: 5px 5px 10px #ddd;
 }
@@ -160,7 +160,7 @@ button, div {
 .shopping_item_img {
     display: inline-block;
     margin: auto auto auto 10px;
-    width: 50px;
+    width: 45px;
     height: auto;
 }
 
@@ -184,6 +184,12 @@ button, div {
     text-align: center;
     color: #939393;
     font-size: 1.2em;
+}
+
+@media (width > 10px) {
+    body {
+        background-color: #eccece;
+    }
 }
 
 @media (width <= 350px) {
