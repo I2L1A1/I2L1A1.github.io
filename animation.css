@@ -29,6 +29,15 @@
     }
 }
 
+@keyframes show_order_items_appearance_animation {
+    0% {
+        opacity: 0.1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 .loading_image_wrapper {
     z-index: 999;
     width: 40px;

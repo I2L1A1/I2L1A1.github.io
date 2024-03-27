@@ -93,7 +93,7 @@ button, div {
 
 .checkout_btn {
     opacity: 0;
-    animation: show_orders_appearance_animation forwards;
+    animation: show_order_items_appearance_animation forwards;
     animation-duration: 0.3s;
     animation-timing-function: cubic-bezier(.68, .92, .69, 1);
     animation-direction: alternate;
@@ -138,7 +138,7 @@ button, div {
 }
 
 .shopping_cart_items {
-    animation: show_orders_appearance_animation forwards;
+    animation: show_order_items_appearance_animation forwards;
     animation-duration: 0.2s;
     animation-timing-function: cubic-bezier(.68, .92, .69, 1);
     animation-direction: alternate;
@@ -160,7 +160,7 @@ button, div {
 
 .shopping_item {
     opacity: 0;
-    animation: show_orders_appearance_animation forwards;
+    animation: show_order_items_appearance_animation forwards;
     animation-duration: 0.3s;
     animation-timing-function: cubic-bezier(.68, .92, .69, 1);
     animation-direction: alternate;
@@ -227,7 +227,7 @@ button, div {
 
 .time_slider_area {
     opacity: 0;
-    animation: show_orders_appearance_animation forwards;
+    animation: show_order_items_appearance_animation forwards;
     animation-duration: 0.3s;
     animation-timing-function: cubic-bezier(.68, .92, .69, 1);
     animation-direction: alternate;
@@ -257,7 +257,7 @@ button, div {
 
 .free_time_label {
     opacity: 0;
-    animation: show_orders_appearance_animation forwards;
+    animation: show_order_items_appearance_animation forwards;
     animation-duration: 0.3s;
     animation-timing-function: cubic-bezier(.68, .92, .69, 1);
     animation-direction: alternate;
@@ -301,7 +301,7 @@ button, div {
 
 .order_comment_div {
     opacity: 0;
-    animation: show_orders_appearance_animation forwards;
+    animation: show_order_items_appearance_animation forwards;
     animation-duration: 0.3s;
     animation-timing-function: cubic-bezier(.68, .92, .69, 1);
     animation-direction: alternate;
