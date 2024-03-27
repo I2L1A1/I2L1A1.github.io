@@ -143,7 +143,6 @@ button, div {
 }
 
 .shopping_item {
-    background-color: red;
     padding: 0;
     display: grid;
     grid-template-columns: 70px calc(100% - 125px - 30%) 30% 55px;
