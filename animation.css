@@ -64,6 +64,29 @@
     animation-direction: alternate;
 }
 
+.element_appearance_animation_selector {
+    opacity: 0;
+    animation: element_appearance_animation forwards;
+    animation-duration: 0.3s;
+    animation-timing-function: cubic-bezier(.68, .92, .69, 1);
+    animation-direction: alternate;
+}
+
+.show_orders_appearance_animation_selector {
+    opacity: 0;
+    animation: show_orders_appearance_animation forwards;
+    animation-duration: 0.3s;
+    animation-timing-function: cubic-bezier(.68, .92, .69, 1);
+    animation-direction: alternate;
+}
+
+.show_order_items_appearance_animation_selector {
+    opacity: 0;
+    animation: show_order_items_appearance_animation forwards;
+    animation-duration: 0.3s;
+    animation-timing-function: cubic-bezier(.68, .92, .69, 1);
+}
+
 .hidden {
     display: none;
 }

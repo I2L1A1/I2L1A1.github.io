@@ -79,6 +79,7 @@ get_data_from_server(catalog_url).then((data_from_server) => {
     for (let i of catalog.Items.keys()) {
         let is_item_in_order = order.user_order.has(i);
         graphicCatalogItems[i] = create_element("div", "item");
+        graphicCatalogItems[i].classList.add("element_appearance_animation_selector");
         gap_for_animation += 0.02;
         graphicCatalogItems[i].style.animationDelay = `${gap_for_animation}s`;
         graphicCatalogItems[i].item_img = create_image("catalog_image", catalog.Items.get(i).item_img, "");

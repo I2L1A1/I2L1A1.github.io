@@ -92,12 +92,7 @@ button, div {
 }
 
 .checkout_btn {
-    opacity: 0;
-    animation: show_order_items_appearance_animation forwards;
-    animation-duration: 0.3s;
-    animation-timing-function: cubic-bezier(.68, .92, .69, 1);
-    animation-direction: alternate;
-    animation-delay: 0.4s;
+    animation-delay: 0.4s !important;
 
     width: 100%;
     min-height: 2.2em;
@@ -138,11 +133,6 @@ button, div {
 }
 
 .shopping_cart_items {
-    animation: show_order_items_appearance_animation forwards;
-    animation-duration: 0.2s;
-    animation-timing-function: cubic-bezier(.68, .92, .69, 1);
-    animation-direction: alternate;
-
     display: grid;
     @media (min-width: 360px) {
         grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -159,12 +149,6 @@ button, div {
 }
 
 .shopping_item {
-    opacity: 0;
-    animation: show_order_items_appearance_animation forwards;
-    animation-duration: 0.3s;
-    animation-timing-function: cubic-bezier(.68, .92, .69, 1);
-    animation-direction: alternate;
-
     padding: 0;
     display: grid;
     grid-template-columns: 15% 50% 35%;
@@ -225,12 +209,7 @@ button, div {
 }
 
 .time_slider_area {
-    opacity: 0;
-    animation: show_order_items_appearance_animation forwards;
-    animation-duration: 0.3s;
-    animation-timing-function: cubic-bezier(.68, .92, .69, 1);
-    animation-direction: alternate;
-    animation-delay: 0.4s;
+    animation-delay: 0.4s !important;
 
     align-items: center;
     height: 100%;
@@ -255,12 +234,6 @@ button, div {
 }
 
 .free_time_label {
-    opacity: 0;
-    animation: show_order_items_appearance_animation forwards;
-    animation-duration: 0.3s;
-    animation-timing-function: cubic-bezier(.68, .92, .69, 1);
-    animation-direction: alternate;
-
     line-height: 30px;
 
     display: inline-block;
@@ -299,12 +272,7 @@ button, div {
 }
 
 .order_comment_div {
-    opacity: 0;
-    animation: show_order_items_appearance_animation forwards;
-    animation-duration: 0.3s;
-    animation-timing-function: cubic-bezier(.68, .92, .69, 1);
-    animation-direction: alternate;
-    animation-delay: 0.2s;
+    animation-delay: 0.2s !important;
 
     display: flex;
     justify-content: space-between;
