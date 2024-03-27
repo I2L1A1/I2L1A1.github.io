@@ -129,8 +129,9 @@ button, div {
 }
 
 .shopping_cart_items {
+    background-color: green;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    /*grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));*/
     padding-top: 10px;
     max-height: 50vh;
     border: 1px solid #ddd;
