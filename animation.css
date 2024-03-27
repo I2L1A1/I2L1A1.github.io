@@ -98,7 +98,7 @@
 .light_appearance_animation_selector {
     opacity: 0;
     animation: light_appearance_animation forwards;
-    animation-duration: 0.3s;
+    animation-duration: 5s;
     animation-timing-function: cubic-bezier(.68, .92, .69, 1);
 }
 
