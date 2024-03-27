@@ -139,7 +139,7 @@ button, div {
 
 .shopping_cart_items {
     animation: show_orders_appearance_animation forwards;
-    animation-duration: 0.3s;
+    animation-duration: 0.2s;
     animation-timing-function: cubic-bezier(.68, .92, .69, 1);
     animation-direction: alternate;
 

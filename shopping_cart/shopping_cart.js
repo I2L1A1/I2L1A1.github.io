@@ -139,7 +139,7 @@ get_data_from_server(free_order_time_url).then((data_from_server) => {
 });
 
 let shopping_cart_items = document.querySelector(".shopping_cart_items");
-let gap_for_animation = 0.05;
+let gap_for_animation = 0.3;
 for (let key of order.user_order.keys()) {
     let shopping_item = create_element("div", "shopping_item");
     gap_for_animation += 0.05;
