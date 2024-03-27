@@ -145,6 +145,7 @@ button, div {
 .shopping_item {
     padding: 0;
     display: grid;
+    width: calc(100% - 20px);
     grid-template-columns: 60px calc(100% - 115px - 30%) 30% 55px;
     height: 60px;
     margin-bottom: 10px;
@@ -269,7 +270,7 @@ button, div {
 }
 
 .order_comment_div {
-    background-color: #A5A5A5;
+    background-color: red;
     display: flex;
     justify-content: space-between;
     box-sizing: border-box;
