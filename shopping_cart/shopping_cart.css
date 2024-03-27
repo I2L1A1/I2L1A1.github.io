@@ -28,7 +28,7 @@ button, div {
 .shopping_cart_add_remove_figure {
     display: flex;
     justify-content: space-between;
-    width: 80%;
+    width: 100%;
     height: 2em;
     margin: auto;
     border-radius: 20px;
@@ -129,6 +129,8 @@ button, div {
 }
 
 .shopping_cart_items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     padding-top: 10px;
     max-height: 50vh;
     border: 1px solid #ddd;
@@ -143,7 +145,7 @@ button, div {
 .shopping_item {
     padding: 0;
     display: grid;
-    grid-template-columns: 20% 35% 30% 20%;
+    grid-template-columns: 70px calc(100% - 130px - 30%) 30% 60px;
     height: 60px;
     margin-bottom: 10px;
     border: 1px solid #ddd;
