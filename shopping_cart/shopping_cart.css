@@ -130,7 +130,7 @@ button, div {
 
 .shopping_cart_items {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     padding-top: 10px;
     max-height: 50vh;
     border: 1px solid #ddd;
@@ -143,6 +143,7 @@ button, div {
 }
 
 .shopping_item {
+    background-color: red;
     padding: 0;
     display: grid;
     grid-template-columns: 70px calc(100% - 125px - 30%) 30% 55px;
