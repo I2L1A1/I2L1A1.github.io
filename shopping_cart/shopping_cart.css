@@ -138,10 +138,10 @@ button, div {
 }
 
 .shopping_cart_items {
-    animation: show_orders_appearance_animation forwards;
-    animation-duration: 0.3s;
-    animation-timing-function: cubic-bezier(.68, .92, .69, 1);
-    animation-direction: alternate;
+    /*animation: show_orders_appearance_animation forwards;*/
+    /*animation-duration: 0.3s;*/
+    /*animation-timing-function: cubic-bezier(.68, .92, .69, 1);*/
+    /*animation-direction: alternate;*/
 
     display: grid;
     @media (min-width: 360px) {
@@ -159,11 +159,11 @@ button, div {
 }
 
 .shopping_item {
-    opacity: 0;
-    animation: show_orders_appearance_animation forwards;
-    animation-duration: 0.3s;
-    animation-timing-function: cubic-bezier(.68, .92, .69, 1);
-    animation-direction: alternate;
+    /*opacity: 0;*/
+    /*animation: show_orders_appearance_animation forwards;*/
+    /*animation-duration: 0.3s;*/
+    /*animation-timing-function: cubic-bezier(.68, .92, .69, 1);*/
+    /*animation-direction: alternate;*/
 
     padding: 0;
     display: grid;
