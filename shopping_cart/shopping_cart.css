@@ -159,7 +159,6 @@ button, div {
 }
 
 .shopping_item {
-    background-color: #A5A5A5;
     opacity: 0;
     animation: show_order_items_appearance_animation forwards;
     animation-duration: 0.3s;

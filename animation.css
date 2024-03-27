@@ -32,9 +32,11 @@
 @keyframes show_order_items_appearance_animation {
     0% {
         opacity: 0.1;
+        scale: 0.98;
     }
     100% {
         opacity: 1;
+        scale: 1;
     }
 }
 
