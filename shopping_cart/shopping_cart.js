@@ -142,6 +142,7 @@ for (let key of order.user_order.keys()) {
     let shopping_cart_item_name = create_element("div", "shopping_cart_item_name", catalog.Items.get(key).item_name);
     let shopping_cart_item_cost = create_element("div", "shopping_cart_item_cost", catalog.Items.get(key).item_cost + " ₽/шт.");
     let shopping_cart_add_remove_figure = create_element("div", "shopping_cart_add_remove_figure");
+    let buttons_and_cost_wrapper = create_element("div", "buttons_and_cost_wrapper");
     let shopping_cart_minus_btn = create_element("button", "shopping_cart_minus_btn", "-");
     let shopping_cart_item_label = create_element("label", "shopping_cart_item_label", order.user_order.get(key));
     let shopping_cart_plus_btn = create_element("button", "shopping_cart_plus_btn", "+");
@@ -152,8 +153,9 @@ for (let key of order.user_order.keys()) {
 
     shopping_item.appendChild(shopping_cart_item_img);
     shopping_item.appendChild(shopping_cart_item_name);
-    shopping_item.appendChild(shopping_cart_add_remove_figure);
-    shopping_item.appendChild(shopping_cart_item_cost);
+    buttons_and_cost_wrapper.appendChild(shopping_cart_add_remove_figure);
+    buttons_and_cost_wrapper.appendChild(shopping_cart_item_cost);
+    shopping_item.appendChild(buttons_and_cost_wrapper);
 
     shopping_cart_minus_btn.addEventListener("click", () => {
         decrease_item_counter(key, shopping_item, shopping_cart_item_label);
