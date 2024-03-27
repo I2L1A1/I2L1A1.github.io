@@ -171,6 +171,7 @@ button, div {
     width: fit-content;
     height: fit-content;
     font-size: 0.8em;
+    color: red;
 }
 
 .buttons_and_cost_wrapper {
@@ -192,11 +193,17 @@ button, div {
     font-size: 1.2em;
 }
 
-@media (width > 10px) {
+@media (max-width: 600px) {
     body {
-        background-color: #eccece;
+        background: lightblue;
     }
 }
+
+/*@media (max-width: 10px) {*/
+/*    body {*/
+/*        background-color: red;*/
+/*    }*/
+/*}*/
 
 .time_slider_area {
     align-items: center;
