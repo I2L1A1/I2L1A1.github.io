@@ -145,7 +145,7 @@ button, div {
 .shopping_item {
     padding: 0;
     display: grid;
-    grid-template-columns: 70px calc(100% - 125px - 30%) 30% 55px;
+    grid-template-columns: 60px calc(100% - 115px - 30%) 30% 55px;
     height: 60px;
     margin-bottom: 10px;
     border: 1px solid #ddd;
@@ -182,6 +182,28 @@ button, div {
     text-align: center;
     color: #939393;
     font-size: 1.2em;
+}
+
+@media (width <= 350px) {
+    .shopping_cart_items {
+        grid-template-columns: none;
+    }
+
+    .shopping_item {
+        grid-template-columns: calc(100% - 55px - 35%) 35% 55px;
+    }
+
+    .shopping_item_img {
+        display: none;
+    }
+
+    .shopping_cart_item_name {
+        font-size: 0.8em;
+    }
+
+    .shopping_cart_item_cost {
+        font-size: 0.8em;
+    }
 }
 
 .time_slider_area {
