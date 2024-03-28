@@ -287,16 +287,14 @@ button, div {
     outline: none;
     resize: none;
     font-family: "Cyntho Pro", sans-serif;
+    font-size: 1.2em;
+    color: #2d2d2d;
     padding: 10px;
     height: auto;
     border: 1px solid #ddd;
     border-radius: 25px;
     margin-top: 10px;
     margin-bottom: 10px;
-}
-
-.order_comment::placeholder {
-    font-size: 1.1em;
 }
 
 
