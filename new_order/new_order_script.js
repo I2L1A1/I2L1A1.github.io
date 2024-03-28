@@ -72,7 +72,9 @@ get_data_from_server(catalog_url).then((data_from_server) => {
             textField.textContent = "0";
         }
         order.order_cost -= +catalog.Items.get(i).item_cost;
-        choose_time_btn.textContent = `Посмотреть заказ • ${order.order_cost} ₽`;
+        if (order.order_cost !== 0) {
+            choose_time_btn.textContent = `Посмотреть заказ • ${order.order_cost} ₽`;
+        }
     }
 
     let graphicCatalogItems = new Map();
