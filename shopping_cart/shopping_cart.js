@@ -125,9 +125,11 @@ function draw_free_time_in_shopping_cart(free_time_array) {
 }
 
 checkout_btn.setAttribute('disabled', '');
-checkout_btn.textContent = "Выберите время";
+checkout_btn.textContent = "Загрузка времени...";
 
 get_data_from_server(free_order_time_url).then((data_from_server) => {
+    checkout_btn.textContent = "Выберите время";
+
     let free_time_array = [];
     for (let free_time of data_from_server["times"]) {
         free_time_array.push(free_time);

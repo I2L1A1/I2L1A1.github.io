@@ -26,7 +26,8 @@ button, div {
 }
 
 .loading_image_wrapper {
-    margin-top: 5px;
+    margin-top: 3px;
+    margin-bottom: 3px;
 }
 
 .shopping_cart_add_remove_figure {
@@ -137,7 +138,6 @@ button, div {
     @media (min-width: 360px) {
         grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     }
-    /*height: 30vh;*/
     padding-top: 10px;
     border: 1px solid #ddd;
     margin-right: 5px;
@@ -212,7 +212,7 @@ button, div {
     animation-delay: 0.4s !important;
 
     align-items: center;
-    height: 100%;
+    height: fit-content;
     border: 1px solid #ddd;
     border-radius: 25px;
     bottom: 2.2em;
@@ -295,12 +295,12 @@ button, div {
     margin-bottom: 10px;
 }
 
+.order_comment::placeholder {
+    font-size: 1.1em;
+}
+
 
 @media (max-height: 500px) {
-    .shopping_cart_items {
-        /*max-height: 25vh;*/
-    }
-
     .shopping_item {
         height: 60px;
     }
@@ -318,4 +318,3 @@ button, div {
         height: 5vh;
     }
 }
-
