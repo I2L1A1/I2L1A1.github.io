@@ -4,21 +4,11 @@ import {
     get_data_from_server, send_data_to_server
 } from "../tools/networking_tools.js"
 import {
-    create_element, create_image
+    create_element, create_image, show_element_with_animation, hide_element_with_animation
 } from "../tools/graphical_tools.js";
 import {Catalog, Order} from "../main_classs.js";
 
 animated_page_scroll(0, ".header_label_wrapper");
-
-function show_element(element_name, animation_class_show, animation_class_hide) {
-    element_name.classList.remove(animation_class_hide);
-    element_name.classList.add(animation_class_show);
-}
-
-function hide_element(element_name, animation_class_show, animation_class_hide) {
-    element_name.classList.add(animation_class_hide);
-    element_name.classList.remove(animation_class_show);
-}
 
 let tg = window.Telegram.WebApp;
 tg.expand();
@@ -48,7 +38,7 @@ if (order.user_order.size) {
 
 get_data_from_server(catalog_url).then((data_from_server) => {
     if (order.user_order.size) {
-        show_element(choose_time_btn_div, "show_selector", "hide_selector")
+        show_element_with_animation(choose_time_btn_div, "show_choose_time_btn_animation_selector", "hide_choose_time_btn_animation_selector")
         choose_time_btn.textContent = `Посмотреть заказ • ${order.order_cost} ₽`;
     }
 
@@ -72,7 +62,7 @@ get_data_from_server(catalog_url).then((data_from_server) => {
         } else {
             order.user_order.delete(i);
             if (order.user_order.size === 0) {
-                hide_element(choose_time_btn_div, "show_selector", "hide_selector")
+                hide_element_with_animation(choose_time_btn_div, "show_choose_time_btn_animation_selector", "hide_choose_time_btn_animation_selector")
                 document.querySelector(".container").classList.remove("bottom_container_margin");
             }
             graphicCatalogItems[i].item_btn.classList.remove("hidden");
@@ -139,7 +129,7 @@ get_data_from_server(catalog_url).then((data_from_server) => {
     for (let i of catalog.Items.keys()) {
         graphicCatalogItems[i].item_btn.addEventListener("click", () => {
             order.user_order.set(i, 1);
-            show_element(choose_time_btn_div, "show_selector", "hide_selector")
+            show_element_with_animation(choose_time_btn_div, "show_choose_time_btn_animation_selector", "hide_choose_time_btn_animation_selector")
             document.querySelector(".container").classList.add("bottom_container_margin");
 
             order.order_cost += +catalog.Items.get(i).item_cost;
