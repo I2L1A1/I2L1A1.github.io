@@ -204,6 +204,5 @@ document.querySelector('.shopping_cart').addEventListener('touchstart', (event) 
         document.querySelector(".order_comment").tabIndex = -1;
         document.querySelector(".shopping_cart").tabIndex = 1;
         document.querySelector(".shopping_cart").focus();
-        document.querySelector("body").style.backgroundColor = "red";
     }
 });
