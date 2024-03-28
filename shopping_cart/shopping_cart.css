@@ -92,6 +92,9 @@ button, div {
 }
 
 .checkout_btn {
+    /*position: fixed;*/
+    /*bottom: 0;*/
+
     animation-delay: 0.4s !important;
 
     width: 100%;
@@ -137,8 +140,8 @@ button, div {
     @media (min-width: 360px) {
         grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     }
+    /*height: 30vh;*/
     padding-top: 10px;
-    max-height: 40vh;
     border: 1px solid #ddd;
     margin-right: 5px;
     margin-left: 5px;
@@ -259,10 +262,11 @@ button, div {
 }
 
 .time_selection_and_checkout {
-    min-height: 30vh;
     display: flex;
     flex-direction: column;
     justify-content: end;
+    bottom: 0;
+    width: 100%;
 }
 
 .error_404_label {
@@ -282,7 +286,7 @@ button, div {
 }
 
 .order_comment {
-    width: calc(100% - 70px);
+    width: 100%;
     outline: none;
     resize: none;
     font-family: "Cyntho Pro", sans-serif;
@@ -294,22 +298,10 @@ button, div {
     margin-bottom: 10px;
 }
 
-.order_comment_button {
-    padding: 0;
-    height: 45px;
-    width: 45px;
-    margin-top: auto;
-    margin-bottom: auto;
-    background-color: #FFE0BC;
-    border: 0;
-    border-radius: 25px;
-    text-align: center;
-    vertical-align: middle;
-}
 
 @media (max-height: 500px) {
     .shopping_cart_items {
-        max-height: 25vh;
+        /*max-height: 25vh;*/
     }
 
     .shopping_item {
@@ -328,12 +320,6 @@ button, div {
     .order_comment {
         height: 5vh;
         width: calc(100% - 60px);
-    }
-
-    .order_comment_button {
-        height: 35px;
-        width: 35px;
-        font-size: 0.7em;
     }
 }
 
