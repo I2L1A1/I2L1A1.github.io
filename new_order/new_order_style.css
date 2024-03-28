@@ -83,7 +83,7 @@ button, div {
     overflow: hidden;
     display: flex;
     justify-content: space-between;
-    width: 80%;
+    width: 60%;
     height: 2em;
     margin: auto;
     border-radius: 20px;
