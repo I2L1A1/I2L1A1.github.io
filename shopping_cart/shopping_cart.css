@@ -92,8 +92,8 @@ button, div {
 }
 
 .checkout_btn {
-    /*position: fixed;*/
-    /*bottom: 0;*/
+    position: fixed;
+    bottom: 0;
 
     animation-delay: 0.4s !important;
 
@@ -121,10 +121,9 @@ button, div {
 .shopping_cart {
     display: flex;
     flex-direction: column;
-    height: 100vh;
     justify-content: space-between;
-    margin: 0;
     padding: 0;
+    margin: 0 0 calc(2.2em + 10px);
 }
 
 .shopping_cart_label {
@@ -149,6 +148,7 @@ button, div {
     border-radius: 25px;
     overflow-x: hidden;
     overflow-y: scroll;
+
 }
 
 .shopping_item {

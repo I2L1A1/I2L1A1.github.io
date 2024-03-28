@@ -199,16 +199,6 @@ back_btn.addEventListener("click", () => {
     order.push_data_to_cash();
 });
 
-//
-// document.querySelector('.shopping_cart').addEventListener('touchstart', (event) => {
-//     if (!event.target.closest('.order_comment')) {
-//         document.querySelector(".order_comment").tabIndex = -1;
-//         document.querySelector(".shopping_cart").tabIndex = 1;
-//         document.querySelector(".shopping_cart").focus();
-//     } else {
-//     }
-// });
-
 let now_page_position_y = window.scrollY;
 
 document.querySelector('.shopping_cart').addEventListener('touchstart', (event) => {
