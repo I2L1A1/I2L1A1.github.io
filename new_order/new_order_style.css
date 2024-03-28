@@ -83,14 +83,12 @@ button, div {
     overflow: hidden;
     display: flex;
     justify-content: space-between;
-    width: 60%;
+    width: 80%;
     height: 2em;
     margin: auto;
     border-radius: 20px;
     border: none;
-    /*background-color: #FFE0BC;*/
-    background-color: red;
-
+    background-color: #FFE0BC;
 }
 
 .btn_add {
