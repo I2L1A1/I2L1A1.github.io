@@ -199,15 +199,15 @@ back_btn.addEventListener("click", () => {
     order.push_data_to_cash();
 });
 
-document.querySelector("body").style.backgroundColor = "#dfffdb";
+document.querySelector("body").style.backgroundColor = "#f9e0ff";
 
 // document.addEventListener('focusout', e => {
 //     document.querySelector("body").style.backgroundColor = "red";
 // });
 
 document.querySelector(".page_header").addEventListener('touchstart', (event) => {
-    console.log(document.querySelector(".order_comment").tabIndex);
-    document.querySelector(".order_comment").tabIndex = -100;
-    console.log(document.querySelector(".order_comment").tabIndex);
+    document.querySelector(".order_comment").tabIndex = -1;
+    document.querySelector(".page_header").tabIndex = 1;
+    document.querySelector(".page_header").focus();
     document.querySelector("body").style.backgroundColor = "red";
 })
