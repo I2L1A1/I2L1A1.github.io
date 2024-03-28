@@ -199,15 +199,22 @@ back_btn.addEventListener("click", () => {
     order.push_data_to_cash();
 });
 
-document.querySelector("body").style.backgroundColor = "#f9e0ff";
+document.querySelector("body").style.backgroundColor = "#8a6196";
 
 // document.addEventListener('focusout', e => {
 //     document.querySelector("body").style.backgroundColor = "red";
 // });
 
-document.querySelector(".page_header").addEventListener('touchstart', (event) => {
-    document.querySelector(".order_comment").tabIndex = -1;
-    document.querySelector(".page_header").tabIndex = 1;
-    document.querySelector(".page_header").focus();
-    document.querySelector("body").style.backgroundColor = "red";
-})
+document.querySelector('.shopping_cart').addEventListener('touchstart', (event) => {
+    const closestOrderCommentDiv = event.target.closest('.order_comment_div');
+    if (!closestOrderCommentDiv) {
+        document.querySelector(".order_comment").tabIndex = -1;
+        document.querySelector(".shopping_cart").tabIndex = 1;
+        document.querySelector(".shopping_cart").focus();
+        document.querySelector("body").style.backgroundColor = "red";
+        console.log("order_comment: " + document.querySelector(".order_comment").tabIndex);
+        console.log("shopping_cart: " + document.querySelector(".shopping_cart").tabIndex);
+        console.log("order_comment_button: " + document.querySelector(".order_comment_button").tabIndex);
+    }
+});
+
