@@ -75,6 +75,21 @@
     }
 }
 
+@keyframes show_animation {
+    100% {
+        transform: translateY(0em);
+    }
+}
+
+@keyframes hide_animation {
+    0% {
+        transform: translateY(0em);
+    }
+    100% {
+        transform: translateY(2.2em);
+    }
+}
+
 .loading_image_wrapper {
     z-index: 999;
     width: 40px;
@@ -140,6 +155,16 @@
     animation-duration: 0.4s;
     animation-timing-function: linear;
     animation-delay: 1s;
+}
+
+.show_selector {
+    animation: show_animation forwards;
+    animation-duration: 0.3s;
+}
+
+.hide_selector {
+    animation: hide_animation forwards;
+    animation-duration: 0.3s;
 }
 
 .hidden {
