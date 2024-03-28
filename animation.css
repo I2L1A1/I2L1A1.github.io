@@ -124,14 +124,14 @@
     }
 }
 
-@keyframes show_order_item_label_animation {
-    0% {
-        scale: 1.1;
-    }
-    100% {
-        scale: 1;
-    }
-}
+/*@keyframes show_order_item_label_animation {*/
+/*    0% {*/
+
+/*    }*/
+/*    100% {*/
+
+/*    }*/
+/*}*/
 
 .loading_image_wrapper {
     z-index: 999;
@@ -202,33 +202,39 @@
 
 .show_choose_time_btn_animation_selector {
     animation: show_choose_time_btn_animation forwards;
+    animation-timing-function: cubic-bezier(.3,.99,.49,1.01);
     animation-duration: 0.3s;
 }
 
 .hide_choose_time_btn_animation_selector {
     animation: hide_choose_time_btn_animation forwards;
+    animation-timing-function: cubic-bezier(.3,.99,.49,1.01);
     animation-duration: 0.3s;
 }
 
 .show_btn_plus_animation_selector {
     animation: show_btn_plus_animation forwards;
+    animation-timing-function: cubic-bezier(.61, 1.12, .69, 1);
     animation-duration: 0.3s;
 }
 
 .show_btn_minus_animation_selector {
     animation: show_btn_minus_animation forwards;
+    animation-timing-function: cubic-bezier(.61, 1.12, .69, 1);
     animation-duration: 0.3s;
 }
 
 .show_btn_add_animation_selector {
     animation: show_btn_add_animation forwards;
-    animation-duration: 0.3s;
+    animation-timing-function: cubic-bezier(.72, 1.1, .83, 1.02);
+    animation-duration: 0.2s;
 }
 
-.show_order_item_label_animation_selector {
-    animation: show_order_item_label_animation forwards;
-    animation-duration: 0.3s;
-}
+/*.show_order_item_label_animation_selector {*/
+/*    animation: show_order_item_label_animation forwards;*/
+/*    animation-timing-function: cubic-bezier(.61, 1.12, .69, 1);*/
+/*    animation-duration: 0.3s;*/
+/*}*/
 
 .hidden {
     display: none;
