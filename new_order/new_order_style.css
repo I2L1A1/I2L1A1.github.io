@@ -88,7 +88,9 @@ button, div {
     margin: auto;
     border-radius: 20px;
     border: none;
-    background-color: #FFE0BC;
+    /*background-color: #FFE0BC;*/
+    background-color: red;
+
 }
 
 .btn_add {
