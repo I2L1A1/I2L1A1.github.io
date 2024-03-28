@@ -204,13 +204,13 @@
 
 .show_choose_time_btn_animation_selector {
     animation: show_choose_time_btn_animation forwards;
-    animation-timing-function: cubic-bezier(.3,.99,.49,1.01);
+    animation-timing-function: cubic-bezier(.3, .99, .49, 1.01);
     animation-duration: 0.3s;
 }
 
 .hide_choose_time_btn_animation_selector {
     animation: hide_choose_time_btn_animation forwards;
-    animation-timing-function: cubic-bezier(.3,.99,.49,1.01);
+    animation-timing-function: cubic-bezier(.3, .99, .49, 1.01);
     animation-duration: 0.3s;
 }
 
@@ -236,6 +236,21 @@
     animation: show_order_item_label_animation forwards;
     animation-timing-function: cubic-bezier(.61, 1.12, .69, 1);
     animation-duration: 0.3s;
+}
+
+@keyframes hide_order_item_animation {
+    100% {
+        display: none;
+    }
+}
+
+.hide_order_item_animation_selector {
+    transform: translateX(-120%);
+    transition-timing-function: cubic-bezier(1, .01, .88, 1.08);
+    transition-duration: 0.5s;
+    animation: hide_order_item_animation forwards;
+    animation-timing-function: linear;
+    animation-duration: 0.5s;
 }
 
 .hidden {

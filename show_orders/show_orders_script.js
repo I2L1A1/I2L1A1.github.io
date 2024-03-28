@@ -60,4 +60,3 @@ get_data_from_server(user_url).then((data_from_server) => {
         items_element.appendChild(order_wrapper);
     }
 });
-
