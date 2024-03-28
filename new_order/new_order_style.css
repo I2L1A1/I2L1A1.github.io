@@ -80,6 +80,7 @@ button, div {
 }
 
 .add_remove_figure {
+    overflow: hidden;
     display: flex;
     justify-content: space-between;
     width: 80%;

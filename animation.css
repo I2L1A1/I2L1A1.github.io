@@ -93,6 +93,46 @@
     }
 }
 
+@keyframes show_btn_plus_animation {
+    0% {
+        transform: translateX(35%);
+        scale: 1.1;
+    }
+    100% {
+        transform: translateX(0px);
+        scale: 1;
+    }
+}
+
+@keyframes show_btn_minus_animation {
+    0% {
+        transform: translateX(-35%);
+        scale: 1.1;
+    }
+    100% {
+        transform: translateX(0px);
+        scale: 1;
+    }
+}
+
+@keyframes show_btn_add_animation {
+    0% {
+        scale: 1.1;
+    }
+    100% {
+        scale: 1;
+    }
+}
+
+@keyframes show_order_item_label_animation {
+    0% {
+        scale: 1.1;
+    }
+    100% {
+        scale: 1;
+    }
+}
+
 .loading_image_wrapper {
     z-index: 999;
     width: 40px;
@@ -167,6 +207,26 @@
 
 .hide_choose_time_btn_animation_selector {
     animation: hide_choose_time_btn_animation forwards;
+    animation-duration: 0.3s;
+}
+
+.show_btn_plus_animation_selector {
+    animation: show_btn_plus_animation forwards;
+    animation-duration: 0.3s;
+}
+
+.show_btn_minus_animation_selector {
+    animation: show_btn_minus_animation forwards;
+    animation-duration: 0.3s;
+}
+
+.show_btn_add_animation_selector {
+    animation: show_btn_add_animation forwards;
+    animation-duration: 0.3s;
+}
+
+.show_order_item_label_animation_selector {
+    animation: show_order_item_label_animation forwards;
     animation-duration: 0.3s;
 }
 

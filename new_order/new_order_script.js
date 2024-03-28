@@ -66,6 +66,7 @@ get_data_from_server(catalog_url).then((data_from_server) => {
                 document.querySelector(".container").classList.remove("bottom_container_margin");
             }
             graphicCatalogItems[i].item_btn.classList.remove("hidden");
+            graphicCatalogItems[i].item_btn.classList.add("show_btn_add_animation_selector");
             graphicCatalogItems[i].minus_btn.classList.add("hidden");
             graphicCatalogItems[i].plus_btn.classList.add("hidden");
             textField.classList.add("hidden");
@@ -94,14 +95,17 @@ get_data_from_server(catalog_url).then((data_from_server) => {
 
 
         graphicCatalogItems[i].minus_btn = create_element("button", "btn_minus", "-", !is_item_in_order);
+        graphicCatalogItems[i].minus_btn.classList.add("show_btn_minus_animation_selector");
 
         graphicCatalogItemCounter[i] = create_element("label", "order_item_label", "", !is_item_in_order);
+        graphicCatalogItemCounter[i].classList.add("show_order_item_label_animation_selector");
 
         if (is_item_in_order) {
             graphicCatalogItemCounter[i].textContent = order.user_order.get(i);
         }
 
         graphicCatalogItems[i].plus_btn = create_element("button", "btn_plus", "+", !is_item_in_order);
+        graphicCatalogItems[i].plus_btn.classList.add("show_btn_plus_animation_selector");
 
         graphicCatalogItems[i].plus_btn.addEventListener("click", () => {
             increase_item_counter(i, graphicCatalogItemCounter[i]);
