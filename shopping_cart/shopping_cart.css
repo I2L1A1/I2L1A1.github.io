@@ -278,8 +278,8 @@ button, div {
     display: flex;
     justify-content: space-between;
     box-sizing: border-box;
-    /*margin-right: 5px;*/
-    /*margin-left: 5px;*/
+    margin-right: 5px;
+    margin-left: 5px;
 }
 
 .order_comment {
@@ -291,9 +291,8 @@ button, div {
     height: auto;
     border: 1px solid #ddd;
     border-radius: 25px;
-    /*margin-top: 10px;*/
-    /*margin-bottom: 10px;*/
-    background-color: red;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 
@@ -317,7 +316,6 @@ button, div {
 
     .order_comment {
         height: 5vh;
-        width: calc(100% - 60px);
     }
 }
 
