@@ -184,10 +184,10 @@ button, div {
     color: #2d2d2d;
 }
 
-.error_404_label {
+.error_500_label, .undefined_error_label {
+    margin-top: 60px;
     width: 100%;
     text-align: center;
-    margin-top: 20px;
 }
 
 .order_comment_div {
