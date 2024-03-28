@@ -199,8 +199,12 @@ back_btn.addEventListener("click", () => {
     order.push_data_to_cash();
 });
 
-document.querySelector("body").style.backgroundColor = "#999";
+document.querySelector("body").style.backgroundColor = "#ffc2c2";
 
-document.addEventListener('focusout', e => {
+// document.addEventListener('focusout', e => {
+//     document.querySelector("body").style.backgroundColor = "red";
+// });
+
+document.querySelector("body").addEventListener('touchstart', (event) => {
     document.querySelector("body").style.backgroundColor = "red";
-});
+})
