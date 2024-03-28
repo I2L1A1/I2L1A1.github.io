@@ -198,3 +198,9 @@ back_btn.addEventListener("click", () => {
     localStorage.clear();
     order.push_data_to_cash();
 });
+
+document.querySelector("body").style.backgroundColor = "#999";
+
+document.addEventListener('focusout', e => {
+    document.querySelector("body").style.backgroundColor = "red";
+});
