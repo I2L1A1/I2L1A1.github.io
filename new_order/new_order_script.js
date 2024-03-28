@@ -37,11 +37,8 @@ if (order.user_order.size) {
 }
 
 get_data_from_server(catalog_url).then((data_from_server) => {
-    console.log(data_from_server);
     let response_status = data_from_server[0];
     data_from_server = data_from_server[1];
-    console.log(response_status);
-    console.log(data_from_server);
     document.querySelector(".loading_image_wrapper").classList.add("hidden");
     if (response_status === 200) {
         if (order.user_order.size) {
