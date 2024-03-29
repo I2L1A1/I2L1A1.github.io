@@ -299,10 +299,6 @@ button, div {
     justify-content: end;
     bottom: 0;
     width: 100%;
-    /*margin-bottom: 3em;*/
-    /*@media (min-width: 600px) {*/
-    /*    margin-bottom: 5em;*/
-    /*}*/
 }
 
 .error_404_label {
