@@ -110,23 +110,6 @@ button, div {
     backdrop-filter: blur(8px);
 
     font-size: 1.3em;
-
-    @media (min-width: 600px) {
-        bottom: 0.7em;
-        height: 2.5em;
-        border-radius: 20px;
-        margin-right: 25%;
-        margin-left: 25%;
-        width: 50%;
-    }
-    @media (min-width: 900px) {
-        bottom: 0.7em;
-        height: 2.5em;
-        border-radius: 20px;
-        margin-right: 35%;
-        margin-left: 35%;
-        width: 30%;
-    }
 }
 
 .checkout_btn:disabled {
@@ -142,19 +125,6 @@ button, div {
     justify-content: space-between;
     margin: 0;
     padding: 0;
-
-    @media (min-width: 600px) {
-        margin-left: 10%;
-        margin-right: 10%;
-    }
-    @media (min-width: 950px) {
-        margin-left: 15%;
-        margin-right: 15%;
-    }
-    @media (min-width: 1200px) {
-        margin-left: 17%;
-        margin-right: 17%;
-    }
 }
 
 .shopping_cart_label {

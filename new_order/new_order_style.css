@@ -42,18 +42,6 @@ button, div {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     margin-left: 2%;
     margin-right: 2%;
-    @media (min-width: 600px) {
-        margin-left: 10%;
-        margin-right: 10%;
-    }
-    @media (min-width: 950px) {
-        margin-left: 15%;
-        margin-right: 15%;
-    }
-    @media (min-width: 1200px) {
-        margin-left: 17%;
-        margin-right: 17%;
-    }
 }
 
 .item {
@@ -65,16 +53,6 @@ button, div {
     margin-bottom: 8%;
     margin-left: 4%;
     margin-right: 4%;
-    @media (min-width: 950px) {
-        margin-left: 6%;
-        margin-right: 6%;
-        margin-bottom: 10%;
-    }
-    @media (min-width: 1200px) {
-        margin-left: 7%;
-        margin-right: 7%;
-        margin-bottom: 12%;
-    }
 }
 
 .catalog_image {
@@ -181,23 +159,6 @@ button, div {
     -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px);
     box-shadow: 0 0 60px #ddd;
-
-    @media (min-width: 600px) {
-        bottom: 0.7em;
-        height: 2.5em;
-        border-radius: 20px;
-        margin-right: 25%;
-        margin-left: 25%;
-        width: 50%;
-    }
-    @media (min-width: 900px) {
-        bottom: 0.7em;
-        height: 2.5em;
-        border-radius: 20px;
-        margin-right: 35%;
-        margin-left: 35%;
-        width: 30%;
-    }
 }
 
 .choose_time_btn {
