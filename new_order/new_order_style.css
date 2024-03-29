@@ -40,8 +40,8 @@ button, div {
     margin-top: 59px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-left: 3%;
+    margin-right: 3%;
     @media (min-width: 600px) {
         margin-left: 10%;
         margin-right: 10%;
