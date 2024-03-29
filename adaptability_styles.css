@@ -14,9 +14,6 @@
 }
 
 .adaptive_menu {
-    @media (max-width: 400px) {
-        width: 100%;
-    }
     @media (min-width: 400px) {
         width: 75%;
     }
