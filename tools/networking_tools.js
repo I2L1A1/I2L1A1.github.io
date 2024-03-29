@@ -9,6 +9,7 @@ export async function get_data_from_server(url) {
             return [response.status, ""]
         }
     } catch (error) {
+        console.log(error);
         return [error, ""];
     }
 }

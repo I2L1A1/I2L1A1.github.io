@@ -1,5 +1,7 @@
 .error_labels_wrapper {
     margin-top: 70px;
+    margin-left: 15px;
+    margin-right: 15px;
 }
 
 .error_labels_wrapper_shopping_cart {
@@ -11,6 +13,7 @@
     width: 100%;
     text-align: center;
     color: #2d2d2d;
+    font-size: 1.1em;
 }
 
 .error_text_label {

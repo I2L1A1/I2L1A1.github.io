@@ -188,14 +188,18 @@ for (let key of order.user_order.keys()) {
             document.querySelector(".empty_shopping_cart_label").classList.remove("hidden");
             document.getElementById("back_btn_to_menu_svg_in_shopping_cart").classList.add("back_btn_to_menu_svg_appearance_animation_selector");
         }
-        if (checkout_btn.textContent !== "Выберите время") {
+        if (checkout_btn.textContent !== "Выберите время" &&
+            checkout_btn.textContent !== "Загрузка времени..." &&
+            checkout_btn.textContent !== "Не удалось загрузить") {
             checkout_btn.textContent = `Заказать к ${seconds_to_time(order.order_time)} • ${order.order_cost} ₽`;
         }
     });
 
     shopping_cart_plus_btn.addEventListener("click", () => {
         increase_item_counter(key, shopping_cart_item_label);
-        if (checkout_btn.textContent !== "Выберите время") {
+        if (checkout_btn.textContent !== "Выберите время" &&
+            checkout_btn.textContent !== "Загрузка времени..." &&
+            checkout_btn.textContent !== "Не удалось загрузить") {
             checkout_btn.textContent = `Заказать к ${seconds_to_time(order.order_time)} • ${order.order_cost} ₽`;
         }
     });
