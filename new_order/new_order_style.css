@@ -42,6 +42,24 @@ button, div {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     margin-left: 2%;
     margin-right: 2%;
+
+    @media (min-width: 10px) {
+        background: green;
+        margin-left: 30%;
+        margin-right: 30%;
+    }
+    @media (min-width: 600px) {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+    @media (min-width: 950px) {
+        margin-left: 15%;
+        margin-right: 15%;
+    }
+    @media (min-width: 1200px) {
+        margin-left: 17%;
+        margin-right: 17%;
+    }
 }
 
 .item {
