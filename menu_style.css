@@ -36,9 +36,6 @@ body {
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-    @media (min-width: 20px) {
-        background: green;
-    }
 }
 
 .menu_link {

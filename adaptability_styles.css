@@ -1,4 +1,7 @@
 .adaptive_container {
+    @media (min-width: 10px) {
+        background: green;
+    }
     @media (min-width: 600px) {
         margin-left: 10%;
         margin-right: 10%;
