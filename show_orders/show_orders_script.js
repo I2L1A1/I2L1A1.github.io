@@ -4,8 +4,9 @@ import {
     get_data_from_server, send_data_to_server
 } from "../tools/networking_tools.js"
 import {
-    create_element, create_image, seconds_to_time
+    create_element, create_error_label, create_image, seconds_to_time
 } from "../tools/graphical_tools.js";
+import {show_error} from "../errors_handler/errors_handler.js";
 
 
 animated_page_scroll(0, ".header_label_wrapper");
@@ -62,10 +63,8 @@ get_data_from_server(user_url).then((data_from_server) => {
             }
             items_element.appendChild(order_wrapper);
         }
-    } else if (response_status === 500) {
-        document.querySelector(".error_500_label").classList.remove("hidden");
     } else {
-        document.querySelector(".undefined_error_label").classList.remove("hidden");
+        show_error(response_status);
     }
 });
 

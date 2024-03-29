@@ -1,0 +1,31 @@
+.error_labels_wrapper {
+    margin-top: 70px;
+}
+
+.error_labels_wrapper_shopping_cart {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.error_number_label {
+    width: 100%;
+    text-align: center;
+    color: #2d2d2d;
+}
+
+.error_text_label {
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+    color: #898989;
+}
+
+.refresh_svg_element_img {
+    display: flex;
+    stroke: #2d2d2d;
+    stroke-width: 1.5;
+    transform: rotate(-90deg);
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}

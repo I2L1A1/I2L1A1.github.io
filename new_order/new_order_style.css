@@ -184,12 +184,6 @@ button, div {
     color: #2d2d2d;
 }
 
-.error_500_label, .undefined_error_label {
-    margin-top: 60px;
-    width: 100%;
-    text-align: center;
-}
-
 .order_comment_div {
     display: flex;
     justify-content: space-between;

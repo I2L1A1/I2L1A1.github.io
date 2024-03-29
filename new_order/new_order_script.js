@@ -6,6 +6,7 @@ import {
 import {
     create_element, create_image, show_element_with_animation, hide_element_with_animation
 } from "../tools/graphical_tools.js";
+import {show_error} from "../errors_handler/errors_handler.js";
 import {Catalog, Order} from "../main_classs.js";
 
 animated_page_scroll(0, ".header_label_wrapper");
@@ -151,10 +152,8 @@ get_data_from_server(catalog_url).then((data_from_server) => {
                 graphicCatalogItems[i].plus_btn.classList.remove("hidden");
             });
         }
-    } else if (response_status === 500) {
-        document.querySelector(".error_500_label").classList.remove("hidden");
     } else {
-        document.querySelector(".undefined_error_label").classList.remove("hidden");
+        show_error(response_status);
     }
 });
 
