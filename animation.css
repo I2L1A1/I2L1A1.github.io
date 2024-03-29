@@ -159,6 +159,14 @@
     animation-direction: alternate;
 }
 
+.start_header_appearance_animation_selector {
+    animation: element_appearance_animation forwards;
+    animation-duration: 0.4s;
+    animation-timing-function: cubic-bezier(.68, .92, .69, 1);
+    opacity: 0;
+    animation-delay: 0.4s;
+}
+
 .element_appearance_animation_selector {
     opacity: 0;
     animation: element_appearance_animation forwards;
@@ -204,13 +212,13 @@
 
 .show_choose_time_btn_animation_selector {
     animation: show_choose_time_btn_animation forwards;
-    animation-timing-function: cubic-bezier(.3,.99,.49,1.01);
+    animation-timing-function: cubic-bezier(.3, .99, .49, 1.01);
     animation-duration: 0.3s;
 }
 
 .hide_choose_time_btn_animation_selector {
     animation: hide_choose_time_btn_animation forwards;
-    animation-timing-function: cubic-bezier(.3,.99,.49,1.01);
+    animation-timing-function: cubic-bezier(.3, .99, .49, 1.01);
     animation-duration: 0.3s;
 }
 
