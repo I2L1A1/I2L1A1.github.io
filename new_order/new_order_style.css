@@ -190,3 +190,8 @@ button, div {
     display: none;
 }
 
+@media (max-width: 600px) {
+    body {
+        background: lightblue;
+    }
+}

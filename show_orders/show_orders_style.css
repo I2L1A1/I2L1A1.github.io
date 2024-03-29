@@ -133,3 +133,8 @@ button {
     flex-direction: column;
 }
 
+@media (max-width: 600px) {
+    body {
+        background: lightblue;
+    }
+}
