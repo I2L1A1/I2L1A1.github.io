@@ -79,10 +79,3 @@ body {
     animation-fill-mode: forwards;
     animation-delay: 0.9s;
 }
-
-@media (max-width: 600px) {
-    body {
-        background: lightblue;
-    }
-}
-

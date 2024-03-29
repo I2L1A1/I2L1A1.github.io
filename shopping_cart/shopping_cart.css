@@ -301,9 +301,3 @@ button, div {
     margin-top: 10px;
     margin-bottom: 10px;
 }
-
-@media (max-width: 600px) {
-    body {
-        background: lightblue;
-    }
-}
