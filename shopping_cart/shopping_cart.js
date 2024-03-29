@@ -184,6 +184,7 @@ for (let key of order.user_order.keys()) {
         decrease_item_counter(key, shopping_item, shopping_cart_item_label);
         if (order.user_order.size === 0) {
             document.querySelector(".time_selection_and_checkout").classList.add("hidden");
+            document.querySelector(".checkout_btn").classList.add("hidden");
             shopping_cart_items.classList.add("hidden");
             document.querySelector(".empty_shopping_cart_label").classList.remove("hidden");
             document.getElementById("back_btn_to_menu_svg_in_shopping_cart").classList.add("back_btn_to_menu_svg_appearance_animation_selector");
