@@ -36,10 +36,9 @@ button {
 }
 
 .orders {
-    margin-top: 35px;
-    margin-bottom: 10px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    margin: 35px 3% 10px;
 }
 
 
