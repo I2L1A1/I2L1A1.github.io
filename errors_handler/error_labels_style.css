@@ -20,12 +20,19 @@
     color: #898989;
 }
 
+.refresh_svg_element {
+    display: flex;
+    width: 50px;
+    height: 50px;
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .refresh_svg_element_img {
     display: flex;
+    margin: auto;
     stroke: #2d2d2d;
     stroke-width: 1.5;
     transform: rotate(-90deg);
-    margin-top: 15px;
-    margin-left: auto;
-    margin-right: auto;
 }
