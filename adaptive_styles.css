@@ -8,6 +8,13 @@
     }
 }
 
+@media (min-width: 200px) {
+    .adaptive_container {
+        margin-left: 40%;
+        margin-right: 40%;
+    }
+}
+
 @media (min-width: 360px) {
     .shopping_cart_items {
         grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
