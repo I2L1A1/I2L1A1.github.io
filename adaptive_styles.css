@@ -1,21 +1,84 @@
-@media (max-width: 800px) {
-    body {
-        background: #313131;
+@media (max-width: 400px) {
+    .adaptive_menu {
+        background-color: red;
+        width: 100%;
+    }
+}
+
+@media (min-width: 400px) {
+    .adaptive_menu {
+        background-color: green;
+        width: 75%;
+    }
+}
+
+@media (min-width: 600px) {
+    .adaptive_container {
+        margin-left: 10%;
+        margin-right: 10%;
     }
 
-    .menu_div {
-        background-color: aqua;
+    .adaptive_menu {
+        width: 65%;
     }
 
-    .item {
-        border: 10px solid #fdb262;
+    .adaptive_bottom_button {
+        bottom: 0.7em;
+        height: 2.5em;
+        border-radius: 30px;
+        margin-right: 25%;
+        margin-left: 25%;
+        width: 50%;
+    }
+}
+
+@media (min-width: 700px) {
+    .adaptive_menu {
+        width: 55%;
+    }
+}
+
+@media (min-width: 900px) {
+    .adaptive_bottom_button {
+        bottom: 0.7em;
+        height: 2.5em;
+        border-radius: 30px;
+        margin-right: 35%;
+        margin-left: 35%;
+        width: 30%;
+    }
+}
+
+@media (min-width: 950px) {
+    .adaptive_container {
+        margin-left: 15%;
+        margin-right: 15%;
     }
 
-    .order_comment {
-        background-color: chartreuse;
+    .adaptive_menu {
+        width: 45%;
     }
 
-    .order_item {
-        background-color: crimson;
+    .adaptive_item {
+        margin-left: 6%;
+        margin-right: 6%;
+        margin-bottom: 10%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .adaptive_container {
+        margin-left: 17%;
+        margin-right: 17%;
+    }
+
+    .adaptive_menu {
+        width: 40%;
+    }
+
+    .adaptive_item {
+        margin-left: 7%;
+        margin-right: 7%;
+        margin-bottom: 12%;
     }
 }

@@ -37,8 +37,9 @@ body {
 .menu {
     display: grid;
     align-items: center;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .menu_link {
