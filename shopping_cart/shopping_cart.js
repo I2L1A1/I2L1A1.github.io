@@ -13,9 +13,6 @@ import {show_error} from "../errors_handler/errors_handler.js";
 
 animated_page_scroll(0, ".header_label_wrapper");
 
-// document.querySelector(".black_square").classList.add("light_appearance_animation_selector");
-
-
 let back_btn = document.querySelector(".back_btn");
 let checkout_btn = document.querySelector(".checkout_btn");
 let order_comment = document.querySelector(".order_comment");
@@ -40,14 +37,6 @@ function decrease_item_counter(i, object_to_delete, textField) {
         object_to_delete.addEventListener('animationend', function () {
             object_to_delete.remove();
         });
-
-
-        // object_to_delete.classList.add("hide_order_item_animation_selector");
-        // object_to_delete.classList.remove("show_order_items_appearance_animation_selector");
-
-        if (order.user_order.size === 0) {
-            object_to_delete.remove();
-        }
     }
     order.order_cost -= +catalog.Items.get(i).item_cost;
 }
@@ -89,9 +78,6 @@ function generate_data_for_send() {
 
     return data_for_send;
 }
-
-
-let page_header_catalog = document.querySelector(".page_header_catalog");
 
 let order = new Order();
 let catalog = new Catalog();
@@ -203,7 +189,6 @@ for (let key of order.user_order.keys()) {
     }
 
     shopping_cart_minus_btn.addEventListener("click", () => {
-        // document.querySelector(".black_square").classList.add("test_123_animation_selector");
         decrease_item_counter(key, shopping_item, shopping_cart_item_label);
         if (order.user_order.size === 0) {
             document.querySelector(".time_selection_and_checkout").classList.add("hidden");
@@ -212,9 +197,9 @@ for (let key of order.user_order.keys()) {
             document.querySelector(".empty_shopping_cart_label").classList.remove("hidden");
             document.getElementById("back_btn_to_menu_svg_in_shopping_cart").classList.add("back_btn_to_menu_svg_appearance_animation_selector");
         } else if (order.user_order.size === 1) {
-            document.querySelector(".shopping_item").classList.add("shopping_item_only_one");
-            console.log(document.querySelector(".shopping_item"));
-
+            for (let item of document.querySelector(".shopping_cart_items").querySelectorAll(".shopping_item")) {
+                item.classList.add("shopping_item_only_one");
+            }
         }
         if (checkout_btn.textContent !== "Выберите время" &&
             checkout_btn.textContent !== "Загрузка времени..." &&
