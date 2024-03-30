@@ -138,8 +138,8 @@
 @keyframes hide_order_item_animation {
     100% {
         scale: 0.6;
-        opacity: 0.1;
-        transform: translateX(-150%);
+        /*opacity: 0.1;*/
+        transform: translateX(-30%);
         display: none;
     }
 }
@@ -250,7 +250,7 @@
 .hide_order_item_animation_selector {
     animation: hide_order_item_animation forwards;
     animation-timing-function: linear;
-    animation-duration: 0.4s;
+    animation-duration: 3s;
 }
 
 .hidden {
