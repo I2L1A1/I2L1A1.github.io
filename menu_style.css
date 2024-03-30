@@ -76,9 +76,6 @@ body {
     margin-bottom: 10px;
     height: 60px;
     background-color: #FFE0BC;
-    @media (max-width: 800px) {
-        background-color: white;
-    }
 }
 
 .menu_div:nth-child(2) {
@@ -90,12 +87,6 @@ body {
 @media screen and (width > 400px) {
     .menu_div:first-child {
         margin-right: 0;
-    }
-}
-
-@media (max-width: 800px) {
-    body {
-        background: darkslategray;
     }
 }
 

@@ -1,0 +1,9 @@
+@media (max-width: 800px) {
+    body {
+        background: #313131;
+    }
+
+    .menu_div {
+        background-color: aqua;
+    }
+}
