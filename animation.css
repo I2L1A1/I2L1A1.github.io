@@ -139,8 +139,7 @@
     100% {
         scale: 0.6;
         opacity: 0.1;
-        transform: translateX(-30%);
-        /*display: none;*/
+        transform: translateX(-150%);
     }
 }
 
@@ -250,7 +249,7 @@
 .hide_order_item_animation_selector {
     animation: hide_order_item_animation forwards;
     animation-timing-function: linear;
-    animation-duration: 0.3s;
+    animation-duration: 0.4s;
 }
 
 .hidden {
