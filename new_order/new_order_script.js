@@ -93,6 +93,9 @@ get_data_from_server(catalog_url).then((data_from_server) => {
             graphicCatalogItems[i].style.animationDelay = `${gap_for_animation}s`;
             graphicCatalogItems[i].item_img = create_image("catalog_image", catalog.Items.get(i).item_img, "");
             graphicCatalogItems[i].item_name = create_element("div", "item_name", catalog.Items.get(i).item_name);
+            console.log(graphicCatalogItems[i].item_name.textContent.split("\n"));
+
+
             graphicCatalogItems[i].item_cost = create_element("div", "item_cost", catalog.Items.get(i).item_cost + " ₽");
             graphicCatalogItems[i].item_btn = create_element("button", "btn_add", "Добавить", is_item_in_order);
             graphicCatalogItems[i].add_remove_figures = create_element("div", "add_remove_figure");
@@ -156,4 +159,3 @@ get_data_from_server(catalog_url).then((data_from_server) => {
         show_error(response_status);
     }
 });
-
