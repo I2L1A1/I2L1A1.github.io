@@ -134,3 +134,10 @@ button {
     flex-direction: column;
 }
 
+@media (max-width: 800px) {
+    body {
+        background: darkslategray;
+    }
+}
+
+

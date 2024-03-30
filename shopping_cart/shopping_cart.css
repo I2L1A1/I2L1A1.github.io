@@ -297,3 +297,10 @@ button, div {
     margin-bottom: 10px;
 }
 
+@media (max-width: 800px) {
+    body {
+        background: darkslategray;
+    }
+}
+
+
