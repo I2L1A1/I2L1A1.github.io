@@ -93,9 +93,6 @@ button, div {
 }
 
 .checkout_btn {
-    position: fixed;
-    bottom: 0;
-
     animation-delay: 0.4s !important;
 
     width: 100%;
@@ -110,6 +107,7 @@ button, div {
     backdrop-filter: blur(8px);
 
     font-size: 1.3em;
+    align-self: flex-end;
 }
 
 .checkout_btn:disabled {
@@ -217,13 +215,10 @@ button, div {
     height: fit-content;
     border: 1px solid #ddd;
     border-radius: 25px;
+    bottom: 2.2em;
+    margin: 0 5px 10px;
     overflow-x: hidden;
     overflow-y: scroll;
-
-    margin: 0 5px 3.2em;
-    @media (min-width: 600px) {
-        margin-bottom: 5em;
-    }
 }
 
 .buttons_wrapper {
@@ -302,8 +297,3 @@ button, div {
     margin-bottom: 10px;
 }
 
-@media (max-width: 600px) {
-    body {
-        background: lightblue;
-    }
-}
