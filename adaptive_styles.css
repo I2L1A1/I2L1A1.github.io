@@ -6,4 +6,16 @@
     .menu_div {
         background-color: aqua;
     }
+
+    .item {
+        border: 10px solid #fdb262;
+    }
+
+    .order_comment {
+        background-color: chartreuse;
+    }
+
+    .order_item {
+        background-color: crimson;
+    }
 }

@@ -296,10 +296,3 @@ button, div {
     margin-top: 10px;
     margin-bottom: 10px;
 }
-
-@media (max-width: 800px) {
-    body {
-        background: darkslategray;
-    }
-}
-
