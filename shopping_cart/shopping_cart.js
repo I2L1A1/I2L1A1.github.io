@@ -1,4 +1,10 @@
-import {create_element, create_input, create_image, seconds_to_time} from "../tools/graphical_tools.js";
+import {
+    create_element,
+    create_input,
+    create_image,
+    seconds_to_time,
+    hide_element_with_animation
+} from "../tools/graphical_tools.js";
 import {get_data_from_server} from "../tools/networking_tools.js";
 import {free_order_time_url} from "../URL_storage.js";
 import {Catalog, Order} from "../main_classs.js";
@@ -6,6 +12,8 @@ import {animated_page_scroll} from "../tools/animated_page_scroll_tools.js";
 import {show_error} from "../errors_handler/errors_handler.js";
 
 animated_page_scroll(0, ".header_label_wrapper");
+
+// document.querySelector(".black_square").classList.add("light_appearance_animation_selector");
 
 
 let back_btn = document.querySelector(".back_btn");
@@ -26,10 +34,14 @@ function decrease_item_counter(i, object_to_delete, textField) {
         textField.textContent = new_number;
     } else {
         order.user_order.delete(i);
+        object_to_delete.style.animationDelay = "0s";
+        hide_element_with_animation(object_to_delete, "show_order_items_appearance_animation_selector", "hide_order_item_animation_selector");
+        // object_to_delete.classList.add("hide_order_item_animation_selector");
+        // object_to_delete.classList.remove("show_order_items_appearance_animation_selector");
+
         if (order.user_order.size === 0) {
             object_to_delete.remove();
         }
-        object_to_delete.remove();
     }
     order.order_cost -= +catalog.Items.get(i).item_cost;
 }
@@ -185,6 +197,7 @@ for (let key of order.user_order.keys()) {
     }
 
     shopping_cart_minus_btn.addEventListener("click", () => {
+        // document.querySelector(".black_square").classList.add("test_123_animation_selector");
         decrease_item_counter(key, shopping_item, shopping_cart_item_label);
         if (order.user_order.size === 0) {
             document.querySelector(".time_selection_and_checkout").classList.add("hidden");

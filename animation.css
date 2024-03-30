@@ -135,6 +135,15 @@
     }
 }
 
+@keyframes hide_order_item_animation {
+    100% {
+        scale: 0.6;
+        opacity: 0.1;
+        transform: translateX(-150%);
+        display: none;
+    }
+}
+
 .loading_image_wrapper {
     z-index: 999;
     width: 40px;
@@ -183,7 +192,7 @@
 }
 
 .light_appearance_animation_selector {
-    opacity: 0;
+    /*opacity: 0;*/
     animation: light_appearance_animation forwards;
     animation-duration: 0.5s;
     animation-timing-function: cubic-bezier(.68, .92, .69, 1);
@@ -204,13 +213,13 @@
 
 .show_choose_time_btn_animation_selector {
     animation: show_choose_time_btn_animation forwards;
-    animation-timing-function: cubic-bezier(.3,.99,.49,1.01);
+    animation-timing-function: cubic-bezier(.3, .99, .49, 1.01);
     animation-duration: 0.3s;
 }
 
 .hide_choose_time_btn_animation_selector {
     animation: hide_choose_time_btn_animation forwards;
-    animation-timing-function: cubic-bezier(.3,.99,.49,1.01);
+    animation-timing-function: cubic-bezier(.3, .99, .49, 1.01);
     animation-duration: 0.3s;
 }
 
@@ -236,6 +245,12 @@
     animation: show_order_item_label_animation forwards;
     animation-timing-function: cubic-bezier(.61, 1.12, .69, 1);
     animation-duration: 0.3s;
+}
+
+.hide_order_item_animation_selector {
+    animation: hide_order_item_animation forwards;
+    animation-timing-function: linear;
+    animation-duration: 0.4s;
 }
 
 .hidden {
