@@ -36,6 +36,12 @@ function decrease_item_counter(i, object_to_delete, textField) {
         order.user_order.delete(i);
         object_to_delete.style.animationDelay = "0s";
         hide_element_with_animation(object_to_delete, "show_order_items_appearance_animation_selector", "hide_order_item_animation_selector");
+
+        object_to_delete.addEventListener('animationend', function () {
+            object_to_delete.remove();
+        });
+
+
         // object_to_delete.classList.add("hide_order_item_animation_selector");
         // object_to_delete.classList.remove("show_order_items_appearance_animation_selector");
 
