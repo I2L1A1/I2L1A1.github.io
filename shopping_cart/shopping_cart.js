@@ -27,9 +27,9 @@ function decrease_item_counter(i, object_to_delete, textField) {
     } else {
         order.user_order.delete(i);
         if (order.user_order.size === 0) {
-            object_to_delete.classList.add("hidden");
+            object_to_delete.remove();
         }
-        object_to_delete.classList.add("hidden");
+        object_to_delete.remove();
     }
     order.order_cost -= +catalog.Items.get(i).item_cost;
 }
@@ -194,6 +194,8 @@ for (let key of order.user_order.keys()) {
             document.getElementById("back_btn_to_menu_svg_in_shopping_cart").classList.add("back_btn_to_menu_svg_appearance_animation_selector");
         } else if (order.user_order.size === 1) {
             document.querySelector(".shopping_item").classList.add("shopping_item_only_one");
+            console.log(document.querySelector(".shopping_item"));
+
         }
         if (checkout_btn.textContent !== "Выберите время" &&
             checkout_btn.textContent !== "Загрузка времени..." &&
