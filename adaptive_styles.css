@@ -1,13 +1,27 @@
+@media (max-width: 280px) {
+    .shopping_item_img {
+        display: none;
+    }
+
+    .shopping_item {
+        grid-template-columns: 50% 50%;
+    }
+}
+
+@media (min-width: 360px) {
+    .shopping_cart_items {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    }
+}
+
 @media (max-width: 400px) {
     .adaptive_menu {
-        background-color: red;
-        width: 100%;
+        width: 95%;
     }
 }
 
 @media (min-width: 400px) {
     .adaptive_menu {
-        background-color: green;
         width: 75%;
     }
 }
@@ -16,6 +30,10 @@
     .adaptive_container {
         margin-left: 10%;
         margin-right: 10%;
+    }
+
+    .bottom_container_margin {
+        margin-bottom: 4em;
     }
 
     .adaptive_menu {
@@ -29,6 +47,10 @@
         margin-right: 25%;
         margin-left: 25%;
         width: 50%;
+    }
+
+    .time_slider_area {
+        margin-bottom: 4.9em;
     }
 }
 
