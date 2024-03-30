@@ -248,7 +248,7 @@
 .hide_order_item_animation_selector {
     animation: hide_order_item_animation forwards;
     animation-timing-function: linear;
-    animation-duration: 0.3s;
+    animation-duration: 0.25s;
 }
 
 .hidden {
