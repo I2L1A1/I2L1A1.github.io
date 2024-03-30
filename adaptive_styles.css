@@ -72,6 +72,12 @@
 }
 
 @media (min-width: 400px) {
+    .shopping_item_only_one {
+        width: 60% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
     .adaptive_menu {
         width: 75%;
     }

@@ -162,12 +162,6 @@ button, div {
     box-shadow: 5px 5px 10px #ddd;
 }
 
-.shopping_item_only_one {
-    width: 60% !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-}
-
 .shopping_item_img {
     display: inline-block;
     margin: auto auto auto 10px;
