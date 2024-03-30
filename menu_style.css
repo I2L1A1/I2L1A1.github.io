@@ -76,6 +76,9 @@ body {
     margin-bottom: 10px;
     height: 60px;
     background-color: #FFE0BC;
+    @media (max-width: 800px) {
+        background: red;
+    }
 }
 
 .menu_div:nth-child(2) {
