@@ -232,20 +232,10 @@ button, div {
 
     border-radius: 20px;
     border: none;
-    transition: background-color 0.2s linear;
     background-color: #FFE0BC;
     font-family: "Cyntho Pro", sans-serif;
 
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
-
-.selected_time {
-    background-color: #FFE0BC;
-    box-shadow: 5px 5px 10px #ddd;
-}
-
-.not_selected_time {
-    background-color: #FFF2E0;
 }
 
 .time_selection_and_checkout {

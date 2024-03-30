@@ -123,12 +123,14 @@ function draw_free_time_in_shopping_cart(free_time_array) {
             let time_buttons = buttons_wrapper.children;
             for (let time_button of time_buttons) {
                 if (time_button.className.includes("free_time_label")) {
-                    time_button.classList.remove("selected_time");
-                    time_button.classList.add("not_selected_time");
+                    time_button.style.animationDelay = "0s";
+                    time_button.classList.remove("show_free_time_label_animation_selector");
+                    time_button.classList.add("hide_free_time_label_animation_selector");
                 }
             }
-            free_time_label.classList.add("selected_time");
-            free_time_label.classList.remove("not_selected_time");
+            free_time_label.style.animationDelay = "0s";
+            free_time_label.classList.add("show_free_time_label_animation_selector");
+            free_time_label.classList.remove("hide_free_time_label_animation_selector");
         });
     }
 }

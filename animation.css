@@ -144,6 +144,22 @@
     }
 }
 
+@keyframes show_free_time_label_animation {
+    0% {
+        box-shadow: 5px 5px 10px #ddd;
+    }
+    100% {
+        box-shadow: 5px 5px 10px #ddd;
+        background-color: #FFE0BC;
+    }
+}
+
+@keyframes hide_free_time_label_animation {
+    100% {
+        background-color: #FFF2E0;
+    }
+}
+
 .loading_image_wrapper {
     z-index: 999;
     width: 40px;
@@ -192,7 +208,6 @@
 }
 
 .light_appearance_animation_selector {
-    /*opacity: 0;*/
     animation: light_appearance_animation forwards;
     animation-duration: 0.5s;
     animation-timing-function: cubic-bezier(.68, .92, .69, 1);
@@ -251,6 +266,20 @@
     animation: hide_order_item_animation forwards;
     animation-timing-function: linear;
     animation-duration: 0.25s;
+}
+
+.show_free_time_label_animation_selector {
+    opacity: 1;
+    animation: show_free_time_label_animation forwards;
+    animation-timing-function: linear;
+    animation-duration: 0.5s;
+}
+
+.hide_free_time_label_animation_selector {
+    opacity: 1;
+    animation: hide_free_time_label_animation forwards;
+    animation-timing-function: linear;
+    animation-duration: 0.7s;
 }
 
 .hidden {
