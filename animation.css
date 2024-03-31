@@ -162,8 +162,6 @@
 
 @keyframes plus_minus_buttons_animation {
     50% {
-        color: #2d2d2d;
-        font-size: 1em;
         background-color: #ffe7cc;
     }
 }
