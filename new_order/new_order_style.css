@@ -62,11 +62,6 @@ button, div {
     text-align: center;
     width: auto;
     line-height: 1.3em;
-
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
 }
 
 .item_cost {

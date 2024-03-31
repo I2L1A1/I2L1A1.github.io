@@ -169,6 +169,7 @@ for (let key of order.user_order.keys()) {
 
     let shopping_cart_item_img = create_image("shopping_item_img", catalog.Items.get(key).item_img, "");
     let shopping_cart_item_name = create_element("div", "shopping_cart_item_name", catalog.Items.get(key).item_name);
+    shopping_cart_item_name.classList.add("ellipsis_3_lines");
     let shopping_cart_item_cost = create_element("div", "shopping_cart_item_cost", catalog.Items.get(key).item_cost + " ₽/шт.");
     let shopping_cart_add_remove_figure = create_element("div", "shopping_cart_add_remove_figure");
     let buttons_and_cost_wrapper = create_element("div", "buttons_and_cost_wrapper");
