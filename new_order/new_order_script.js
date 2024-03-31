@@ -121,7 +121,7 @@ get_data_from_server(catalog_url).then((data_from_server) => {
             });
 
             graphicCatalogItems[i].minus_btn.addEventListener("click", () => {
-                push_plus_minus_button_animation(graphicCatalogItems[i].minus_btn, "plus_minus_buttons_animation_selector", "show_btn_plus_animation_selector");
+                push_plus_minus_button_animation(graphicCatalogItems[i].minus_btn, "plus_minus_buttons_animation_selector", "show_btn_minus_animation_selector");
                 decrease_item_counter(i, graphicCatalogItemCounter[i]);
             });
 
