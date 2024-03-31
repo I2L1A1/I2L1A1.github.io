@@ -95,13 +95,12 @@ button, div {
     height: 100%;
     border-radius: 20px;
     border: none;
-    transition: background-color 0.1s linear;
     font-size: 1em;
     background-color: #FFE0BC;
     font-family: "Cyntho Pro", sans-serif;
 }
 
-.btn_minus {
+.btn_minus, .btn_plus {
     background-color: #FFE0BC;
     font-size: 1.2em;
     padding: 0;
@@ -111,22 +110,7 @@ button, div {
     border: 0;
     text-align: center;
     vertical-align: middle;
-    line-height: 1.6em;
 }
-
-.btn_plus {
-    background-color: #FFE0BC;
-    font-size: 1.2em;
-    padding: 0;
-    width: 35%;
-    height: 100%;
-    border-radius: 20px;
-    border: 0;
-    text-align: center;
-    vertical-align: middle;
-    line-height: 1.8em;
-}
-
 
 .order_item_label {
     font-size: 1.2em;
