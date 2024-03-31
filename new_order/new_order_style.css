@@ -78,8 +78,11 @@ button, div {
 }
 
 .add_remove_figure {
+
+
     overflow: hidden;
     display: flex;
+    align-items: center;
     justify-content: space-between;
     width: 80%;
     height: 2em;
@@ -129,12 +132,14 @@ button, div {
     font-size: 1.2em;
     padding: 0;
     width: 30%;
-    height: auto;
+    height: 13px;
     margin-top: auto;
     margin-bottom: auto;
     border: 0;
     text-align: center;
     vertical-align: middle;
+    background-color: red;
+    line-height: normal;
 }
 
 .choose_time_btn_div {
