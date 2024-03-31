@@ -3,7 +3,7 @@ import {
     create_input,
     create_image,
     seconds_to_time,
-    hide_element_with_animation
+    hide_element_with_animation, push_plus_minus_button_animation
 } from "../tools/graphical_tools.js";
 import {get_data_from_server} from "../tools/networking_tools.js";
 import {free_order_time_url} from "../URL_storage.js";
@@ -173,8 +173,10 @@ for (let key of order.user_order.keys()) {
     let shopping_cart_add_remove_figure = create_element("div", "shopping_cart_add_remove_figure");
     let buttons_and_cost_wrapper = create_element("div", "buttons_and_cost_wrapper");
     let shopping_cart_minus_btn = create_element("button", "shopping_cart_minus_btn", "-");
+    // shopping_cart_minus_btn.classList.add("show_btn_minus_animation_selector");
     let shopping_cart_item_label = create_element("label", "shopping_cart_item_label", order.user_order.get(key));
     let shopping_cart_plus_btn = create_element("button", "shopping_cart_plus_btn", "+");
+    // shopping_cart_plus_btn.classList.add("show_btn_plus_animation_selector");
 
     shopping_cart_add_remove_figure.appendChild(shopping_cart_minus_btn);
     shopping_cart_add_remove_figure.appendChild(shopping_cart_item_label);
@@ -191,6 +193,7 @@ for (let key of order.user_order.keys()) {
     }
 
     shopping_cart_minus_btn.addEventListener("click", () => {
+        push_plus_minus_button_animation(shopping_cart_minus_btn, "plus_minus_buttons_animation_selector");
         decrease_item_counter(key, shopping_item, shopping_cart_item_label);
         if (order.user_order.size === 0) {
             document.querySelector(".time_selection_and_checkout").classList.add("hidden");
@@ -211,6 +214,7 @@ for (let key of order.user_order.keys()) {
     });
 
     shopping_cart_plus_btn.addEventListener("click", () => {
+        push_plus_minus_button_animation(shopping_cart_plus_btn, "plus_minus_buttons_animation_selector");
         increase_item_counter(key, shopping_cart_item_label);
         if (checkout_btn.textContent !== "Выберите время" &&
             checkout_btn.textContent !== "Загрузка времени..." &&

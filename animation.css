@@ -160,6 +160,14 @@
     }
 }
 
+@keyframes plus_minus_buttons_animation {
+    50% {
+        color: #2d2d2d;
+        font-size: 1em;
+        background-color: #ffe7cc;
+    }
+}
+
 .loading_image_wrapper {
     z-index: 999;
     width: 40px;
@@ -280,6 +288,13 @@
     animation: hide_free_time_label_animation forwards;
     animation-timing-function: linear;
     animation-duration: 0.7s;
+}
+
+.plus_minus_buttons_animation_selector {
+    opacity: 1;
+    animation: plus_minus_buttons_animation forwards;
+    animation-timing-function: linear;
+    animation-duration: 0.3s;
 }
 
 .hidden {

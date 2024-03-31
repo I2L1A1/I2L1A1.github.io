@@ -105,7 +105,7 @@ button, div {
     height: 100%;
     width: 35%;
     border: 0;
-    border-radius: 20px 0 0 20px;
+    border-radius: 20px;
     font-size: 1.2em;
     text-align: center;
     vertical-align: middle;
@@ -117,19 +117,11 @@ button, div {
     height: 100%;
     width: 35%;
     border: 0;
-    border-radius: 0 20px 20px 0;
+    border-radius: 20px;
     font-size: 1.2em;
     text-align: center;
     vertical-align: middle;
     transition: background 0.3s linear;
-}
-
-.btn_minus:active {
-    background: linear-gradient(to left, #FFE0BC, #fcd8b0);
-}
-
-.btn_plus:active {
-    background: linear-gradient(to right, #FFE0BC, #fcd8b0);
 }
 
 
