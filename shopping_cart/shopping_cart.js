@@ -174,10 +174,8 @@ for (let key of order.user_order.keys()) {
     let shopping_cart_add_remove_figure = create_element("div", "shopping_cart_add_remove_figure");
     let buttons_and_cost_wrapper = create_element("div", "buttons_and_cost_wrapper");
     let shopping_cart_minus_btn = create_element("button", "shopping_cart_minus_btn", "-");
-    // shopping_cart_minus_btn.classList.add("show_btn_minus_animation_selector");
     let shopping_cart_item_label = create_element("label", "shopping_cart_item_label", order.user_order.get(key));
     let shopping_cart_plus_btn = create_element("button", "shopping_cart_plus_btn", "+");
-    // shopping_cart_plus_btn.classList.add("show_btn_plus_animation_selector");
 
     shopping_cart_add_remove_figure.appendChild(shopping_cart_minus_btn);
     shopping_cart_add_remove_figure.appendChild(shopping_cart_item_label);
