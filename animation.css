@@ -244,6 +244,7 @@
     animation-duration: 2s;
 }
 
+
 .show_btn_plus_animation_selector {
     animation: show_btn_plus_animation forwards;
     animation-timing-function: cubic-bezier(.61, 1.12, .69, 1);
