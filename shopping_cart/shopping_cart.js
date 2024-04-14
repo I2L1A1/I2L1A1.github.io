@@ -231,6 +231,7 @@ order_comment.addEventListener("input", () => {
 });
 
 checkout_btn.addEventListener("click", () => {
+    localStorage.clear();
     tg.sendData(generate_data_for_send());
 });
 
