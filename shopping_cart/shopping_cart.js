@@ -236,7 +236,6 @@ checkout_btn.addEventListener("click", () => {
 
 back_btn.addEventListener("click", () => {
     order.push_data_to_cash();
-    alert(localStorage["user_order"]);
 });
 
 let now_page_position_y = window.scrollY;

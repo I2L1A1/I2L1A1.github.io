@@ -142,7 +142,6 @@ get_data_from_server(catalog_url).then((data_from_server) => {
         choose_time_btn_div.addEventListener("click", () => {
             catalog.push_data_to_cash();
             order.push_data_to_cash();
-            alert(localStorage["user_order"]);
         });
 
         for (let i of catalog.Items.keys()) {
