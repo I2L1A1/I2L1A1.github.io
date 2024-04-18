@@ -69,10 +69,12 @@ get_data_from_server(user_url).then((data_from_server) => {
 });
 
 let header_label = document.querySelector(".header_label");
-if (tg.initData.user.username) {
-    console.log(tg.initData.user.username);
-    header_label.textContent = tg.initData.user.username;
-} else {
-    header_label.textContent = "123";
-}
+// if (tg.initData.user.username) {
+//     console.log(tg.initData.user.username);
+//     header_label.textContent = tg.initData.user.username;
+// } else {
+//     header_label.textContent = "123";
+// }
+
+header_label.textContent = "123";
 
