@@ -50,7 +50,7 @@ if (order.user_order.size) {
     document.querySelector(".container").classList.add("bottom_container_margin");
 }
 
-let now_category_url = ""
+let now_category_url = "";
 
 if (category === "Печенье") {
     now_category_url = cookie_category_test_url;
