@@ -228,7 +228,8 @@ for (let key of order.user_order.keys()) {
 checkout_btn.addEventListener("click", () => {
     let order_comment = document.querySelector(".order_comment");
     order.order_comment = order_comment.value;
-    tg.sendData(generate_data_for_send());
+    tg.close();
+    // tg.sendData(generate_data_for_send());
 });
 
 back_btn.addEventListener("click", () => {
