@@ -85,6 +85,7 @@ get_data_from_server(now_category_url).then((data_from_server) => {
         }
 
         catalog.push_data_to_cash();
+
         function decrease_item_counter(i, textField) {
             let new_number = order.user_order.get(i);
             if (new_number >= 2) {
