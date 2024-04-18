@@ -1,5 +1,10 @@
 import {animated_page_scroll} from "../tools/animated_page_scroll_tools.js";
-import {catalog_url} from "../URL_storage.js";
+import {
+    catalog_url, chocolate_category_test_url,
+    coffee_category_test_url,
+    cold_drinks_category_test_url,
+    cookie_category_test_url
+} from "../URL_storage.js";
 import {
     get_data_from_server, send_data_to_server
 } from "../tools/networking_tools.js"
@@ -45,9 +50,26 @@ if (order.user_order.size) {
     document.querySelector(".container").classList.add("bottom_container_margin");
 }
 
-get_data_from_server(catalog_url).then((data_from_server) => {
+let now_category_url = ""
+
+if (category === "Печенье") {
+    now_category_url = cookie_category_test_url;
+} else if (category === "Кофе") {
+    now_category_url = coffee_category_test_url;
+} else if (category === "Холодные напитки") {
+    now_category_url = cold_drinks_category_test_url;
+} else if (category === "Шоколад") {
+    now_category_url = chocolate_category_test_url;
+} else {
+    now_category_url = catalog_url;
+}
+
+console.log(category);
+
+get_data_from_server(now_category_url).then((data_from_server) => {
     let response_status = data_from_server[0];
     data_from_server = data_from_server[1];
+
     document.querySelector(".loading_image_wrapper").classList.add("hidden");
     if (response_status === 200) {
         if (order.user_order.size) {
@@ -64,6 +86,21 @@ get_data_from_server(catalog_url).then((data_from_server) => {
                 "../images/Dish1.png",
                 catalog_item["itemCost"]);
         }
+
+        let catalog_map = new Map();
+        let json_catalog = Array.from(catalog.Items);
+        for (let item of json_catalog) {
+            catalog_map.set(item[0], item[1]);
+        }
+        let catalog_part_history = JSON.parse(localStorage.getItem("catalog_part"));
+        if (catalog_part_history) {
+            for (let item of catalog_part_history) {
+                catalog_map.set(item[0], item[1]);
+            }
+        }
+
+        localStorage.setItem("catalog_part", JSON.stringify(Array.from(catalog_map)));
+        console.log(JSON.parse(localStorage.getItem("catalog_part")));
 
         function decrease_item_counter(i, textField) {
             let new_number = order.user_order.get(i);
@@ -142,9 +179,16 @@ get_data_from_server(catalog_url).then((data_from_server) => {
         }
 
         choose_time_btn_div.addEventListener("click", () => {
-            localStorage.clear();
+            // localStorage.clear();
             catalog.push_data_to_cash();
             order.push_data_to_cash();
+            let order_from_shopping_cart_page = JSON.parse(localStorage.getItem("user_order"));
+            for (let item of order_from_shopping_cart_page) {
+                console.log(item[0], item[1]);
+                console.log(catalog.Items);
+            }
+            // alert(localStorage.getItem("user_order"));
+            // alert(JSON.parse(localStorage.getItem("user_order")));
         });
 
         for (let i of catalog.Items.keys()) {

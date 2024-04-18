@@ -12,14 +12,16 @@ export class Catalog {
     size = 0;
 
     addItem(item_id, item_name, item_img, item_cost) {
-        this.Items.set(item_id, new ItemFromCatalog(item_id, item_name, item_img, item_cost))
+        this.Items.set(item_id, new ItemFromCatalog(item_id, item_name, item_img, item_cost));
     }
 
     get_data_from_cash() {
-        let catalog_from_catalog_page = JSON.parse(localStorage.getItem("user_catalog"));
+        let catalog_from_catalog_page = JSON.parse(localStorage.getItem("catalog_part"));
+        console.log(catalog_from_catalog_page);
         for (let item of catalog_from_catalog_page) {
             this.addItem(item[1]["item_id"], item[1]["item_name"], item[1]["item_img"], item[1]["item_cost"]);
         }
+        console.log(this.Items)
     }
 
     push_data_to_cash() {

@@ -233,7 +233,7 @@ back_btn.addEventListener("click", () => {
     let order_comment = document.querySelector(".order_comment");
     order.order_comment = order_comment.value;
 
-    localStorage.clear();
+    // localStorage.clear();
     order.push_data_to_cash();
 });
 
