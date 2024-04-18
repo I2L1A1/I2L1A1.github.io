@@ -160,11 +160,13 @@ get_data_from_server(now_category_url).then((data_from_server) => {
             graphicCatalogItems[i].plus_btn.addEventListener("click", () => {
                 push_plus_minus_button_animation(graphicCatalogItems[i].plus_btn, "plus_minus_buttons_animation_selector", "show_btn_plus_animation_selector");
                 increase_item_counter(i, graphicCatalogItemCounter[i]);
+                order.push_data_to_cash();
             });
 
             graphicCatalogItems[i].minus_btn.addEventListener("click", () => {
                 push_plus_minus_button_animation(graphicCatalogItems[i].minus_btn, "plus_minus_buttons_animation_selector", "show_btn_minus_animation_selector");
                 decrease_item_counter(i, graphicCatalogItemCounter[i]);
+                order.push_data_to_cash();
             });
 
             document.querySelector(".items").appendChild(graphicCatalogItems[i]);
@@ -180,7 +182,6 @@ get_data_from_server(now_category_url).then((data_from_server) => {
 
         choose_time_btn_div.addEventListener("click", () => {
             // localStorage.clear();
-            catalog.push_data_to_cash();
             order.push_data_to_cash();
             let order_from_shopping_cart_page = JSON.parse(localStorage.getItem("user_order"));
             for (let item of order_from_shopping_cart_page) {
@@ -205,6 +206,8 @@ get_data_from_server(now_category_url).then((data_from_server) => {
                 graphicCatalogItemCounter[i].classList.remove("hidden");
                 graphicCatalogItemCounter[i].textContent = "1";
                 graphicCatalogItems[i].plus_btn.classList.remove("hidden");
+
+                order.push_data_to_cash();
             });
         }
     } else {

@@ -210,6 +210,7 @@ for (let key of order.user_order.keys()) {
             checkout_btn.textContent !== "Не удалось загрузить") {
             checkout_btn.textContent = `Заказать к ${seconds_to_time(order.order_time)} • ${order.order_cost} ₽`;
         }
+        order.push_data_to_cash();
     });
 
     shopping_cart_plus_btn.addEventListener("click", () => {
@@ -220,6 +221,7 @@ for (let key of order.user_order.keys()) {
             checkout_btn.textContent !== "Не удалось загрузить") {
             checkout_btn.textContent = `Заказать к ${seconds_to_time(order.order_time)} • ${order.order_cost} ₽`;
         }
+        order.push_data_to_cash();
     });
 }
 
