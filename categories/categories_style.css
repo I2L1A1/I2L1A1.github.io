@@ -1,0 +1,36 @@
+@font-face {
+    font-family: 'Cyntho Pro';
+    src: local('CynthoPro-Regular'), url('../cynthopro/Cynthopro-regular.woff2') format('woff2'), url('../cynthopro/Cynthopro-regular.woff') format('woff'), url('../cynthopro/Cynthopro-regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    background-color: white;
+    color: #2d2d2d;
+    width: 100%;
+    font-size: 14px;
+    font-family: "Cyntho Pro", sans-serif;
+}
+
+button, div {
+    color: #2d2d2d;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.container {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.loading_image_wrapper {
+    margin-top: 80px;
+}
+
+.categories {
+    margin-top: 54px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}

@@ -210,7 +210,6 @@ for (let key of order.user_order.keys()) {
             checkout_btn.textContent !== "Не удалось загрузить") {
             checkout_btn.textContent = `Заказать к ${seconds_to_time(order.order_time)} • ${order.order_cost} ₽`;
         }
-        order.push_data_to_cash();
     });
 
     shopping_cart_plus_btn.addEventListener("click", () => {
@@ -221,21 +220,20 @@ for (let key of order.user_order.keys()) {
             checkout_btn.textContent !== "Не удалось загрузить") {
             checkout_btn.textContent = `Заказать к ${seconds_to_time(order.order_time)} • ${order.order_cost} ₽`;
         }
-        order.push_data_to_cash();
     });
 }
 
-order_comment.addEventListener("input", () => {
-    order.order_comment = order_comment.value;
-    order.push_data_to_cash();
-});
-
 checkout_btn.addEventListener("click", () => {
-    localStorage.clear();
+    let order_comment = document.querySelector(".order_comment");
+    order.order_comment = order_comment.value;
     tg.sendData(generate_data_for_send());
 });
 
 back_btn.addEventListener("click", () => {
+    let order_comment = document.querySelector(".order_comment");
+    order.order_comment = order_comment.value;
+
+    localStorage.clear();
     order.push_data_to_cash();
 });
 
