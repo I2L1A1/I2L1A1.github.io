@@ -64,8 +64,6 @@ if (category === "Печенье") {
     now_category_url = catalog_url;
 }
 
-console.log(category);
-
 get_data_from_server(now_category_url).then((data_from_server) => {
     let response_status = data_from_server[0];
     data_from_server = data_from_server[1];
@@ -77,7 +75,6 @@ get_data_from_server(now_category_url).then((data_from_server) => {
             choose_time_btn.textContent = `Посмотреть заказ • ${order.order_cost} ₽`;
         }
 
-
         catalog.size = data_from_server["size"];
 
         for (let catalog_item of data_from_server["items"]) {
@@ -87,21 +84,7 @@ get_data_from_server(now_category_url).then((data_from_server) => {
                 catalog_item["itemCost"]);
         }
 
-        let catalog_map = new Map();
-        let json_catalog = Array.from(catalog.Items);
-        for (let item of json_catalog) {
-            catalog_map.set(item[0], item[1]);
-        }
-        let catalog_part_history = JSON.parse(localStorage.getItem("catalog_part"));
-        if (catalog_part_history) {
-            for (let item of catalog_part_history) {
-                catalog_map.set(item[0], item[1]);
-            }
-        }
-
-        localStorage.setItem("catalog_part", JSON.stringify(Array.from(catalog_map)));
-        console.log(JSON.parse(localStorage.getItem("catalog_part")));
-
+        catalog.push_data_to_cash();
         function decrease_item_counter(i, textField) {
             let new_number = order.user_order.get(i);
             if (new_number >= 2) {
@@ -181,15 +164,7 @@ get_data_from_server(now_category_url).then((data_from_server) => {
         }
 
         choose_time_btn_div.addEventListener("click", () => {
-            // localStorage.clear();
             order.push_data_to_cash();
-            let order_from_shopping_cart_page = JSON.parse(localStorage.getItem("user_order"));
-            for (let item of order_from_shopping_cart_page) {
-                console.log(item[0], item[1]);
-                console.log(catalog.Items);
-            }
-            // alert(localStorage.getItem("user_order"));
-            // alert(JSON.parse(localStorage.getItem("user_order")));
         });
 
         for (let i of catalog.Items.keys()) {
