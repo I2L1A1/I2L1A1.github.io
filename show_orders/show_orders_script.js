@@ -69,5 +69,5 @@ get_data_from_server(user_url).then((data_from_server) => {
 });
 
 let header_label = document.querySelector(".header_label");
-header_label.textContent = toString(tg.initDataUnsafe.user.id);
+header_label.textContent = tg.initDataUnsafe.user.username;
 
