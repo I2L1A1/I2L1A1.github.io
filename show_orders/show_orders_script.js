@@ -68,7 +68,3 @@ get_data_from_server(user_url).then((data_from_server) => {
     }
 });
 
-let header_label = document.querySelector(".header_label");
-header_label.textContent = window.Telegram.WebApp.initDataUnsafe.user.id.toString();
-
-// "query_id=AAFwWAcdAAAAAHBYBx11zwX3&user=%7B%22id%22%3A487020656%2C%22first_name%22%3A%22Ilia%22%2C%22last_name%22%3A%22%22%2C%22username%22%3A%22I2L1A1%22%2C%22language_code%22%3A%22en%22%2C%22allows_write_to_pm%22%3Atrue%7D&auth_date=1713474110&hash=ec57e717813a87dde33fb1d21555989d3a37f504b4a5e581f7e27627458d10ba" = $3
