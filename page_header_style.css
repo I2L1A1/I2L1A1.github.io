@@ -6,6 +6,10 @@
     text-align: center;
 }
 
+.header_label_categories {
+    margin-right: 0;
+}
+
 .header_label_wrapper {
     cursor: pointer;
     display: flex;
@@ -42,4 +46,12 @@
     position: fixed;
     display: grid;
     grid-template-columns: 50px calc(100% - 50px);
+}
+
+.page_header_categories {
+    grid-template-columns: none;
+}
+
+.hidden {
+    display: none;
 }

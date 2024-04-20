@@ -13,6 +13,12 @@ import {
 import {show_error} from "./errors_handler/errors_handler.js";
 
 let categories = document.querySelector(".categories");
+let back_btn_to_menu = document.querySelector(".back_btn_to_menu");
+let header_label = document.querySelector(".header_label");
+let page_header = document.querySelector(".page_header");
+back_btn_to_menu.classList.add("hidden");
+header_label.classList.add("header_label_categories");
+page_header.classList.add("page_header_categories");
 
 animated_page_scroll(0, ".header_label_wrapper");
 
